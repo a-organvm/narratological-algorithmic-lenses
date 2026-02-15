@@ -37,15 +37,17 @@ We achieve Omega through iterative cycles of **Reinforcement** (hardening what e
 - [x] **Fountain Integration**: Robust state-machine parser for `.fountain` files.
 - [x] **Chunked Analysis**: Handling full-length screenplays via overlapping context windows.
 
-### Phase 3: The Expansion (CURRENT)
+### Phase 3: The Expansion (COMPLETED)
 - [x] **Classical Anchors**: Promotion of **Bharata Muni** (Natyasastra) and **Aristotle** (Poetics) to core studies.
 - [x] **Modern Masters**: Promotion of **Phoebe Waller-Bridge** (Layered Obstacles) and **Larry David** (Comedy Geometry).
-- [ ] **Next-Gen Studies**:
-    - *Kishōtenketsu* (Traditional East Asian structure: Intro, Development, Twist, Conclusion).
-    - *The Heroine's Journey* (Maureen Murdock / Gail Carriger).
-    - *African Oral Epic* (The Mwindo, Sundiata logic).
+- [x] **Universal Library**: Integration of **Plato**, **Horace**, **Robert McKee**, and **Tarantino** (Discovery Writing).
+- [x] **Next-Gen Studies**:
+    - [x] *Kishōtenketsu* (Traditional East Asian structure).
+    - [x] *The Heroine's Journey* (Maureen Murdock).
+    - [x] *African Oral Epic* (The Mwindo, Sundiata logic).
+- [x] **Analyst Meta-Framework**: Promotion of the **8-Role Analyst System** and **Attention Mechanics**.
 
-### Phase 4: The Synthetic Mind (UPCOMING)
+### Phase 4: The Synthetic Mind (CURRENT)
 - [ ] **Multi-Agent Debate**: Upgrade `ScriptDoctorAnalyst` to allow agents to critique *each other's* feedback (e.g., Tarkovsky telling Larry David his plot is "too mechanical").
 - [ ] **Interactive Refinement**: A TUI/Web interface where users can "negotiate" with the Script Doctor ("I can't change the ending, offer another solution").
 - [ ] **Visual Topology**: 3D visualization of the "Beat Map" to identify structural voids.

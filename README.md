@@ -7,12 +7,14 @@ This system transforms abstract storytelling principles—from **Aristotle's** *
 ## Core Capabilities
 
 ### 1. The Compendium
-A living library of 18+ formalized narrative frameworks, including:
-- **Classical**: Aristotle, Bharata Muni (Natyasastra), Ovid.
-- **Film**: Tarkovsky (Time-Pressure), Bergman (Interiority), Tarantino (Non-Linearity), Lynch (Dream Logic).
-- **Television**: Phoebe Waller-Bridge (Layered Obstacles), Larry David (Comedy Geometry).
+A living library of 27+ formalized narrative frameworks, including:
+- **Classical**: Aristotle, Bharata Muni (Natyasastra), Ovid, Plato, Horace, African Oral Epic.
+- **Film**: Tarkovsky (Time-Pressure), Bergman (Interiority), Tarantino (Discovery Writing), Lynch (Dream Logic), Kubrick (Non-Submersible Units).
+- **Television**: Phoebe Waller-Bridge (Layered Obstacles), Larry David (Comedy Geometry), South Park (Therefore/But).
+- **Global**: Kishōtenketsu (Conflict-Agnostic), Heroine's Journey (Internal Integration).
 - **Interactive**: Zelda (Exploration), Final Fantasy (Ensemble).
 - **Comics**: Alan Moore (Formalism), Grant Morrison (Hypersigil), Kirby (Mythopoeia).
+- **Meta**: 8-Role Analyst System, Attention Mechanics.
 
 ### 2. Deep Diagnostics
 Quantitative and qualitative analysis of script structure:
