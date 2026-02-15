@@ -46,6 +46,8 @@ narratological-algorithmic-lenses/
 │   ├── core/                 # Python library (models, parsers, diagnostics, LLM)
 │   ├── cli/                  # Command-line interface (Typer)
 │   ├── api/                  # FastAPI service
+│   ├── mcp/                  # Model Context Protocol server (FastMCP)
+│   ├── vscode/               # VS Code extension (Snippets & Tagging)
 │   └── web/                  # React + Vite visualization dashboard
 └── docs/                     # Documentation & Roadmaps
 ```
