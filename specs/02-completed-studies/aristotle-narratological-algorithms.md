@@ -97,6 +97,8 @@ CONSTRAINT: "Worse" in comedy means the LUDICROUS
 
 > "Tragedy, then, is an imitation of an action that is serious, complete, and of a certain magnitude; in language embellished with each kind of artistic ornament, the several kinds being found in separate parts of the play; in the form of action, not of narrative; through pity and fear effecting the proper purgation of these emotions."
 
+The highest level of structural organization is the **TRAGEDY**.
+
 ### 2.1 Decomposition
 
 ```
@@ -170,6 +172,8 @@ RULE:
 ## 3. Plot Structure (The Core Algorithm)
 
 ### 3.1 Completeness and Unity
+
+The primary unit of structure is the **WHOLE**, consisting of a Beginning, Middle, and End.
 
 ```
 DEFINITION: A WHOLE has:
@@ -289,6 +293,8 @@ FORMULA:
 ---
 
 ## 4. Simple vs. Complex Plots
+
+Each plot is composed of several **PLOT_ELEMENT** units.
 
 ### 4.1 Definitions
 
@@ -597,6 +603,8 @@ SOPHOCLES_PRINCIPLE:
 ---
 
 ## 7. Structural Components
+
+Dramatic structure also includes **QUANTITATIVE_PART** divisions.
 
 ### 7.1 Quantitative Parts of Tragedy
 
@@ -1086,6 +1094,23 @@ CONCENTRATION_PRINCIPLE:
   "What, for example, would be the effect of the Oedipus of Sophocles,
    if it were cast into a form as long as the Iliad?"
 ```
+
+---
+
+## 14. Diagnostic Questions
+
+Answer the following questions to validate the dramatic structure:
+
+1. **Does every event follow by necessity or probability?** Confirm causal binding.
+2. **If a part is removed, is the whole disturbed?** Verify organic unity.
+3. **Does the character's action follow from their nature?** Check character-action binding.
+4. **Does the unraveling arise from the plot itself (not a machine)?** Verify resolution integrity.
+5. **Is the fall caused by an error (hamartia) rather than vice?** Confirm tragic protagonist logic.
+6. **Does the reversal produce the opposite of the intended effect?** Verify peripeteia.
+7. **Is the recognition integrated with the incidents of the plot?** Verify anagnorisis.
+8. **Is the probable impossible preferred over the improbable possible?** Test for internal logic.
+9. **Are characters good, proper, true to life, and consistent?** Check characterization standards.
+10. **Does the suffering occur between near or dear ones?** Verify maximum emotional impact.
 
 ---
 

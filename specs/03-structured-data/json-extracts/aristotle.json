@@ -1,0 +1,144 @@
+{
+  "id": "aristotle",
+  "creator": "Aristotle",
+  "work": "Poetics",
+  "category": "Classical",
+  "axioms": [
+    {
+      "id": "A0",
+      "name": "Mimesis (Imitation)",
+      "statement": "All art is imitation (mimesis)—poetry imitates action, character, and thought.",
+      "derivations": ["Imitation principle", "Representational art", "Mimetic mode"]
+    },
+    {
+      "id": "A1",
+      "name": "Natural Instinct",
+      "statement": "Imitation is natural to humans; we learn through imitation and take pleasure in recognizing representations.",
+      "derivations": ["Pleasure of recognition", "Learning through art", "Innate mimetic drive"]
+    },
+    {
+      "id": "A2",
+      "name": "Universal Truth",
+      "statement": "Poetry is more philosophical than history—it expresses the universal, not merely the particular.",
+      "derivations": ["Poetic vs Historical truth", "Philosophical narrative", "Universal applicability"]
+    },
+    {
+      "id": "A3",
+      "name": "Probable Impossible",
+      "statement": "The probable impossible is preferable to the improbable possible.",
+      "derivations": ["Internal logic primacy", "Believability over factuality", "Artistic necessity"]
+    },
+    {
+      "id": "A4",
+      "name": "Necessity and Probability",
+      "statement": "Everything must follow from necessity or probability; nothing should happen by chance.",
+      "derivations": ["Causal binding", "Organic unity", "Anti-episodic rule"]
+    },
+    {
+      "id": "A5",
+      "name": "Correctness Standard",
+      "statement": "The standard of correctness differs between poetry and other arts.",
+      "derivations": ["Artistic autonomy", "Poetic justice", "Genre-specific rules"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "TRAGEDY",
+        "description": "Imitation of an action that is serious, complete, and of magnitude",
+        "elements": ["Serious action", "Magnitude", "Purgation of pity/fear"]
+      },
+      {
+        "level": 2,
+        "name": "WHOLE",
+        "description": "Complete unit with Beginning, Middle, and End",
+        "elements": ["Beginning (causally first)", "Middle (caused and causing)", "End (causally last)"]
+      },
+      {
+        "level": 3,
+        "name": "PLOT_ELEMENT",
+        "description": "Constituent parts of the mythos",
+        "elements": ["Reversal (Peripeteia)", "Recognition (Anagnorisis)", "Suffering (Pathos)"]
+      },
+      {
+        "level": 4,
+        "name": "QUANTITATIVE_PART",
+        "description": "Formal divisions of the drama",
+        "elements": ["Prologue", "Episode", "Exode", "Choric Song"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "The Unity Principle",
+      "purpose": "Verify the organic necessity of every part of the plot",
+      "pseudocode": "FOR each_part IN whole: IF whole.disturbed_by_removal(each_part): part = ORGANIC; ELSE: part = INORGANIC; REMOVE inorganic_parts();",
+      "inputs": ["plot_structure", "constituent_parts"],
+      "outputs": ["unified_action", "organic_whole"]
+    },
+    {
+      "name": "Tragic Effect Algorithm",
+      "purpose": "Generate catharsis through the proper configuration of pity and fear",
+      "pseudocode": "pity = unmerited_misfortune(character); fear = misfortune_of_similar_to_us(character); IF plot.triggers(pity) AND plot.triggers(fear): RETURN CATHARSIS; ELSE: RETURN FAILURE;",
+      "inputs": ["protagonist_nature", "plot_outcome"],
+      "outputs": ["emotional_purgation", "tragic_effect"]
+    },
+    {
+      "name": "Simple vs. Complex Plots",
+      "purpose": "Construct a plot using structural reversal and recognition",
+      "pseudocode": "1. Change fortune (good to bad); 2. Action veers to opposite (REVERSAL); 3. Ignorance becomes knowledge (RECOGNITION); 4. Ensure 2 and 3 arise from internal structure;",
+      "inputs": ["initial_situation", "hamartia", "structural_elements"],
+      "outputs": ["complex_mythos", "heightened_wonder"]
+    },
+    {
+      "name": "Hamartia Principle",
+      "purpose": "Configure the protagonist's fall through error rather than vice",
+      "pseudocode": "protagonist = renowned + prosperous + NOT_eminently_good + NOT_utter_villain; fall_cause = hamartia (error/frailty); IF fall_cause == vice: RETURN FAILURE; RETURN tragic_protagonist;",
+      "inputs": ["character_qualities", "cause_of_fortune_change"],
+      "outputs": ["tragic_hero", "proper_emotional_grounding"]
+    },
+    {
+      "name": "The Relationship Proximity Rule",
+      "purpose": "Maximize pity by placing suffering between intimates",
+      "pseudocode": "IF killer AND victim ARE near/dear: pity = MAXIMUM; ELIF killer AND victim ARE strangers: pity = NONE; ELSE: pity = MINIMAL; RETURN pity_score;",
+      "inputs": ["character_relationships", "violent_act"],
+      "outputs": ["emotional_impact_assessment"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Does every event follow by necessity or probability?", "valid_if": "YES"},
+    {"id": "Q2", "question": "If a part is removed, is the whole disturbed?", "valid_if": "YES"},
+    {"id": "Q3", "question": "Does the character's action follow from their nature?", "valid_if": "YES"},
+    {"id": "Q4", "question": "Does the unraveling arise from the plot itself (not a machine)?", "valid_if": "YES"},
+    {"id": "Q5", "question": "Is the fall caused by an error (hamartia) rather than vice?", "valid_if": "YES"},
+    {"id": "Q6", "question": "Does the reversal produce the opposite of the intended effect?", "valid_if": "YES"},
+    {"id": "Q7", "question": "Is the recognition integrated with the incidents of the plot?", "valid_if": "YES"},
+    {"id": "Q8", "question": "Is the probable impossible preferred over the improbable possible?", "valid_if": "YES"},
+    {"id": "Q9", "question": "Are characters good, proper, true to life, and consistent?", "valid_if": "YES"},
+    {"id": "Q10", "question": "Does the suffering occur between near or dear ones?", "valid_if": "YES"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "McKee's 'Inciting Incident' (Beginning)",
+      "South Park's 'Therefore/But' (Probability/Necessity)",
+      "Bharata Muni's 'Catharsis' (Rasa)",
+      "Hero's Journey 'Call to Adventure'"
+    ],
+    "sequence_pairs": ["Bharata Muni", "Ovid"]
+  },
+  "quick_reference": {
+    "core_operations": [
+      "PLOT > CHARACTER > THOUGHT > DICTION > SONG > SPECTACLE",
+      "Structure-generated emotion > Spectacle-generated emotion",
+      "Complex plot = Reversal + Recognition",
+      "Propter hoc (because of) > Post hoc (after this)"
+    ],
+    "key_constraints": [
+      "No Deus Ex Machina within the action",
+      "Protagonist falls by hamartia (error), not vice",
+      "Unified action centers on ONE action, not one hero",
+      "Magnitude must be perspicuous (graspable by memory)"
+    ]
+  }
+}

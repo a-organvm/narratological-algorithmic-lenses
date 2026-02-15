@@ -17,52 +17,57 @@ if TYPE_CHECKING:
     from os import PathLike
 
 
-def _get_default_compendium_path() -> Path:
-    """Get the default path to the unified compendium.
+import os
+from importlib import resources
+from pathlib import Path
+from typing import TYPE_CHECKING
 
-    Looks for the compendium relative to this package, then falls back
-    to looking in common locations.
+from narratological.models.study import Compendium, Study
+
+if TYPE_CHECKING:
+    from os import PathLike
+
+
+def _get_compendium_path() -> Path | None:
+    """Resolve the path to the unified compendium.
+    
+    Priority:
+    1. NARRATOLOGICAL_COMPENDIUM env var
+    2. Local development path (specs/03-structured-data/...)
+    3. Package resource (bundled JSON)
     """
-    # Try relative to package
-    package_dir = Path(__file__).parent
-    candidates = [
-        package_dir / "../../../specs/03-structured-data/narratological-algorithms-unified.json",
-        package_dir / "../../../../specs/03-structured-data/narratological-algorithms-unified.json",
-        Path("specs/03-structured-data/narratological-algorithms-unified.json"),
-        Path("03-structured-data/narratological-algorithms-unified.json"),
-    ]
+    # 1. Check environment variable
+    env_path = os.environ.get("NARRATOLOGICAL_COMPENDIUM")
+    if env_path:
+        p = Path(env_path)
+        if p.exists():
+            return p
 
-    for candidate in candidates:
-        resolved = candidate.resolve()
-        if resolved.exists():
-            return resolved
+    # 2. Check for local development path relative to this file
+    # This works when running from the repo root
+    dev_path = Path(__file__).parent.parent.parent.parent / "specs/03-structured-data/narratological-algorithms-unified.json"
+    if dev_path.exists():
+        return dev_path
 
-    raise FileNotFoundError(
-        "Could not find narratological-algorithms-unified.json. "
-        "Please provide an explicit path or ensure the specs directory is accessible."
-    )
+    # 3. Check for bundled resource
+    try:
+        resource = resources.files("narratological").joinpath(
+            "data/narratological-algorithms-unified.json"
+        )
+        if resource.is_file():
+            # Return as a Path object if possible, though resources.files may return a Traversable
+            return Path(str(resource))
+    except (ImportError, AttributeError):
+        pass
 
-
-def _load_packaged_compendium() -> Compendium | None:
-    """Load packaged compendium data from package resources if available."""
-    resource = resources.files("narratological").joinpath(
-        "data/narratological-algorithms-unified.json"
-    )
-
-    if not resource.is_file():
-        return None
-
-    with resource.open("r", encoding="utf-8") as file_obj:
-        data = json.load(file_obj)
-
-    return Compendium.model_validate(data)
+    return None
 
 
 def load_compendium(path: str | PathLike[str] | None = None) -> Compendium:
     """Load the complete narratological algorithm compendium.
 
     Args:
-        path: Path to the unified JSON file. If None, uses default location.
+        path: Explicit path to the unified JSON file. If None, uses automatic resolution.
 
     Returns:
         Compendium object containing all studies and cross-references.
@@ -71,13 +76,17 @@ def load_compendium(path: str | PathLike[str] | None = None) -> Compendium:
         FileNotFoundError: If the compendium file cannot be found.
         ValidationError: If the JSON doesn't match the expected schema.
     """
-    if path is None:
-        packaged = _load_packaged_compendium()
-        if packaged is not None:
-            return packaged
-        file_path = _get_default_compendium_path()
-    else:
+    if path:
         file_path = Path(path)
+    else:
+        file_path = _get_compendium_path()
+
+    if file_path is None or not Path(file_path).exists():
+        raise FileNotFoundError(
+            "Could not find narratological-algorithms-unified.json. "
+            "Set NARRATOLOGICAL_COMPENDIUM environment variable or ensure "
+            "the file is present in the expected locations."
+        )
 
     with open(file_path, encoding="utf-8") as f:
         data = json.load(f)
