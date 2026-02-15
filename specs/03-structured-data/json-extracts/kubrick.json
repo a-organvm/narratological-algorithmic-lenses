@@ -1,0 +1,114 @@
+{
+  "id": "kubrick",
+  "creator": "Stanley Kubrick",
+  "work": "2001: A Space Odyssey / The Shining / Barry Lyndon",
+  "category": "Film",
+  "axioms": [
+    {
+      "id": "SK-A0",
+      "name": "Non-Submersible Units",
+      "statement": "A film should be structured as six to eight self-contained sequences that stand independently while forcing the audience to draw thematic connections.",
+      "derivations": ["Independent Sequence Logic", "Rejection of 3-Act Structure", "Thematic Resonance over Plot Causality"]
+    },
+    {
+      "id": "SK-A1",
+      "name": "Subconscious Engagement",
+      "statement": "The most potent way to move an audience is to reach their feelings and not their brains. Bypass rigid cultural blocks to target emotional comprehension.",
+      "derivations": ["Visceral Reaction", "Nonverbal Experience", "Music-like Impact"]
+    },
+    {
+      "id": "SK-A2",
+      "name": "Productive Ambiguity",
+      "statement": "Ambiguity is valuable because it allows the audience to 'fill in' the visual experience themselves. Explicit explanation shuts off viewer appreciation.",
+      "derivations": ["Interpretation Space", "Mystery Principle", "Viewer as Co-creator"]
+    },
+    {
+      "id": "SK-A3",
+      "name": "Image and Music Primacy",
+      "statement": "Images, music, editing, and actor emotions are the principal tools. Language is important but secondary to these sensory elements.",
+      "derivations": ["Visual Storytelling", "Silent Film Principles", "Non-dialogue Narrative"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "TEMPORAL_UNITY",
+        "description": "The complete film as a subjective experience",
+        "elements": ["Macro-Thematic Arc", "Audience Consciousness"]
+      },
+      {
+        "level": 2,
+        "name": "NON_SUBMERSIBLE_UNIT",
+        "description": "One of 6-8 high-impact independent sequences",
+        "elements": ["Internal Beginning/Middle/End", "Visual/Musical Centerpiece"]
+      },
+      {
+        "level": 3,
+        "name": "SHOT",
+        "description": "The atomic unit of visual/temporal material",
+        "elements": ["Composition", "Duration", "Rhythm"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "The Non-Submersible Units Structure",
+      "purpose": "Construct narrative through independent, robust segments rather than linear causality",
+      "pseudocode": "1. IDENTIFY 6-8 high-impact sequences; 2. ENSURE each has internal completeness; 3. REMOVE connective tissue explaining causation; 4. FORCE audience to bridge gaps;",
+      "inputs": ["source_material", "thematic_keywords"],
+      "outputs": ["segmented_narrative", "interpretation_space"]
+    },
+    {
+      "name": "The Productive Ambiguity Rule",
+      "purpose": "Maintain narrative mystery by removing psychological and causal explanations",
+      "pseudocode": "FOR each_element: IF is_explicit_explanation: REMOVE; IF is_psychological_clue: REMOVE; ENSURE multiple_interpretations == TRUE; RETURN mystery;",
+      "inputs": ["scene_detail", "character_motivation"],
+      "outputs": ["ambiguous_element", "viewer_engagement_opportunity"]
+    },
+    {
+      "name": "Anticipation Over Surprise",
+      "purpose": "Create suspense through inevitability rather than contrivance",
+      "pseudocode": "IF event_is_fated: REVEAL outcome in advance; FOCUS on HOW it happens, not WHAT; USE ironic_narration to announce fate; RETURN suspension_of_disbelief;",
+      "inputs": ["plot_climax", "fated_event"],
+      "outputs": ["inevitable_suspense", "tragic_weight"]
+    },
+    {
+      "name": "Character Opacity Algorithm",
+      "purpose": "Develop characters through observable behavior rather than explained psychology",
+      "pseudocode": "SHOW behavior; REMOVE introspective_dialogue; EXTERNALIZE inner_life through image/action; ALLOW motivation_mystery; RETURN watchable_object;",
+      "inputs": ["character_backstory", "internal_conflict"],
+      "outputs": ["opaque_character", "behavioral_realism"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Can this sequence stand independently as a 'non-submersible unit'?", "valid_if": "YES"},
+    {"id": "Q2", "question": "Does the work avoid explaining its images or mysteries?", "valid_if": "YES"},
+    {"id": "Q3", "question": "Are images and music prioritized over dialogue for key emotional beats?", "valid_if": "YES"},
+    {"id": "Q4", "question": "Is the outcome of fated events revealed in advance to create suspense?", "valid_if": "YES"},
+    {"id": "Q5", "question": "Is character motivation revealed through behavior rather than explanation?", "valid_if": "YES"},
+    {"id": "Q6", "question": "Does the structure force the audience to draw their own connections?", "valid_if": "YES"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "Tarkovsky's Sculpting in Time (shared: visual primacy, rejecting 3-act)",
+      "Brecht's Alienation Effect (distance via ironic narration)",
+      "Nietzschean tragedy (Apollonian form/Dionysian music)"
+    ],
+    "sequence_pairs": ["Tarkovsky", "Lynch"]
+  },
+  "quick_reference": {
+    "core_operations": [
+      "Target feelings, not brains",
+      "6-8 non-submersible units",
+      "Remove connective tissue",
+      "Anticipation > Surprise"
+    ],
+    "key_constraints": [
+      "No pseudo-psychological clues",
+      "Language follows image/music/editing",
+      "Mystery is beyond reach of reason",
+      "Adaptation is code-breaking, not translation"
+    ]
+  }
+}

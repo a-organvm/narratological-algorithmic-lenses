@@ -242,10 +242,16 @@ For each scene, determine:
 2. What constraints keep it in its current position?
 3. If reorderable, where else could it go?
 
-Respond with JSON containing:
-- assessments: Array with scene_number, is_reorderable, reason, alternative_positions
-- reorderable_count: How many scenes in THIS CHUNK could be reordered
-- recommendations: Suggestions for tightening scene dependencies"""
+Respond with a strictly formatted JSON object. 
+IMPORTANT: 
+- Do NOT include newlines INSIDE string values. 
+- Do NOT use smart quotes (curly quotes).
+- Ensure all property names and string values are enclosed in straight double quotes.
+
+JSON SCHEMA:
+- assessments: Array of {{scene_number: int, is_reorderable: bool, reason: string, alternative_positions: list[string]}}
+- reorderable_count: Number of reorderable scenes in this chunk
+- recommendations: Suggestions for tightening dependencies"""
 
     def _build_prompt(self, context: DiagnosticContext) -> str:
         """Deprecated: use _build_chunk_prompt instead."""

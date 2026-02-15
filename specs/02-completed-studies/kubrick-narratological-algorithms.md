@@ -16,6 +16,13 @@ The concept refers to sequences so robust they can stand independently—each wi
 
 ### Rejecting three-act structure and verbal storytelling
 
+| Axiom | Formulation |
+|-------|-------------|
+| SK-A0 | **"Non-submersible units."** Films should function as six to eight self-contained sequences that stand independently. |
+| SK-A1 | **"Subconscious engagement."** Reaching feelings, not brains; bypassing cultural blocks for visceral reaction. |
+| SK-A2 | **"Productive ambiguity."** Mystery allows the audience to 'fill in' the experience themselves. |
+| SK-A3 | **"Image and music primacy."** Sensory elements take precedence over language. |
+
 Kubrick's most extensive articulation of his philosophy appears in his **1969 interview with Joseph Gelmis** (published in *The Film Director as Superstar*):
 
 > "The problem with movies is that since the talkies the film industry has historically been conservative and word-oriented. **The three-act play has been the model. It's time to abandon the conventional view of the movie as an extension of the three-act play.** Too many people over thirty are still word-oriented rather than picture-oriented."
@@ -239,7 +246,7 @@ Kubrick's ending—set in FAO Schwarz, featuring Alice's final word "Fuck" (adde
 
 Based on primary source statements and consistent adaptation practices across five films, Kubrick's approach can be formalized into the following principles:
 
-### Algorithm 1: The non-submersible units structure
+### Algorithm 1: The Non-Submersible Units Structure
 
 ```
 FUNCTION structure_narrative(source_material):
@@ -278,7 +285,7 @@ FUNCTION engage_audience(scene):
 
 **Primary source:** "The most potent way to move an audience is to reach their feelings and not their brains." (Kubrick to Robert Emmett Ginna, 1960)
 
-### Algorithm 3: The productive ambiguity rule
+### Algorithm 3: The Productive Ambiguity Rule
 
 ```
 FUNCTION preserve_ambiguity(narrative_element):
@@ -405,6 +412,21 @@ FUNCTION choose_technique(narrative_goal):
 - Mark Crispin Miller's academic analysis of Barry Lyndon (Johns Hopkins, 1976)
 - Elisa Pezzotta, *Stanley Kubrick: Adapting the Sublime*
 - BFI/Sight & Sound critical essays
+
+## Structural Hierarchy
+
+The film operates as a **TEMPORAL_UNITY**, a subjective experience built from several **NON_SUBMERSIBLE_UNIT** segments. Each unit is composed of individual **SHOT** units.
+
+---
+
+## Diagnostic Questions
+
+1. **Can this sequence stand independently as a 'non-submersible unit'?** (YES)
+2. **Does the work avoid explaining its images or mysteries?** (YES)
+3. **Are images and music prioritized over dialogue for key emotional beats?** (YES)
+4. **Is the outcome of fated events revealed in advance to create suspense?** (YES)
+5. **Is character motivation revealed through behavior rather than explanation?** (YES)
+6. **Does the structure force the audience to draw their own connections?** (YES)
 
 ## Conclusion: the Kubrickian method formalized
 
