@@ -1,0 +1,32 @@
+{
+  "Causal Therefore": {
+    "prefix": "therefore",
+    "body": [
+      "THEREFORE ${1:consequence}"
+    ],
+    "description": "Mark a causal consequence (South Park Rule)"
+  },
+  "Causal But": {
+    "prefix": "but",
+    "body": [
+      "BUT ${1:complication}"
+    ],
+    "description": "Mark a causal complication (South Park Rule)"
+  },
+  "Non-Submersible Unit": {
+    "prefix": "unit",
+    "body": [
+      "=== [UNIT: ${1:Title}] ===",
+      "",
+      "${0:Action...}"
+    ],
+    "description": "Mark a Kubrickian Non-Submersible Unit"
+  },
+  "Structural Node": {
+    "prefix": "node",
+    "body": [
+      "[[NODE: ${1|INCITING_INCIDENT,LOCK_IN,FIRST_REVERSAL,MIDPOINT,SECOND_REVERSAL,CRISIS,CLIMAX,RESOLUTION|}] ${2:Description}]]"
+    ],
+    "description": "Mark a major structural node for diagnostic tracking"
+  }
+}

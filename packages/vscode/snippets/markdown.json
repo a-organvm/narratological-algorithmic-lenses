@@ -1,0 +1,31 @@
+{
+  "Study Axiom": {
+    "prefix": "axiom",
+    "body": [
+      "| ${1:ID} | **"${2:Name}."** ${3:Statement} |"
+    ],
+    "description": "Create a standardized Axiom row for validation"
+  },
+  "Study Algorithm": {
+    "prefix": "algorithm",
+    "body": [
+      "### Algorithm ${1:N}: ${2:Name}",
+      "",
+      "```",
+      "FUNCTION ${3:process_name}(${4:inputs}):",
+      "    ${5:steps}",
+      "    RETURN ${6:outputs}",
+      "```"
+    ],
+    "description": "Create a standardized Algorithm block"
+  },
+  "Structural Hierarchy": {
+    "prefix": "hierarchy",
+    "body": [
+      "## Structural Hierarchy",
+      "",
+      "The macro-unit is the **${1:MACRO}**. Each **${2:MESO}** contains internal elements. The atomic unit is the **${3:MICRO}**."
+    ],
+    "description": "Create a standardized Structural Hierarchy section"
+  }
+}

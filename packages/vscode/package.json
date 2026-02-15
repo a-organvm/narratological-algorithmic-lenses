@@ -1,0 +1,41 @@
+{
+  "name": "narratological-lenses-vscode",
+  "displayName": "Narratological Algorithmic Lenses",
+  "description": "Real-time structural diagnostics and Script Doctor consultations for screenwriters.",
+  "version": "0.1.0",
+  "publisher": "liminal",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "fountain",
+        "path": "./snippets/fountain.json"
+      },
+      {
+        "language": "markdown",
+        "path": "./snippets/markdown.json"
+      }
+    ],
+    "taskDefinitions": [
+      {
+        "type": "narratological",
+        "required": ["script"],
+        "properties": {
+          "script": {
+            "type": "string",
+            "description": "Path to the script file"
+          },
+          "framework": {
+            "type": "string",
+            "description": "Framework to apply"
+          }
+        }
+      }
+    ]
+  }
+}

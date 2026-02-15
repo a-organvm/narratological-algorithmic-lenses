@@ -14,12 +14,14 @@ members = [
     "packages/core",
     "packages/cli",
     "packages/api",
+    "packages/mcp",
 ]
 
 [tool.uv.sources]
 narratological = { workspace = true }
 narratological-cli = { workspace = true }
 narratological-api = { workspace = true }
+narratological-mcp = { workspace = true }
 
 [tool.pytest.ini_options]
 testpaths = ["packages/*/tests"]
