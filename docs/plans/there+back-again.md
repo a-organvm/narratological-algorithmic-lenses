@@ -52,10 +52,15 @@ We achieve Omega through iterative cycles of **Reinforcement** (hardening what e
 - [ ] **Interactive Refinement**: A TUI/Web interface where users can "negotiate" with the Script Doctor ("I can't change the ending, offer another solution").
 - [ ] **Visual Topology**: 3D visualization of the "Beat Map" to identify structural voids.
 
-### Phase 5: The Interface (LONG-TERM)
-- [ ] **VS Code Extension**: Real-time linting for causal gaps as you type.
-- [ ] **MCP Server**: Expose the entire engine as a Model Context Protocol server for other AI agents to use.
-- [ ] **Fountain-Live**: Web-based editor with live structural feedback.
+### Phase 5: The Interface (COMPLETED)
+- [x] **MCP Server**: Implemented standardized tools for script diagnostics and Script Doctor.
+- [x] **VS Code Extension Skeleton**: Created snippet library for real-time structural tagging in Fountain and Markdown.
+- [x] **Integrated Workspace**: MCP and VS Code packages unified within the monorepo.
+
+### Phase 6: Omega Synthesis (CURRENT)
+- [ ] **Unified Web Workbench**: Integrate the "Script Doctor" debate mode into the React frontend.
+- [ ] **Cross-Framework Sequence Pairing**: Map every core study to at least one sequence pair.
+- [ ] **Omega Release**: Final validation pass across all 27+ studies and automated test suites.
 
 ---
 
