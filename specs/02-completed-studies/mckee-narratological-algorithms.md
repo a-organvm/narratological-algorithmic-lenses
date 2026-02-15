@@ -37,7 +37,7 @@
 
 ### 0.1 Principles vs. Rules
 ```
-AXIOM: "Anxious, inexperienced writers obey rules. Rebellious, 
+AXIOM RM-A0: "Anxious, inexperienced writers obey rules. Rebellious, 
        unschooled writers break rules. Artists master the form."
 
 IMPLICATION: Rules are contextual; principles are universal.
@@ -46,7 +46,7 @@ IMPLICATION: Rules are contextual; principles are universal.
 
 ### 0.2 Story as Universal Form
 ```
-AXIOM: "Story is not flight from reality but a vehicle that 
+AXIOM RM-A1: "Story is not flight from reality but a vehicle that 
        carries us on our search for reality."
 
 FUNCTION: Story serves as equipment for living.
@@ -55,17 +55,16 @@ FUNCTION: Story serves as equipment for living.
 
 ### 0.3 Archetype vs. Stereotype
 ```
-DISTINCTION:
-  - Archetype = universal human patterns (use these)
+AXIOM RM-A3: "Archetype = universal human patterns (use these)
   - Stereotype = shallow, overused patterns (avoid these)
 
 TEST: Does this pattern reveal deep human truth, or does it 
-      merely repeat surface conventions?
+      merely repeat surface conventions?"
 ```
 
 ### 0.4 The Master Law
 ```
-MASTER_LAW: "You must not tell the audience what to think or feel.
+AXIOM RM-A2: "You must not tell the audience what to think or feel.
             You must show and let them discover it themselves."
 
 DERIVATIVE: "Show, don't tell" â€” the supreme creative discipline.
@@ -2014,6 +2013,15 @@ that shines against surrounding negativity.
 | 17. Character | Dimension; Cast design; Comic character; Tips |
 | 18. The Text | Dialogue principles; Suspense sentence; Description; Image Systems |
 | 19. A Writer's Method | Inside-out; Step-outline; Treatment; Pitch test |
+
+## 24. Diagnostic Questions
+
+1. **Does every scene contain a value turn (opening value != closing value)?** (YES)
+2. **Is there a clear 'Gap' between character expectation and world response?** (YES)
+3. **Does the character's choice under pressure contradict their surface characterization?** (YES)
+4. **Do the forces of antagonism equal or exceed the protagonist's capacities?** (YES)
+5. **Is the climax a true dilemma between irreconcilable goods or lesser evils?** (YES)
+6. **Is exposition converted into ammunition in present conflict?** (YES)
 
 ---
 

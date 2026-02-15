@@ -1,0 +1,87 @@
+{
+  "id": "heroine-journey",
+  "creator": "Maureen Murdock",
+  "work": "The Heroine's Journey: Woman's Quest for Wholeness",
+  "category": "Literature",
+  "axioms": [
+    {
+      "id": "HJ-A0",
+      "name": "Internal Integration",
+      "statement": "The journey is primarily internal and psycho-spiritual, focusing on integration rather than external conquest.",
+      "derivations": ["Psychic Balance", "Inward Quest", "Healing the Wounded Feminine"]
+    },
+    {
+      "id": "HJ-A1",
+      "name": "Circular path",
+      "statement": "Narrative progression follows a circular or spiral path, returning to reclaimed values with new understanding.",
+      "derivations": ["Return to the Source", "Transformation of the Familiar", "Cyclical Resolution"]
+    },
+    {
+      "id": "HJ-A2",
+      "name": "Harmonization of Psyche",
+      "statement": "Structural success is measured by the harmonization of the feminine and masculine aspects of the psyche.",
+      "derivations": ["Synthesis of Binaries", "Wholeness over Dominance", "Internalized Climax"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "HEROINE_JOURNEY",
+        "description": "The complete cycle of internal transformation",
+        "elements": ["Macro-Integration", "Circular Momentum"]
+      },
+      {
+        "level": 2,
+        "name": "STAGE",
+        "description": "One of ten distinct phases of development",
+        "elements": ["Separation", "Descent", "Return"]
+      },
+      {
+        "level": 3,
+        "name": "PSYCHIC_REVELATION",
+        "description": "An atomic emotional beat indicating internal shift",
+        "elements": ["Insight", "Healing", "Connection"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "The Integration Cycle",
+      "purpose": "Structure a narrative around the 10 stages of the Heroine's Journey",
+      "pseudocode": "1. SEPARATION from the feminine; 2. IDENTIFICATION with the masculine; 3. ROAD of trials; 4. ILLUSORY BOON of success; 5. INITIATION & DESCENT; 6. YEARNING to reconnect; 7. HEALING the mother/daughter split; 8. HEALING the wounded masculine; 9. INTEGRATION; 10. RETURN to community;",
+      "inputs": ["protagonist_psyche", "societal_constraints"],
+      "outputs": ["integrated_narrative", "character_wholeness"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Does the protagonist begin by rejecting traditional 'feminine' roles or values?", "valid_if": "YES"},
+    {"id": "Q2", "question": "Is the 'Illusory Boon' (Act II success) followed by a period of spiritual aridity?", "valid_if": "YES"},
+    {"id": "Q3", "question": "Does the protagonist perform a 'Descent' into the subconscious to reclaim lost values?", "valid_if": "YES"},
+    {"id": "Q4", "question": "Is the climax an act of internal integration rather than an external battle?", "valid_if": "YES"},
+    {"id": "Q5", "question": "Does the narrative return to its starting point with a transformed perspective (Circular)?", "valid_if": "YES"},
+    {"id": "Q6", "question": "Does the ending synthesize the 'masculine' and 'feminine' aspects of the character?", "valid_if": "YES"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "Contrast: Campbell's Hero's Journey",
+      "Parallel: Kishotenketsu's internal harmony",
+      "Jungian Analytical Psychology"
+    ],
+    "sequence_pairs": []
+  },
+  "quick_reference": {
+    "core_operations": [
+      "Separation from Feminine",
+      "Descent to the Goddess",
+      "Healing the Mother/Daughter split",
+      "Integration of Masculine and Feminine"
+    ],
+    "key_constraints": [
+      "Internal > External",
+      "Circular > Linear",
+      "Synthesis > Conquest",
+      "Wounding leads to Healing"
+    ]
+  }
+}

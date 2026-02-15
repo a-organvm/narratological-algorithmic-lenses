@@ -29,12 +29,11 @@ A systematic distillation of Plato's *Republic* (c. 375 BCE) into formal, implem
 
 | Axiom | Formulation |
 |-------|-------------|
-| P0 | "A man is not to be reverenced more than the truth" â€” evaluation must be dispassionate |
-| P1 | All poetical imitations are "ruinous to the understanding of the hearers" without knowledge of their true nature |
-| P2 | "The imitative art is an inferior who marries an inferior, and has inferior offspring" |
-| P3 | Narrative form affects soul formation â€” stories shape the psyche |
-| P4 | There is an "ancient quarrel between philosophy and poetry" |
-| P5 | The goal of narrative regulation is justice in the soul, not aesthetic pleasure |
+| P-A0 | **"Truth over Reverence."** A man is not to be reverenced more than the truth; evaluation must be dispassionate. |
+| P-A1 | **"Mimetic Art as Inferior."** Poetical imitations are thrice removed from the truth and ruinous to the understanding. |
+| P-A2 | **"Soul Formation."** Narrative form shapes the psyche; imitations grow into habits and become second nature. |
+| P-A3 | **"The Master Goal."** The goal of regulation is justice in the soul, not aesthetic pleasure. |
+| P-A4 | There is an "ancient quarrel between philosophy and poetry." |
 
 ### Source Quotes
 
@@ -48,7 +47,7 @@ A systematic distillation of Plato's *Republic* (c. 375 BCE) into formal, implem
 
 ---
 
-## 1. The Three Modes of Narration
+## 1. Narrative Mode Identification
 
 Plato distinguishes three fundamental modes by which poets relate events:
 
@@ -412,7 +411,7 @@ INJUSTICE_DEFINITION:
 
 ---
 
-## 5. Content Regulation Algorithms
+## 5. Content Regulation Protocol
 
 Plato's prescriptive rules for permissible narrative content.
 
@@ -553,7 +552,7 @@ def evaluate_content(narrative):
 
 ---
 
-## 6. The Lie Typology
+## 6. Lie Typology Filter
 
 Plato distinguishes two kinds of lies with different moral statuses.
 
@@ -1045,6 +1044,15 @@ AUDIENCE_PROTOCOL:
 â–¡ Does it release feelings that should remain controlled?
 â–¡ Will the audience carry these emotions into their own lives?
 ```
+
+## 11. Diagnostic Questions
+
+1. **Does the poet speak in their own voice (Diegesis) or as a character (Mimesis)?** (DIEGESIS PREFERRED)
+2. **How many removes from the 'Form' (Truth) is this representation?** (MINIMAL REMOVES)
+3. **Which part of the soul (Rational, Spirited, Appetitive) does this narrative address?** (RATIONAL)
+4. **Are gods depicted as anything other than the source of good things?** (NO)
+5. **Does the work encourage emotional release that the audience would be ashamed of in real life?** (NO)
+6. **Does this work strengthen the 'city within' (rational governance)?** (YES)
 
 ---
 

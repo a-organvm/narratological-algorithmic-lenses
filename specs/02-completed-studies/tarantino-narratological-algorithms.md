@@ -32,6 +32,7 @@
 | **QT-A3** | **Chronology is a choice, not an obligation.** The order of telling exists to serve resonance, not merely to report sequence. |
 | **QT-A4** | **Suspense is a rubber band.** Stretch it and stretch it; the pleasure is in the stretching. Violence should be deferred until deferral itself becomes unbearable. |
 | **QT-A5** | **75/25 Rule.** 75% of stories work better linear; 25% gain resonance from non-linear telling. Know which you have. |
+| **QT-A6** | **Discovery Writing Paradox.** The characters write the piece. Refuse to think ahead of the characters; if they don't know something, the writer doesn't know it either. |
 
 ### Source Foundations
 
@@ -763,7 +764,33 @@ TECHNIQUE:
 
 ---
 
-## 8. Diagnostic Questions
+## 8. Discovery and Synthesis Protocols
+
+### 8.1 Genre-Anchored Discovery Writing
+
+```
+FUNCTION discovery_writing(sub_genre, characters):
+    1. SELECT sub-genre
+    2. IDENTIFY genre endpoint (e.g. Bill must die)
+    3. DEVELOP characters
+    4. DISCOVER route sequentially
+    5. TRUST genre pull
+    6. CUT non-essential scenes
+    RETURN discovered_narrative
+```
+
+### 8.2 The Operatic Synthesis
+
+```
+ALGORITHM:
+    SYNTHESIS = heightened_genre + heightened_music + operatic_proportions
+    ENSURE emotional_maximalism == TRUE
+    RETURN tarantino_baseline_register
+```
+
+---
+
+## 9. Diagnostic Questions
 
 ### 8.1 Pre-Writing Diagnostic
 
@@ -790,6 +817,7 @@ Before beginning a Tarantino-method project:
 12. Which sub-genres inform this work?
 13. What's your reference density strategy?
 14. If mixing genres, where are the collision points?
+15. Is the genre being used as a 'vehicle' for difficult or shameful content? (e.g., The Southern)
 
 ### 8.2 Scene-Level Validation
 

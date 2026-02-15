@@ -1,0 +1,115 @@
+{
+  "id": "attention-mechanics",
+  "creator": "Cross-Media Synthesis",
+  "work": "Meta-Principles Framework",
+  "category": "Meta",
+  "axioms": [
+    {
+      "id": "ATT-A0",
+      "name": "Attention as Ur-Currency",
+      "statement": "Attention is the fundamental currency of all narrative; all media solve the problem of sustaining engagement through time.",
+      "derivations": ["Engagement justify", "Temporal Gap", "Justification for continuation"]
+    },
+    {
+      "id": "ATT-A1",
+      "name": "Pure Attention through Involuntary Response",
+      "statement": "The purest attention mechanisms are those producing involuntary physiological responses (laughter in comedy, fear in horror).",
+      "derivations": ["Binary Verification", "Body cannot lie", "Somatic Engagement"]
+    },
+    {
+      "id": "ATT-A2",
+      "name": "Causal Binding as Attention Glue",
+      "statement": "Regardless of medium, causal binding (But/Therefore) is the underlying adhesive that sustains momentum and interest.",
+      "derivations": ["Momentum Maintenance", "Inevitability Feeling", "Anti-Episodic Pressure"]
+    },
+    {
+      "id": "ATT-A3",
+      "name": "Density as Compensation",
+      "statement": "Weak narrative causation requires high attention-sustaining density (visual/audio) to compensate; strong causation can operate with lower density.",
+      "derivations": ["Parallel Stream Reward", "Simultaneity Advantage", "Structural Balance"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "ATTENTION_ARC",
+        "description": "The complete duration of engagement from open to close",
+        "elements": ["Macro-Engagement", "Closure"]
+      },
+      {
+        "level": 2,
+        "name": "MOMENTUM_BLOCK",
+        "description": "A meso-unit (scene, page, level) that sustains focus through a specific mechanism",
+        "elements": ["Hook", "Development", "Transition"]
+      },
+      {
+        "level": 3,
+        "name": "ATTENTION_UNIT",
+        "description": "The micro-unit of attention (word, panel, frame, input)",
+        "elements": ["Micro-Reward", "Sensory Data"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "Universal Attention Diagnostic",
+      "purpose": "Evaluate any narrative's ability to sustain engagement across its duration",
+      "pseudocode": "1. Identify micro-unit; 2. Test causal binding (reorderability); 3. Identify prediction mode (Jazz vs Anticipation); 4. Assess density compensation; RETURN engagement_risk;",
+      "inputs": ["narrative_artifact", "medium_type"],
+      "outputs": ["engagement_state", "leakage_points"]
+    },
+    {
+      "name": "Involuntary Response Test",
+      "purpose": "Verify the purity of a genre work by somatic response overcoming resistance",
+      "pseudocode": "IF genre == COMEDY: IF audience_resists AND audience_laughs: RETURN PURE; IF genre == HORROR: IF brave_audience AND audience_feels_fear: RETURN PURE; ELSE: RETURN CONTRIVED;",
+      "inputs": ["genre_content", "audience_profile"],
+      "outputs": ["purity_score", "somatic_verification"]
+    },
+    {
+      "name": "Prediction Mode Assessment",
+      "purpose": "Classify narrative operation as Anticipation-Satisfaction or Prediction-Failure-Recalibration (Jazz)",
+      "pseudocode": "FOR each structural_level: IF subversion_frequency == HIGH: mode = JAZZ; ELIF subversion_frequency == LOW: mode = ANTICIPATION; RETURN mode_map;",
+      "inputs": ["subversion_density", "structural_levels"],
+      "outputs": ["dominant_prediction_mode", "coherence_verification"]
+    },
+    {
+      "name": "Parallel Stream Audit",
+      "purpose": "Measure the information density available to sustain attention at any moment",
+      "pseudocode": "COUNT active_channels (Visual, Audio, Semantic, Kinetic); EVALUATE channel_autonomy; IF any_channel_failure: CHECK if other_channels_carry_attention; RETURN resilience_score;",
+      "inputs": ["simultaneity_level", "moment_data"],
+      "outputs": ["density_score", "attention_resilience"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Does every micro-moment provide a justification for continued attention?", "valid_if": "YES"},
+    {"id": "Q2", "question": "Does the work target an involuntary physiological response (Tier 1)?", "valid_if": "NOT NULL"},
+    {"id": "Q3", "question": "Is causal binding (But/Therefore) strong enough to create momentum?", "valid_if": "YES"},
+    {"id": "Q4", "question": "Is information density high enough to compensate for any structural weaknesses?", "valid_if": "YES"},
+    {"id": "Q5", "question": "Which prediction mode (Anticipation vs Jazz) is dominant at the beat level?", "valid_if": "CONSISTENT"},
+    {"id": "Q6", "question": "Would the audience disengage if one sensory channel (e.g., audio) were removed?", "valid_if": "NO"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "Aristotle's Catharsis (Involuntary response)",
+      "McKee's Law of Diminishing Returns",
+      "Parker/Stone's Causal Binding",
+      "Scott McCloud's Closure theory"
+    ],
+    "sequence_pairs": []
+  },
+  "quick_reference": {
+    "core_operations": [
+      "Identify Primary Attention Mechanism",
+      "Test Causal Binding",
+      "Audit Information Density",
+      "Verify Somatic Response"
+    ],
+    "key_constraints": [
+      "Attention is finite and fragile",
+      "Repetition degrades engagement",
+      "Simultaneity allows density compensation",
+      "Genre is an attention contract"
+    ]
+  }
+}

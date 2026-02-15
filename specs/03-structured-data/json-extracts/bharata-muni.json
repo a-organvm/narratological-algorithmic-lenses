@@ -5,46 +5,28 @@
   "category": "Classical",
   "axioms": [
     {
-      "id": "B0",
-      "name": "Mimicry of Life",
+      "id": "B-A0",
+      "name": "Drama as Mimicry",
       "statement": "Drama (Natya) is mimicry (anukarana) of the exploits of gods, Asuras, kings, and householders.",
-      "derivations": ["Anukarana principle", "Lokadharmi practice", "Representation of status"]
+      "derivations": ["Representative Art", "Universal Imitation", "Social Reflection"]
     },
     {
-      "id": "B1",
-      "name": "Satisfying Diverse Tastes",
-      "statement": "Drama exists to provide satisfaction to people of differing tastes in one place.",
-      "derivations": ["Universal appeal", "Diversity of sentiment", "Social function of art"]
-    },
-    {
-      "id": "B2",
-      "name": "The Soul of Sentiment",
+      "id": "B-A1",
+      "name": "Sentiment as Soul",
       "statement": "The Sentiment (rasa) is the soul of drama—no meaning proceeds without it.",
-      "derivations": ["Rasa theory primacy", "Emotional objective", "Aesthetic flavor"]
+      "derivations": ["Affective Primacy", "Emotional Architecture", "Rasa-Bhava Unity"]
     },
     {
-      "id": "B3",
-      "name": "States Precede Sentiments",
-      "statement": "Sentiments arise from States (bhava), not States from Sentiments.",
-      "derivations": ["Bhava-Rasa causality", "Emotional building blocks", "State accumulation"]
+      "id": "B-A2",
+      "name": "Aesthetic Tasting",
+      "statement": "Aesthetic experience is 'tasted' (asvadayanti)—like culinary flavor from combined ingredients.",
+      "derivations": ["Sensory Synthesis", "Culinary Metaphor", "Audience Participation"]
     },
     {
-      "id": "B4",
-      "name": "The Culinary Metaphor",
-      "statement": "Aesthetic experience is tasted (asvadayanti)—like culinary flavor from combined ingredients.",
-      "derivations": ["Synthesis of determinants", "Spectator as taster", "Aesthetic synthesis"]
-    },
-    {
-      "id": "B5",
-      "name": "The Two Practices",
+      "id": "B-A3",
+      "name": "Dual Practice",
       "statement": "Successful representation requires both realistic (lokadharmi) and conventional (natyadharmi) practices.",
-      "derivations": ["Dharmi algorithm", "Stylization vs Realism", "Theatrical convention"]
-    },
-    {
-      "id": "B6",
-      "name": "The Court of the People",
-      "statement": "The ultimate court of appeal concerning dramatic practice is the people.",
-      "derivations": ["Democratic success", "Siddhi model", "Audience validation"]
+      "derivations": ["Realism vs Convention", "Stylized Expression", "Functional Balance"]
     }
   ],
   "structural_hierarchy": {
@@ -52,101 +34,94 @@
       {
         "level": 1,
         "name": "NATAKA",
-        "description": "The complete dramatic form (5-10 acts)",
-        "elements": ["Complete plot arc", "Full range of sentiments"]
+        "description": "Complete dramatic work spanning 5-10 acts",
+        "elements": ["Macro-Sentiment", "Five Junctures"]
       },
       {
         "level": 2,
-        "name": "SANDHI",
-        "description": "Structural junctures (acts/phases)",
-        "elements": ["Opening", "Progression", "Development", "Pause", "Conclusion"]
+        "name": "ACT",
+        "description": "Major structural division containing single-day incidents",
+        "elements": ["Single Day Constraint", "Main Plot Transition"]
       },
       {
         "level": 3,
-        "name": "VASTU",
-        "description": "Plot elements and incidents",
-        "elements": ["Germ/Seed", "Continuity Point", "Episodes", "Incidents", "Denouement"]
+        "name": "SANDHI",
+        "description": "One of five junctures linking plot stages",
+        "elements": ["Mukha", "Pratimukha", "Garbha", "Vimarsa", "Nirvahana"]
       },
       {
         "level": 4,
-        "name": "SCENE",
-        "description": "Atomic unit of performance",
-        "elements": ["Action", "Dialogue", "Gesture", "Internal State"]
+        "name": "STAGE_ZONE",
+        "description": "Symbolic division of performance space",
+        "elements": ["Kakṣyā", "Proximity", "Directional Significance"]
+      },
+      {
+        "level": 5,
+        "name": "BEAT",
+        "description": "Atomic unit of performance (gesture, word, cue)",
+        "elements": ["Abhinaya", "Dhruva", "Gati"]
       }
     ]
   },
   "core_algorithms": [
     {
       "name": "Rasa Evocation Formula",
-      "purpose": "Produce aesthetic experience through the synthesis of emotional components",
-      "pseudocode": "sthayibhava = identify_dominant_state(target_rasa); vibhavas = select_causes(target_rasa); anubhavas = select_expressions(target_rasa); vyabhicaris = filter_compatible_transitory_states(target_rasa); RETURN combine_through_abhinaya(sthayibhava, vibhavas, anubhavas, vyabhicaris)",
-      "inputs": ["target_sentiment", "narrative_context"],
-      "outputs": ["rasa_experience", "performance_plan"]
+      "purpose": "Produce universal aesthetic experience through combined states",
+      "pseudocode": "rasa = STHAYIBHAVA + VIBHAVA + ANUBHAVA + VYABHICARI; // Combine Dominant State with Determinants, Consequents, and Transitory States through Abhinaya",
+      "inputs": ["target_sentiment", "plot_stimuli"],
+      "outputs": ["aesthetic_taste", "spectator_catharsis"]
     },
     {
-      "name": "Practice Selection Algorithm",
-      "purpose": "Determine appropriate practice (realistic vs conventional) for a scene",
-      "pseudocode": "IF sentiment IN [erotic, heroic, furious, marvellous] OR scene_type IN [combat, love_making]: RETURN natyadharmi (stylized); ELIF scene_type == domestic: RETURN lokadharmi (realistic); ELSE: RETURN blend(realistic, conventional, intensity)",
-      "inputs": ["scene_type", "sentiment", "intensity"],
-      "outputs": ["representation_practice"]
+      "name": "Performance-Integrated Architecture",
+      "purpose": "Integrate musical and vocal cues into the narrative flow",
+      "pseudocode": "IF character_entrance: PLAY praveśikī; IF scene_transition: PLAY antarā; IF emotional_resolution: PLAY prāsādikī; SYNC dhruva TO stage_action;",
+      "inputs": ["narrative_event", "rasa_target"],
+      "outputs": ["musical_punctuation", "structural_momentum"]
     },
     {
-      "name": "Five Junctures (Sandhi)",
-      "purpose": "Sequence the plot through its five essential phases of action",
-      "pseudocode": "1. MUKHA: plant germ (bija); 2. PRATIMUKHA: advance action (bindu); 3. GARBHA: unfold episodes (pataka); 4. VIMARSA: reach crisis/pause (niyatapti); 5. NIRVAHANA: achieve result (phalagama);",
-      "inputs": ["source_material", "hero_objective"],
-      "outputs": ["structured_plot_arc"]
+      "name": "Spatial and Kinetic Grammar",
+      "purpose": "Represent story world distance and character identity through movement",
+      "pseudocode": "1. Identify character_type; 2. SET base_gait (Gati); 3. MODIFY for emotional_state; 4. ASSIGN stage_zone (Kakṣyā); 5. MAP walking_steps TO narrative_distance;",
+      "inputs": ["character_identity", "travel_distance"],
+      "outputs": ["symbolic_movement", "spatial_logic"]
     },
     {
-      "name": "Dhruva-Narrative Synchronization",
-      "purpose": "Align musical cues with narrative punctuation and transitions",
-      "pseudocode": "IF event == entrance: APPLY pravesiki; ELIF event == exit: APPLY niskramiki; ELIF event == resolution: APPLY prasadiki; ELIF event == transition: APPLY antara; ELSE: APPLY aksepiki; MATCH tempo(dhruva) TO rasa(scene)",
-      "inputs": ["narrative_event", "current_rasa"],
-      "outputs": ["musical_cue_assignment", "timing_parameters"]
-    },
-    {
-      "name": "Theory of Blemishes (Failure Modes)",
-      "purpose": "Identify and categorize failure modes in dramatic representation",
-      "pseudocode": "FOR each_defect IN performance: IF source == performers: RETURN self_made_blemish(remedy_available); IF source == external: RETURN accidental_blemish(ignore_or_halt); IF severity == moderate: impact = spoil_success; RETURN blemish_report(severity, source, remedy)",
-      "inputs": ["performance_observation"],
-      "outputs": ["blemish_diagnosis", "remedial_action"]
+      "name": "Content Admissibility Filter",
+      "purpose": "Enforce on-stage prohibitions while maintaining narrative continuity",
+      "pseudocode": "IF event IN [death_of_hero, battle, eating, sexual_union]: CONVERT TO report_in_praveśaka; ELSE: SHOW_WITH_CONVENTION;",
+      "inputs": ["plot_incident"],
+      "outputs": ["presentation_method", "introductory_scene_content"]
     }
   ],
   "diagnostic_questions": [
-    {"id": "Q1", "question": "Which Dominant State (sthayibhava) is being evoked?", "valid_if": "YES"},
-    {"id": "Q2", "question": "Are the Determinants (causes) specific and appropriate?", "valid_if": "YES"},
-    {"id": "Q3", "question": "Are the Consequents (expressions) appropriate to the sentiment?", "valid_if": "YES"},
-    {"id": "Q4", "question": "Are the Transitory States compatible with the dominant rasa?", "valid_if": "YES"},
-    {"id": "Q5", "question": "Does the representation achieve universality (rasa) over personal emotion?", "valid_if": "YES"},
-    {"id": "Q6", "question": "Is the Germ (bija) planted in the Opening?", "valid_if": "YES"},
-    {"id": "Q7", "question": "Do the Five Junctures appear in logical sequence?", "valid_if": "YES"},
-    {"id": "Q8", "question": "Does the Incidental Plot INCIDENTALLY serve the Principal Plot?", "valid_if": "YES"},
-    {"id": "Q9", "question": "Do the four Abhinaya modes (body, word, appearance, mind) work in harmony?", "valid_if": "YES"},
-    {"id": "Q10", "question": "Is the practice (dharmi) appropriate to the emotional intensity?", "valid_if": "YES"},
-    {"id": "Q11", "question": "Are prohibited on-stage actions (death, eating, battle) reported rather than shown?", "valid_if": "YES"}
+    {"id": "Q1", "question": "Which Dominant State (sthayibhava) is being evoked?", "valid_if": "CLEAR IDENTIFICATION"},
+    {"id": "Q2", "question": "Are the determinants (causes) and consequents (expressions) appropriate to the rasa?", "valid_if": "YES"},
+    {"id": "Q3", "question": "Does character gait (Gati) match their social type and emotional state?", "valid_if": "YES"},
+    {"id": "Q4", "question": "Is character position on stage (Kakshya) used symbolically to represent distance or status?", "valid_if": "YES"},
+    {"id": "Q5", "question": "Are prohibited actions (death, battle) reported rather than shown directly?", "valid_if": "YES"},
+    {"id": "Q6", "question": "Does the musical cue (Dhruva) correctly signal the narrative beat (entrance, exit, transition)?", "valid_if": "YES"}
   ],
   "theoretical_correspondences": {
     "maps_to": [
       "Aristotle's Catharsis (Rasa)",
-      "McKee's Inciting Incident (Bija)",
-      "South Park's 'Therefore/But' logic (Causal binding in Sandhi)",
-      "Bresson's invisible wind (Sattvika representation)"
+      "McKee's Value Turn (Implied in Bhava shifts)",
+      "Meyerhold's Biomechanics (Gati/Kinetic grammar)",
+      "Brecht's Gestus (Natyadharmi conventions)"
     ],
-    "sequence_pairs": []
+    "sequence_pairs": ["aristotle"]
   },
   "quick_reference": {
     "core_operations": [
-      "RASA = STHAYIBHAVA + VIBHAVA + ANUBHAVA + VYABHICARI",
-      "Select DHARMI based on intensity: high = natya, grounded = loka",
-      "Sequence Action: Opening -> Progress -> Development -> Pause -> Conclusion",
-      "Represent the invisible through Sattvika (mind-born) involuntary response"
+      "Evoke Rasa through Synthesis",
+      "Apply Four Abhinayas",
+      "Maintain Five Junctures",
+      "Report Prohibited Events"
     ],
     "key_constraints": [
-      "No Hero death on stage",
-      "Each act must fit within a single day",
-      "All four modes of Abhinaya must harmonize",
-      "Drama must satisfy diverse tastes in one place",
-      "Prohibited actions must be reported, never shown"
+      "Rasa is the soul; no meaning without it",
+      "No hero death on stage",
+      "Act must contain only single-day events",
+      "Music is structural punctuation"
     ]
   }
 }

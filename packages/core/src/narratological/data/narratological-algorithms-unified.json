@@ -2,8 +2,8 @@
   "meta": {
     "title": "Narratological Algorithmic Lenses Compendium",
     "version": "0.1.0",
-    "generated": "2026-02-15T15:44:20.080936",
-    "study_count": 19,
+    "generated": "2026-02-15T16:03:18.412921",
+    "study_count": 28,
     "categories": [
       "Animation",
       "Classical",
@@ -11,6 +11,7 @@
       "Film",
       "Interactive",
       "Literature",
+      "Meta",
       "Television"
     ]
   },
@@ -1174,6 +1175,192 @@
       },
       "signature_patterns": null
     },
+    "plato": {
+      "id": "plato",
+      "creator": "Plato",
+      "work": "The Republic",
+      "category": "Classical",
+      "axioms": [
+        {
+          "id": "P-A0",
+          "name": "Truth over Reverence",
+          "statement": "A man is not to be reverenced more than the truth. Evaluation of narrative must be dispassionate and grounded in reality.",
+          "derivations": [
+            "Objective Critique",
+            "Philosophical Rigor",
+            "Anti-Aestheticism"
+          ]
+        },
+        {
+          "id": "P-A1",
+          "name": "Mimetic Art as Inferior",
+          "statement": "The imitative art is an inferior who marries an inferior, and has inferior offspring. It is thrice removed from the truth.",
+          "derivations": [
+            "Ontological Hierarchy",
+            "Appearance vs Reality",
+            "Poetic Unreliability"
+          ]
+        },
+        {
+          "id": "P-A2",
+          "name": "Soul Formation",
+          "statement": "Narrative form affects soul formation. Imitations grow into habits and become a second nature, affecting body, voice, and mind.",
+          "derivations": [
+            "Psychic Contagion",
+            "Mimetic Character Debt",
+            "Moral Responsibility of the Poet"
+          ]
+        },
+        {
+          "id": "P-A3",
+          "name": "The Master Goal",
+          "statement": "The goal of narrative regulation is justice in the soul, not aesthetic pleasure.",
+          "derivations": [
+            "Psychic Governance",
+            "Rational Primacy",
+            "Censorship Protocol"
+          ]
+        }
+      ],
+      "structural_hierarchy": {
+        "levels": [
+          {
+            "level": 1,
+            "name": "FORMS",
+            "description": "Unique, eternal essences made by God/Nature",
+            "elements": [
+              "The Idea",
+              "True Existence"
+            ]
+          },
+          {
+            "level": 2,
+            "name": "PARTICULARS",
+            "description": "Physical objects made by craftsmen; semblances of truth",
+            "elements": [
+              "Physical Instance",
+              "Functional Object"
+            ]
+          },
+          {
+            "level": 3,
+            "name": "IMAGES",
+            "description": "Imitations of appearance made by artists; thrice removed from truth",
+            "elements": [
+              "Mimetic Representation",
+              "Shadowy Image"
+            ]
+          }
+        ]
+      },
+      "core_algorithms": [
+        {
+          "name": "Narrative Mode Identification",
+          "purpose": "Classify the relationship between the poet's voice and the story content",
+          "pseudocode": "IF speaker == poet_voice: IF has_speeches: RETURN MIXED; ELSE: RETURN DIEGESIS; ELIF speaker == character_voice: RETURN MIMESIS;",
+          "inputs": [
+            "passage_text",
+            "speaker_identity"
+          ],
+          "outputs": [
+            "narrative_mode"
+          ]
+        },
+        {
+          "name": "Content Regulation Protocol",
+          "purpose": "Filter narrative elements according to theological and heroic standards",
+          "pseudocode": "IF depicts_god_causing_evil OR depicts_god_transforming: REJECT; IF depicts_death_as_terrible OR hero_excessive_lamentation: REJECT; IF wicked_shown_as_happy: REJECT; ELSE: ADMIT;",
+          "inputs": [
+            "narrative_content"
+          ],
+          "outputs": [
+            "admissibility_status",
+            "rejection_reason"
+          ]
+        },
+        {
+          "name": "Psychic Contagion Mechanism",
+          "purpose": "Assess how fictional emotions infect the audience's real-world psyche",
+          "pseudocode": "1. Identify target emotion; 2. Identify soul-part addressed (Rational/Spirited/Appetitive); 3. Evaluate if release weakens rational governance; 4. RETURN corruption_risk;",
+          "inputs": [
+            "fictional_emotion",
+            "audience_profile"
+          ],
+          "outputs": [
+            "psychic_impact_assessment"
+          ]
+        },
+        {
+          "name": "Lie Typology Filter",
+          "purpose": "Distinguish between 'True Lies' (soul ignorance) and 'Verbal Lies' (useful fictions)",
+          "pseudocode": "IF lie_is_about_highest_realities: RETURN TRUE_LIE (ALWAYS_EVIL); ELIF lie_is_for_public_good_by_rulers: RETURN VERBAL_LIE (PERMITTED);",
+          "inputs": [
+            "narrative_falsehood"
+          ],
+          "outputs": [
+            "moral_status"
+          ]
+        }
+      ],
+      "diagnostic_questions": [
+        {
+          "id": "Q1",
+          "question": "Does the poet speak in their own voice (Diegesis) or as a character (Mimesis)?",
+          "valid_if": "DIEGESIS PREFERRED"
+        },
+        {
+          "id": "Q2",
+          "question": "How many removes from the 'Form' (Truth) is this representation?",
+          "valid_if": "MINIMAL REMOVES"
+        },
+        {
+          "id": "Q3",
+          "question": "Which part of the soul (Rational, Spirited, Appetitive) does this narrative address?",
+          "valid_if": "RATIONAL"
+        },
+        {
+          "id": "Q4",
+          "question": "Are gods depicted as anything other than the source of good things?",
+          "valid_if": "NO"
+        },
+        {
+          "id": "Q5",
+          "question": "Does the work encourage emotional release that the audience would be ashamed of in real life?",
+          "valid_if": "NO"
+        },
+        {
+          "id": "Q6",
+          "question": "Does this work strengthen the 'city within' (rational governance)?",
+          "valid_if": "YES"
+        }
+      ],
+      "theoretical_correspondences": {
+        "maps_to": [
+          "Aristotle's Defense of Mimesis (Contrast)",
+          "Genette's Narrative Discourse (Diegesis/Mimesis)",
+          "Baudrillard's Orders of Simulacra",
+          "Brecht's Alienation Effect (Anti-Mimesis)"
+        ],
+        "sequence_pairs": [
+          "aristotle"
+        ]
+      },
+      "quick_reference": {
+        "core_operations": [
+          "Identify Narrative Mode",
+          "Map Ontological Level",
+          "Apply Content Regulation",
+          "Analyze Psychic Contagion"
+        ],
+        "key_constraints": [
+          "God is author of good only",
+          "No fear of death in heroes",
+          "No excessive lamentation",
+          "Truth > Aesthetic pleasure"
+        ]
+      },
+      "signature_patterns": null
+    },
     "alan-moore": {
       "id": "alan-moore",
       "creator": "Alan Moore",
@@ -1776,6 +1963,146 @@
           "Genre conventions must be treated as literal historical events",
           "Future setting must illuminate current conditions",
           "Information must function as both weapon and liberation"
+        ]
+      },
+      "signature_patterns": null
+    },
+    "african-oral-epic": {
+      "id": "african-oral-epic",
+      "creator": "Traditional African (Mwindo / Sundiata)",
+      "work": "Oral Epic Tradition",
+      "category": "Classical",
+      "axioms": [
+        {
+          "id": "AOE-A0",
+          "name": "Performative Event",
+          "statement": "Narrative is a performative event, not a fixed text; it lives in the interaction between the griot and the audience.",
+          "derivations": [
+            "Dynamic Adaptation",
+            "Audience Co-creation",
+            "Living Memory"
+          ]
+        },
+        {
+          "id": "AOE-A1",
+          "name": "Modular Structure",
+          "statement": "Structure is episodic and modular, allowing for expansion or contraction based on context.",
+          "derivations": [
+            "Recursive Episodes",
+            "Contextual Elasticity",
+            "Non-linear Expansion"
+          ]
+        },
+        {
+          "id": "AOE-A2",
+          "name": "Formulaic Anchoring",
+          "statement": "Meaning is reinforced through formulaic repetition and proverbs, serving as structural anchors.",
+          "derivations": [
+            "Oral Mnemonics",
+            "Proverbial Summary",
+            "Thematic Reinforcement"
+          ]
+        }
+      ],
+      "structural_hierarchy": {
+        "levels": [
+          {
+            "level": 1,
+            "name": "COMMUNAL_EPIC",
+            "description": "The complete cycle of societal transformation",
+            "elements": [
+              "Macro-Mythos",
+              "Communal Identity"
+            ]
+          },
+          {
+            "level": 2,
+            "name": "EPISODE",
+            "description": "A distinct, semi-autonomous narrative block",
+            "elements": [
+              "Thematic Group",
+              "Spatial Unit"
+            ]
+          },
+          {
+            "level": 3,
+            "name": "FORMULAIC_PHRASE",
+            "description": "Atomic storytelling units (genealogies, proverbs)",
+            "elements": [
+              "Mnemonic Anchor",
+              "Moral Lesson"
+            ]
+          }
+        ]
+      },
+      "core_algorithms": [
+        {
+          "name": "Modular Expansion Algorithm",
+          "purpose": "Expand or contract narrative based on audience engagement and time constraints",
+          "pseudocode": "IF engagement == HIGH: EXPAND episode with variations; INSERT genealogies; ELSE: CONTRACT to core beats; USE proverbs for transitions; RETURN performance_instance;",
+          "inputs": [
+            "core_mythos",
+            "audience_engagement",
+            "time_limit"
+          ],
+          "outputs": [
+            "dynamic_performance",
+            "communal_resonance"
+          ]
+        }
+      ],
+      "diagnostic_questions": [
+        {
+          "id": "Q1",
+          "question": "Is the narrative composed of semi-autonomous episodes that can be expanded?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q2",
+          "question": "Does the work use formulaic language (genealogies, proverbs) as structural anchors?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q3",
+          "question": "Is the hero's journey pivotal to the fate of an entire group or nation?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q4",
+          "question": "Does the performance incorporate elements of communal participation or music?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q5",
+          "question": "Are proverbs used to summarize moral or narrative transitions?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q6",
+          "question": "Does the narrative blend history, myth, and social norms into a unified whole?",
+          "valid_if": "YES"
+        }
+      ],
+      "theoretical_correspondences": {
+        "maps_to": [
+          "Walter Ong's Orality and Literacy",
+          "Campbell's Hero's Journey (Communal variation)",
+          "Propp's Morphology (Modular blocks)"
+        ],
+        "sequence_pairs": []
+      },
+      "quick_reference": {
+        "core_operations": [
+          "Performative Adaptation",
+          "Formulaic Repetition",
+          "Episodic Expansion",
+          "Communal Participation"
+        ],
+        "key_constraints": [
+          "No fixed text",
+          "Hero serves society",
+          "Proverbs anchor transitions",
+          "Audience determines tempo"
         ]
       },
       "signature_patterns": null
@@ -2581,6 +2908,138 @@
       },
       "signature_patterns": null
     },
+    "kishotenketsu": {
+      "id": "kishotenketsu",
+      "creator": "Traditional East Asian",
+      "work": "Classical Narrative Structure",
+      "category": "Classical",
+      "axioms": [
+        {
+          "id": "KS-A0",
+          "name": "Conflict-Agnostic Structure",
+          "statement": "Conflict is not the unique driver of narrative; structure can be derived from juxtaposition and resonance.",
+          "derivations": [
+            "Juxtaposition Logic",
+            "Non-Mechanical Momentum",
+            "Atmospheric Unity"
+          ]
+        },
+        {
+          "id": "KS-A1",
+          "name": "Perspectival Shift",
+          "statement": "Narrative momentum is generated by the radical departure (Ten) rather than causal escalation.",
+          "derivations": [
+            "The Twist act",
+            "Synthesis of disparate parts",
+            "Rejection of teleology"
+          ]
+        },
+        {
+          "id": "KS-A2",
+          "name": "Harmonization Goal",
+          "statement": "The goal of the work is the harmonization of seemingly unrelated elements into a unified whole.",
+          "derivations": [
+            "Unity through resonance",
+            "Thematic completion",
+            "Discovery of connection"
+          ]
+        }
+      ],
+      "structural_hierarchy": {
+        "levels": [
+          {
+            "level": 1,
+            "name": "KISHOTENKETSU",
+            "description": "The complete four-act harmony",
+            "elements": [
+              "Macro-Resonance",
+              "Thematic Unity"
+            ]
+          },
+          {
+            "level": 2,
+            "name": "ACT",
+            "description": "One of four structural phases: Ki, Sho, Ten, or Ketsu",
+            "elements": [
+              "Introduction",
+              "Expansion",
+              "Twist",
+              "Synthesis"
+            ]
+          }
+        ]
+      },
+      "core_algorithms": [
+        {
+          "name": "Perspective-Shift Algorithm",
+          "purpose": "Generate narrative momentum through structural juxtaposition",
+          "pseudocode": "1. KI: Establish base reality; 2. SHO: Expand on base; 3. TEN: Introduce independent radical departure; 4. KETSU: Synthesize resonance between Ten and Ki/Sho; RETURN harmony;",
+          "inputs": [
+            "base_reality",
+            "external_element"
+          ],
+          "outputs": [
+            "conflict_agnostic_narrative",
+            "synthesis_of_meaning"
+          ]
+        }
+      ],
+      "diagnostic_questions": [
+        {
+          "id": "Q1",
+          "question": "Does the first act (Ki) establish a clear base reality?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q2",
+          "question": "Does the second act (Sho) expand on the base without introducing major conflict?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q3",
+          "question": "Is the third act (Ten) a genuine surprise or shift in perspective?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q4",
+          "question": "Is the Ten element independent of the prior causal chain?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q5",
+          "question": "Does the conclusion (Ketsu) reveal a resonance between the Ten and the base?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q6",
+          "question": "Does the whole feel like a unified harmony rather than a resolved conflict?",
+          "valid_if": "YES"
+        }
+      ],
+      "theoretical_correspondences": {
+        "maps_to": [
+          "Contrast: Western Conflict-driven Plot (Aristotle)",
+          "Parallel: Pixar's 'Until One Day' (Ten)",
+          "Tarkovsky's Atmospheric Unity"
+        ],
+        "sequence_pairs": []
+      },
+      "quick_reference": {
+        "core_operations": [
+          "Ki (Introduction)",
+          "Sho (Development)",
+          "Ten (Twist)",
+          "Ketsu (Synthesis)"
+        ],
+        "key_constraints": [
+          "Conflict is optional",
+          "Ten must be independent of Sho",
+          "Ketsu must provide synthesis",
+          "Resonance > Causality"
+        ]
+      },
+      "signature_patterns": null
+    },
     "aristotle": {
       "id": "aristotle",
       "creator": "Aristotle",
@@ -2836,6 +3295,196 @@
           "Protagonist falls by hamartia (error), not vice",
           "Unified action centers on ONE action, not one hero",
           "Magnitude must be perspicuous (graspable by memory)"
+        ]
+      },
+      "signature_patterns": null
+    },
+    "attention-mechanics": {
+      "id": "attention-mechanics",
+      "creator": "Cross-Media Synthesis",
+      "work": "Meta-Principles Framework",
+      "category": "Meta",
+      "axioms": [
+        {
+          "id": "ATT-A0",
+          "name": "Attention as Ur-Currency",
+          "statement": "Attention is the fundamental currency of all narrative; all media solve the problem of sustaining engagement through time.",
+          "derivations": [
+            "Engagement justify",
+            "Temporal Gap",
+            "Justification for continuation"
+          ]
+        },
+        {
+          "id": "ATT-A1",
+          "name": "Pure Attention through Involuntary Response",
+          "statement": "The purest attention mechanisms are those producing involuntary physiological responses (laughter in comedy, fear in horror).",
+          "derivations": [
+            "Binary Verification",
+            "Body cannot lie",
+            "Somatic Engagement"
+          ]
+        },
+        {
+          "id": "ATT-A2",
+          "name": "Causal Binding as Attention Glue",
+          "statement": "Regardless of medium, causal binding (But/Therefore) is the underlying adhesive that sustains momentum and interest.",
+          "derivations": [
+            "Momentum Maintenance",
+            "Inevitability Feeling",
+            "Anti-Episodic Pressure"
+          ]
+        },
+        {
+          "id": "ATT-A3",
+          "name": "Density as Compensation",
+          "statement": "Weak narrative causation requires high attention-sustaining density (visual/audio) to compensate; strong causation can operate with lower density.",
+          "derivations": [
+            "Parallel Stream Reward",
+            "Simultaneity Advantage",
+            "Structural Balance"
+          ]
+        }
+      ],
+      "structural_hierarchy": {
+        "levels": [
+          {
+            "level": 1,
+            "name": "ATTENTION_ARC",
+            "description": "The complete duration of engagement from open to close",
+            "elements": [
+              "Macro-Engagement",
+              "Closure"
+            ]
+          },
+          {
+            "level": 2,
+            "name": "MOMENTUM_BLOCK",
+            "description": "A meso-unit (scene, page, level) that sustains focus through a specific mechanism",
+            "elements": [
+              "Hook",
+              "Development",
+              "Transition"
+            ]
+          },
+          {
+            "level": 3,
+            "name": "ATTENTION_UNIT",
+            "description": "The micro-unit of attention (word, panel, frame, input)",
+            "elements": [
+              "Micro-Reward",
+              "Sensory Data"
+            ]
+          }
+        ]
+      },
+      "core_algorithms": [
+        {
+          "name": "Universal Attention Diagnostic",
+          "purpose": "Evaluate any narrative's ability to sustain engagement across its duration",
+          "pseudocode": "1. Identify micro-unit; 2. Test causal binding (reorderability); 3. Identify prediction mode (Jazz vs Anticipation); 4. Assess density compensation; RETURN engagement_risk;",
+          "inputs": [
+            "narrative_artifact",
+            "medium_type"
+          ],
+          "outputs": [
+            "engagement_state",
+            "leakage_points"
+          ]
+        },
+        {
+          "name": "Involuntary Response Test",
+          "purpose": "Verify the purity of a genre work by somatic response overcoming resistance",
+          "pseudocode": "IF genre == COMEDY: IF audience_resists AND audience_laughs: RETURN PURE; IF genre == HORROR: IF brave_audience AND audience_feels_fear: RETURN PURE; ELSE: RETURN CONTRIVED;",
+          "inputs": [
+            "genre_content",
+            "audience_profile"
+          ],
+          "outputs": [
+            "purity_score",
+            "somatic_verification"
+          ]
+        },
+        {
+          "name": "Prediction Mode Assessment",
+          "purpose": "Classify narrative operation as Anticipation-Satisfaction or Prediction-Failure-Recalibration (Jazz)",
+          "pseudocode": "FOR each structural_level: IF subversion_frequency == HIGH: mode = JAZZ; ELIF subversion_frequency == LOW: mode = ANTICIPATION; RETURN mode_map;",
+          "inputs": [
+            "subversion_density",
+            "structural_levels"
+          ],
+          "outputs": [
+            "dominant_prediction_mode",
+            "coherence_verification"
+          ]
+        },
+        {
+          "name": "Parallel Stream Audit",
+          "purpose": "Measure the information density available to sustain attention at any moment",
+          "pseudocode": "COUNT active_channels (Visual, Audio, Semantic, Kinetic); EVALUATE channel_autonomy; IF any_channel_failure: CHECK if other_channels_carry_attention; RETURN resilience_score;",
+          "inputs": [
+            "simultaneity_level",
+            "moment_data"
+          ],
+          "outputs": [
+            "density_score",
+            "attention_resilience"
+          ]
+        }
+      ],
+      "diagnostic_questions": [
+        {
+          "id": "Q1",
+          "question": "Does every micro-moment provide a justification for continued attention?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q2",
+          "question": "Does the work target an involuntary physiological response (Tier 1)?",
+          "valid_if": "NOT NULL"
+        },
+        {
+          "id": "Q3",
+          "question": "Is causal binding (But/Therefore) strong enough to create momentum?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q4",
+          "question": "Is information density high enough to compensate for any structural weaknesses?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q5",
+          "question": "Which prediction mode (Anticipation vs Jazz) is dominant at the beat level?",
+          "valid_if": "CONSISTENT"
+        },
+        {
+          "id": "Q6",
+          "question": "Would the audience disengage if one sensory channel (e.g., audio) were removed?",
+          "valid_if": "NO"
+        }
+      ],
+      "theoretical_correspondences": {
+        "maps_to": [
+          "Aristotle's Catharsis (Involuntary response)",
+          "McKee's Law of Diminishing Returns",
+          "Parker/Stone's Causal Binding",
+          "Scott McCloud's Closure theory"
+        ],
+        "sequence_pairs": []
+      },
+      "quick_reference": {
+        "core_operations": [
+          "Identify Primary Attention Mechanism",
+          "Test Causal Binding",
+          "Audit Information Density",
+          "Verify Somatic Response"
+        ],
+        "key_constraints": [
+          "Attention is finite and fragile",
+          "Repetition degrades engagement",
+          "Simultaneity allows density compensation",
+          "Genre is an attention contract"
         ]
       },
       "signature_patterns": null
@@ -3205,6 +3854,202 @@
       },
       "signature_patterns": null
     },
+    "south-park": {
+      "id": "south-park",
+      "creator": "Trey Parker & Matt Stone",
+      "work": "South Park / 6 Days to Air",
+      "category": "Television",
+      "axioms": [
+        {
+          "id": "SP-A0",
+          "name": "The Rule of Replacing Ands",
+          "statement": "If the words 'and then' belong between beats, you're fucked. Replace them with 'BUT' or 'THEREFORE'.",
+          "derivations": [
+            "Causal Binding",
+            "Anti-Episodic Logic",
+            "Structural Tightness"
+          ]
+        },
+        {
+          "id": "SP-A1",
+          "name": "Revision as Diagnostic",
+          "statement": "The technique is a revision diagnostic, not just a planning tool. Hunt for 'ands' during the rewrite.",
+          "derivations": [
+            "Systematic Refinement",
+            "Structural Auditing",
+            "Iterative Improvement"
+          ]
+        },
+        {
+          "id": "SP-A2",
+          "name": "Single A-Story Focus",
+          "statement": "A single well-told A-story outperforms episodes juggling multiple diluted subplots.",
+          "derivations": [
+            "Concentrated Causation",
+            "Narrative Economy",
+            "Primacy of the Main Arc"
+          ]
+        },
+        {
+          "id": "SP-A3",
+          "name": "Clarity over Complexity",
+          "statement": "Just do one thing really right. All you need is clarity.",
+          "derivations": [
+            "Structural Simplicity",
+            "Avoidance of Padding",
+            "Momentum Maintenance"
+          ]
+        }
+      ],
+      "structural_hierarchy": {
+        "levels": [
+          {
+            "level": 1,
+            "name": "STORY",
+            "description": "The complete causal sequence",
+            "elements": [
+              "Macro-Arc",
+              "Value Reversal"
+            ]
+          },
+          {
+            "level": 2,
+            "name": "ACT",
+            "description": "Major structural division",
+            "elements": [
+              "Setup",
+              "Escalation",
+              "Resolution"
+            ]
+          },
+          {
+            "level": 3,
+            "name": "BEAT",
+            "description": "The atomic story event",
+            "elements": [
+              "Action",
+              "Choice",
+              "Impact"
+            ]
+          },
+          {
+            "level": 4,
+            "name": "CONNECTOR",
+            "description": "The logical relationship between beats",
+            "elements": [
+              "BUT",
+              "THEREFORE",
+              "AND_THEN"
+            ]
+          }
+        ]
+      },
+      "core_algorithms": [
+        {
+          "name": "Three-Word Diagnostic",
+          "purpose": "Identify and fix weak episodic transitions between story beats",
+          "pseudocode": "FOR each transition(A, B): IF B is consequence of A: RETURN THEREFORE; ELIF B is complication of A: RETURN BUT; ELSE: RETURN AND_THEN (FAIL);",
+          "inputs": [
+            "beat_sequence"
+          ],
+          "outputs": [
+            "connector_map",
+            "problem_areas"
+          ]
+        },
+        {
+          "name": "The Shuffle Test",
+          "purpose": "Verify structural necessity through reorderability check",
+          "pseudocode": "FOR each permutation of beats: IF story_still_works(permutation): RETURN EPISODIC (FAIL); RETURN CAUSAL (PASS);",
+          "inputs": [
+            "beat_sequence"
+          ],
+          "outputs": [
+            "reorderability_score",
+            "structural_validity"
+          ]
+        },
+        {
+          "name": "The Status Quo Test",
+          "purpose": "Ensure every scene creates persistent change",
+          "pseudocode": "IF world_state_before == world_state_after: RETURN AND_THEN (DELETE); ELSE: RETURN ORGANIC (RETAIN);",
+          "inputs": [
+            "scene_content"
+          ],
+          "outputs": [
+            "necessity_assessment"
+          ]
+        },
+        {
+          "name": "Subplot Integration Protocol",
+          "purpose": "Ensure all subplots causally interlink with the primary arc",
+          "pseudocode": "IF B-plot_resolution CAUSES A-plot_resolution: RETURN VALID; ELSE: RETURN INORGANIC (REJECT);",
+          "inputs": [
+            "primary_plot",
+            "secondary_plots"
+          ],
+          "outputs": [
+            "interlinkage_status"
+          ]
+        }
+      ],
+      "diagnostic_questions": [
+        {
+          "id": "Q1",
+          "question": "Does Scene B happen BECAUSE of Scene A?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q2",
+          "question": "What PREVENTS the character from achieving their goal easily?",
+          "valid_if": "CLEAR OBSTACLE"
+        },
+        {
+          "id": "Q3",
+          "question": "Has the character changed because of this scene?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q4",
+          "question": "What NEW PROBLEM emerges from the resolution?",
+          "valid_if": "NOT NULL"
+        },
+        {
+          "id": "Q5",
+          "question": "If I removed this scene, would anything downstream break?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q6",
+          "question": "Are subplots interlinked with the main plot through causation?",
+          "valid_if": "YES"
+        }
+      ],
+      "theoretical_correspondences": {
+        "maps_to": [
+          "Aristotle's Propter Hoc (Causation)",
+          "E.M. Forster's Plot definition",
+          "Pixar's 'Because of That' Story Spine",
+          "McKee's Progressive Complications"
+        ],
+        "sequence_pairs": []
+      },
+      "quick_reference": {
+        "core_operations": [
+          "Replace 'AND THEN' with 'BUT' or 'THEREFORE'",
+          "Apply the Shuffle Test for reorderability",
+          "Focus on a single tight A-story",
+          "Verify character choices drive transitions"
+        ],
+        "key_constraints": [
+          "No 'And Then' connectors allowed",
+          "World must change persistently each beat",
+          "Protagonist must be active, not passive",
+          "Complexity is a weakness; clarity is a strength"
+        ]
+      },
+      "signature_patterns": null
+    },
     "tarantino": {
       "id": "tarantino",
       "creator": "Quentin Tarantino",
@@ -3269,6 +4114,16 @@
             "Test for resonance gain before scrambling",
             "Not on a crusade against linear storytelling",
             "Non-linear must create meaning"
+          ]
+        },
+        {
+          "id": "QT-A6",
+          "name": "Discovery Writing Paradox",
+          "statement": "The characters write the piece. Refuse to think ahead of the characters; if they don't know something, the writer doesn't know it either.",
+          "derivations": [
+            "Character-led navigation",
+            "Sequential discovery",
+            "Commitment to ignorance"
           ]
         }
       ],
@@ -3412,6 +4267,32 @@
             "resolution_type",
             "survivor_logic"
           ]
+        },
+        {
+          "name": "Genre-Anchored Discovery Writing",
+          "purpose": "Use genre conventions as a structural scaffold to enable character-led discovery",
+          "pseudocode": "1. SELECT sub-genre; 2. IDENTIFY genre endpoint; 3. DEVELOP characters; 4. DISCOVER route sequentially; 5. TRUST genre pull; 6. CUT non-essential scenes;",
+          "inputs": [
+            "sub_genre",
+            "initial_characters"
+          ],
+          "outputs": [
+            "discovered_narrative",
+            "genre_fidelity_score"
+          ]
+        },
+        {
+          "name": "The Operatic Synthesis",
+          "purpose": "Elevate narrative to operatic proportions through heightened genre and music",
+          "pseudocode": "SYNTHESIS = heightened_genre + heightened_music + operatic_proportions; ENSURE emotional_maximalism == TRUE; RETURN tarantino_baseline_register;",
+          "inputs": [
+            "genre_elements",
+            "musical_tradition"
+          ],
+          "outputs": [
+            "operatic_impact",
+            "tonal_resonance"
+          ]
         }
       ],
       "diagnostic_questions": [
@@ -3452,7 +4333,7 @@
         },
         {
           "id": "Q8",
-          "question": "Have you identified your 'Sicilian scene' where dialogue becomes life-or-death?",
+          "question": "Have you identified your 'Sicilian scene'—where dialogue becomes life-or-death?",
           "valid_if": "At least one scene where weaker character gains moral victory through speech"
         },
         {
@@ -3484,12 +4365,18 @@
           "id": "Q14",
           "question": "If mixing genres, where are the collision points?",
           "valid_if": "Collision type identified (sequential, layered, tonal whiplash, hybrid)"
+        },
+        {
+          "id": "Q15",
+          "question": "Is the genre being used as a 'vehicle' for difficult or shameful content?",
+          "valid_if": "YES (e.g., The Southern)"
         }
       ],
       "theoretical_correspondences": {
         "maps_to": [
           "Ovid's Metamorphoses - non-linear linking masters, tonal modulation, linking devices",
-          "Larry David - dialogue as action/conflict, extended scenes, collision concept, digressive monologue"
+          "Larry David - dialogue as action/conflict, extended scenes, collision concept, digressive monologue",
+          "The Southern - Spaghetti Western aesthetics + shameful history content"
         ],
         "sequence_pairs": [
           "Ovid-Metamorphoses",
@@ -3503,14 +4390,16 @@
           "DEFERRAL(threat_announced -> payoff_delayed)",
           "CHAPTER_ARCHITECTURE(autonomous_yet_integrated)",
           "GENRE_COLLISION(multiple_sub_genres)",
-          "STANDOFF_DYNAMICS(competing_interests)"
+          "STANDOFF_DYNAMICS(competing_interests)",
+          "GENRE_AS_OUTLINE(discovery_method)"
         ],
         "key_constraints": [
           "Chronology: IF scramble creates irony/resonance -> scramble; IF scramble just complicates -> stay linear; Apply 75/25 rule",
           "Dialogue: Tangent -> Tension -> Power Shift -> Defer -> Release; The band stretches and stretches",
           "Violence: Announce threat -> Defer resolution -> Brief payoff; Buildup:Violence ratio = 5:1 or greater",
           "Chapters: Each works alone AND contributes to whole; Title cards signal tonal/POV shifts",
-          "Scene Power: WHO controls NOW? WHEN does power shift? HOW does camera reflect power holder? WHY is violence deferred? WHAT tangent reveals character?"
+          "Scene Power: WHO controls NOW? WHEN does power shift? HOW does camera reflect power holder? WHY is violence deferred? WHAT tangent reveals character?",
+          "Discovery: Refuse to know more than characters while writing"
         ]
       },
       "signature_patterns": null
@@ -4203,73 +5092,43 @@
       "category": "Classical",
       "axioms": [
         {
-          "id": "B0",
-          "name": "Mimicry of Life",
+          "id": "B-A0",
+          "name": "Drama as Mimicry",
           "statement": "Drama (Natya) is mimicry (anukarana) of the exploits of gods, Asuras, kings, and householders.",
           "derivations": [
-            "Anukarana principle",
-            "Lokadharmi practice",
-            "Representation of status"
+            "Representative Art",
+            "Universal Imitation",
+            "Social Reflection"
           ]
         },
         {
-          "id": "B1",
-          "name": "Satisfying Diverse Tastes",
-          "statement": "Drama exists to provide satisfaction to people of differing tastes in one place.",
-          "derivations": [
-            "Universal appeal",
-            "Diversity of sentiment",
-            "Social function of art"
-          ]
-        },
-        {
-          "id": "B2",
-          "name": "The Soul of Sentiment",
+          "id": "B-A1",
+          "name": "Sentiment as Soul",
           "statement": "The Sentiment (rasa) is the soul of drama—no meaning proceeds without it.",
           "derivations": [
-            "Rasa theory primacy",
-            "Emotional objective",
-            "Aesthetic flavor"
+            "Affective Primacy",
+            "Emotional Architecture",
+            "Rasa-Bhava Unity"
           ]
         },
         {
-          "id": "B3",
-          "name": "States Precede Sentiments",
-          "statement": "Sentiments arise from States (bhava), not States from Sentiments.",
+          "id": "B-A2",
+          "name": "Aesthetic Tasting",
+          "statement": "Aesthetic experience is 'tasted' (asvadayanti)—like culinary flavor from combined ingredients.",
           "derivations": [
-            "Bhava-Rasa causality",
-            "Emotional building blocks",
-            "State accumulation"
+            "Sensory Synthesis",
+            "Culinary Metaphor",
+            "Audience Participation"
           ]
         },
         {
-          "id": "B4",
-          "name": "The Culinary Metaphor",
-          "statement": "Aesthetic experience is tasted (asvadayanti)—like culinary flavor from combined ingredients.",
-          "derivations": [
-            "Synthesis of determinants",
-            "Spectator as taster",
-            "Aesthetic synthesis"
-          ]
-        },
-        {
-          "id": "B5",
-          "name": "The Two Practices",
+          "id": "B-A3",
+          "name": "Dual Practice",
           "statement": "Successful representation requires both realistic (lokadharmi) and conventional (natyadharmi) practices.",
           "derivations": [
-            "Dharmi algorithm",
-            "Stylization vs Realism",
-            "Theatrical convention"
-          ]
-        },
-        {
-          "id": "B6",
-          "name": "The Court of the People",
-          "statement": "The ultimate court of appeal concerning dramatic practice is the people.",
-          "derivations": [
-            "Democratic success",
-            "Siddhi model",
-            "Audience validation"
+            "Realism vs Convention",
+            "Stylized Expression",
+            "Functional Balance"
           ]
         }
       ],
@@ -4278,45 +5137,51 @@
           {
             "level": 1,
             "name": "NATAKA",
-            "description": "The complete dramatic form (5-10 acts)",
+            "description": "Complete dramatic work spanning 5-10 acts",
             "elements": [
-              "Complete plot arc",
-              "Full range of sentiments"
+              "Macro-Sentiment",
+              "Five Junctures"
             ]
           },
           {
             "level": 2,
-            "name": "SANDHI",
-            "description": "Structural junctures (acts/phases)",
+            "name": "ACT",
+            "description": "Major structural division containing single-day incidents",
             "elements": [
-              "Opening",
-              "Progression",
-              "Development",
-              "Pause",
-              "Conclusion"
+              "Single Day Constraint",
+              "Main Plot Transition"
             ]
           },
           {
             "level": 3,
-            "name": "VASTU",
-            "description": "Plot elements and incidents",
+            "name": "SANDHI",
+            "description": "One of five junctures linking plot stages",
             "elements": [
-              "Germ/Seed",
-              "Continuity Point",
-              "Episodes",
-              "Incidents",
-              "Denouement"
+              "Mukha",
+              "Pratimukha",
+              "Garbha",
+              "Vimarsa",
+              "Nirvahana"
             ]
           },
           {
             "level": 4,
-            "name": "SCENE",
-            "description": "Atomic unit of performance",
+            "name": "STAGE_ZONE",
+            "description": "Symbolic division of performance space",
             "elements": [
-              "Action",
-              "Dialogue",
-              "Gesture",
-              "Internal State"
+              "Kakṣyā",
+              "Proximity",
+              "Directional Significance"
+            ]
+          },
+          {
+            "level": 5,
+            "name": "BEAT",
+            "description": "Atomic unit of performance (gesture, word, cue)",
+            "elements": [
+              "Abhinaya",
+              "Dhruva",
+              "Gati"
             ]
           }
         ]
@@ -4324,65 +5189,53 @@
       "core_algorithms": [
         {
           "name": "Rasa Evocation Formula",
-          "purpose": "Produce aesthetic experience through the synthesis of emotional components",
-          "pseudocode": "sthayibhava = identify_dominant_state(target_rasa); vibhavas = select_causes(target_rasa); anubhavas = select_expressions(target_rasa); vyabhicaris = filter_compatible_transitory_states(target_rasa); RETURN combine_through_abhinaya(sthayibhava, vibhavas, anubhavas, vyabhicaris)",
+          "purpose": "Produce universal aesthetic experience through combined states",
+          "pseudocode": "rasa = STHAYIBHAVA + VIBHAVA + ANUBHAVA + VYABHICARI; // Combine Dominant State with Determinants, Consequents, and Transitory States through Abhinaya",
           "inputs": [
             "target_sentiment",
-            "narrative_context"
+            "plot_stimuli"
           ],
           "outputs": [
-            "rasa_experience",
-            "performance_plan"
+            "aesthetic_taste",
+            "spectator_catharsis"
           ]
         },
         {
-          "name": "Practice Selection Algorithm",
-          "purpose": "Determine appropriate practice (realistic vs conventional) for a scene",
-          "pseudocode": "IF sentiment IN [erotic, heroic, furious, marvellous] OR scene_type IN [combat, love_making]: RETURN natyadharmi (stylized); ELIF scene_type == domestic: RETURN lokadharmi (realistic); ELSE: RETURN blend(realistic, conventional, intensity)",
-          "inputs": [
-            "scene_type",
-            "sentiment",
-            "intensity"
-          ],
-          "outputs": [
-            "representation_practice"
-          ]
-        },
-        {
-          "name": "Five Junctures (Sandhi)",
-          "purpose": "Sequence the plot through its five essential phases of action",
-          "pseudocode": "1. MUKHA: plant germ (bija); 2. PRATIMUKHA: advance action (bindu); 3. GARBHA: unfold episodes (pataka); 4. VIMARSA: reach crisis/pause (niyatapti); 5. NIRVAHANA: achieve result (phalagama);",
-          "inputs": [
-            "source_material",
-            "hero_objective"
-          ],
-          "outputs": [
-            "structured_plot_arc"
-          ]
-        },
-        {
-          "name": "Dhruva-Narrative Synchronization",
-          "purpose": "Align musical cues with narrative punctuation and transitions",
-          "pseudocode": "IF event == entrance: APPLY pravesiki; ELIF event == exit: APPLY niskramiki; ELIF event == resolution: APPLY prasadiki; ELIF event == transition: APPLY antara; ELSE: APPLY aksepiki; MATCH tempo(dhruva) TO rasa(scene)",
+          "name": "Performance-Integrated Architecture",
+          "purpose": "Integrate musical and vocal cues into the narrative flow",
+          "pseudocode": "IF character_entrance: PLAY praveśikī; IF scene_transition: PLAY antarā; IF emotional_resolution: PLAY prāsādikī; SYNC dhruva TO stage_action;",
           "inputs": [
             "narrative_event",
-            "current_rasa"
+            "rasa_target"
           ],
           "outputs": [
-            "musical_cue_assignment",
-            "timing_parameters"
+            "musical_punctuation",
+            "structural_momentum"
           ]
         },
         {
-          "name": "Theory of Blemishes (Failure Modes)",
-          "purpose": "Identify and categorize failure modes in dramatic representation",
-          "pseudocode": "FOR each_defect IN performance: IF source == performers: RETURN self_made_blemish(remedy_available); IF source == external: RETURN accidental_blemish(ignore_or_halt); IF severity == moderate: impact = spoil_success; RETURN blemish_report(severity, source, remedy)",
+          "name": "Spatial and Kinetic Grammar",
+          "purpose": "Represent story world distance and character identity through movement",
+          "pseudocode": "1. Identify character_type; 2. SET base_gait (Gati); 3. MODIFY for emotional_state; 4. ASSIGN stage_zone (Kakṣyā); 5. MAP walking_steps TO narrative_distance;",
           "inputs": [
-            "performance_observation"
+            "character_identity",
+            "travel_distance"
           ],
           "outputs": [
-            "blemish_diagnosis",
-            "remedial_action"
+            "symbolic_movement",
+            "spatial_logic"
+          ]
+        },
+        {
+          "name": "Content Admissibility Filter",
+          "purpose": "Enforce on-stage prohibitions while maintaining narrative continuity",
+          "pseudocode": "IF event IN [death_of_hero, battle, eating, sexual_union]: CONVERT TO report_in_praveśaka; ELSE: SHOW_WITH_CONVENTION;",
+          "inputs": [
+            "plot_incident"
+          ],
+          "outputs": [
+            "presentation_method",
+            "introductory_scene_content"
           ]
         }
       ],
@@ -4390,81 +5243,417 @@
         {
           "id": "Q1",
           "question": "Which Dominant State (sthayibhava) is being evoked?",
-          "valid_if": "YES"
+          "valid_if": "CLEAR IDENTIFICATION"
         },
         {
           "id": "Q2",
-          "question": "Are the Determinants (causes) specific and appropriate?",
+          "question": "Are the determinants (causes) and consequents (expressions) appropriate to the rasa?",
           "valid_if": "YES"
         },
         {
           "id": "Q3",
-          "question": "Are the Consequents (expressions) appropriate to the sentiment?",
+          "question": "Does character gait (Gati) match their social type and emotional state?",
           "valid_if": "YES"
         },
         {
           "id": "Q4",
-          "question": "Are the Transitory States compatible with the dominant rasa?",
+          "question": "Is character position on stage (Kakshya) used symbolically to represent distance or status?",
           "valid_if": "YES"
         },
         {
           "id": "Q5",
-          "question": "Does the representation achieve universality (rasa) over personal emotion?",
+          "question": "Are prohibited actions (death, battle) reported rather than shown directly?",
           "valid_if": "YES"
         },
         {
           "id": "Q6",
-          "question": "Is the Germ (bija) planted in the Opening?",
-          "valid_if": "YES"
-        },
-        {
-          "id": "Q7",
-          "question": "Do the Five Junctures appear in logical sequence?",
-          "valid_if": "YES"
-        },
-        {
-          "id": "Q8",
-          "question": "Does the Incidental Plot INCIDENTALLY serve the Principal Plot?",
-          "valid_if": "YES"
-        },
-        {
-          "id": "Q9",
-          "question": "Do the four Abhinaya modes (body, word, appearance, mind) work in harmony?",
-          "valid_if": "YES"
-        },
-        {
-          "id": "Q10",
-          "question": "Is the practice (dharmi) appropriate to the emotional intensity?",
-          "valid_if": "YES"
-        },
-        {
-          "id": "Q11",
-          "question": "Are prohibited on-stage actions (death, eating, battle) reported rather than shown?",
+          "question": "Does the musical cue (Dhruva) correctly signal the narrative beat (entrance, exit, transition)?",
           "valid_if": "YES"
         }
       ],
       "theoretical_correspondences": {
         "maps_to": [
           "Aristotle's Catharsis (Rasa)",
-          "McKee's Inciting Incident (Bija)",
-          "South Park's 'Therefore/But' logic (Causal binding in Sandhi)",
-          "Bresson's invisible wind (Sattvika representation)"
+          "McKee's Value Turn (Implied in Bhava shifts)",
+          "Meyerhold's Biomechanics (Gati/Kinetic grammar)",
+          "Brecht's Gestus (Natyadharmi conventions)"
+        ],
+        "sequence_pairs": [
+          "aristotle"
+        ]
+      },
+      "quick_reference": {
+        "core_operations": [
+          "Evoke Rasa through Synthesis",
+          "Apply Four Abhinayas",
+          "Maintain Five Junctures",
+          "Report Prohibited Events"
+        ],
+        "key_constraints": [
+          "Rasa is the soul; no meaning without it",
+          "No hero death on stage",
+          "Act must contain only single-day events",
+          "Music is structural punctuation"
+        ]
+      },
+      "signature_patterns": null
+    },
+    "heroine-journey": {
+      "id": "heroine-journey",
+      "creator": "Maureen Murdock",
+      "work": "The Heroine's Journey: Woman's Quest for Wholeness",
+      "category": "Literature",
+      "axioms": [
+        {
+          "id": "HJ-A0",
+          "name": "Internal Integration",
+          "statement": "The journey is primarily internal and psycho-spiritual, focusing on integration rather than external conquest.",
+          "derivations": [
+            "Psychic Balance",
+            "Inward Quest",
+            "Healing the Wounded Feminine"
+          ]
+        },
+        {
+          "id": "HJ-A1",
+          "name": "Circular path",
+          "statement": "Narrative progression follows a circular or spiral path, returning to reclaimed values with new understanding.",
+          "derivations": [
+            "Return to the Source",
+            "Transformation of the Familiar",
+            "Cyclical Resolution"
+          ]
+        },
+        {
+          "id": "HJ-A2",
+          "name": "Harmonization of Psyche",
+          "statement": "Structural success is measured by the harmonization of the feminine and masculine aspects of the psyche.",
+          "derivations": [
+            "Synthesis of Binaries",
+            "Wholeness over Dominance",
+            "Internalized Climax"
+          ]
+        }
+      ],
+      "structural_hierarchy": {
+        "levels": [
+          {
+            "level": 1,
+            "name": "HEROINE_JOURNEY",
+            "description": "The complete cycle of internal transformation",
+            "elements": [
+              "Macro-Integration",
+              "Circular Momentum"
+            ]
+          },
+          {
+            "level": 2,
+            "name": "STAGE",
+            "description": "One of ten distinct phases of development",
+            "elements": [
+              "Separation",
+              "Descent",
+              "Return"
+            ]
+          },
+          {
+            "level": 3,
+            "name": "PSYCHIC_REVELATION",
+            "description": "An atomic emotional beat indicating internal shift",
+            "elements": [
+              "Insight",
+              "Healing",
+              "Connection"
+            ]
+          }
+        ]
+      },
+      "core_algorithms": [
+        {
+          "name": "The Integration Cycle",
+          "purpose": "Structure a narrative around the 10 stages of the Heroine's Journey",
+          "pseudocode": "1. SEPARATION from the feminine; 2. IDENTIFICATION with the masculine; 3. ROAD of trials; 4. ILLUSORY BOON of success; 5. INITIATION & DESCENT; 6. YEARNING to reconnect; 7. HEALING the mother/daughter split; 8. HEALING the wounded masculine; 9. INTEGRATION; 10. RETURN to community;",
+          "inputs": [
+            "protagonist_psyche",
+            "societal_constraints"
+          ],
+          "outputs": [
+            "integrated_narrative",
+            "character_wholeness"
+          ]
+        }
+      ],
+      "diagnostic_questions": [
+        {
+          "id": "Q1",
+          "question": "Does the protagonist begin by rejecting traditional 'feminine' roles or values?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q2",
+          "question": "Is the 'Illusory Boon' (Act II success) followed by a period of spiritual aridity?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q3",
+          "question": "Does the protagonist perform a 'Descent' into the subconscious to reclaim lost values?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q4",
+          "question": "Is the climax an act of internal integration rather than an external battle?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q5",
+          "question": "Does the narrative return to its starting point with a transformed perspective (Circular)?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q6",
+          "question": "Does the ending synthesize the 'masculine' and 'feminine' aspects of the character?",
+          "valid_if": "YES"
+        }
+      ],
+      "theoretical_correspondences": {
+        "maps_to": [
+          "Contrast: Campbell's Hero's Journey",
+          "Parallel: Kishotenketsu's internal harmony",
+          "Jungian Analytical Psychology"
         ],
         "sequence_pairs": []
       },
       "quick_reference": {
         "core_operations": [
-          "RASA = STHAYIBHAVA + VIBHAVA + ANUBHAVA + VYABHICARI",
-          "Select DHARMI based on intensity: high = natya, grounded = loka",
-          "Sequence Action: Opening -> Progress -> Development -> Pause -> Conclusion",
-          "Represent the invisible through Sattvika (mind-born) involuntary response"
+          "Separation from Feminine",
+          "Descent to the Goddess",
+          "Healing the Mother/Daughter split",
+          "Integration of Masculine and Feminine"
         ],
         "key_constraints": [
-          "No Hero death on stage",
-          "Each act must fit within a single day",
-          "All four modes of Abhinaya must harmonize",
-          "Drama must satisfy diverse tastes in one place",
-          "Prohibited actions must be reported, never shown"
+          "Internal > External",
+          "Circular > Linear",
+          "Synthesis > Conquest",
+          "Wounding leads to Healing"
+        ]
+      },
+      "signature_patterns": null
+    },
+    "horace": {
+      "id": "horace",
+      "creator": "Horace",
+      "work": "Ars Poetica",
+      "category": "Classical",
+      "axioms": [
+        {
+          "id": "H-A0",
+          "name": "Genius AND Art",
+          "statement": "Poetry requires both natural gift (genius) and disciplined study (art). Neither barren toil nor untrained talent suffices.",
+          "derivations": [
+            "Balanced Mastery",
+            "Labor Discipline",
+            "Nature + Study ally"
+          ]
+        },
+        {
+          "id": "H-A1",
+          "name": "Instruct and Delight",
+          "statement": "The goal of poetry is to benefit (prodesse) and please (delectare). The optimal work blends the useful with the pleasant.",
+          "derivations": [
+            "Moral Utility",
+            "Emotional Pleasure",
+            "Audience Universal Appeal"
+          ]
+        },
+        {
+          "id": "H-A2",
+          "name": "Unity as Supreme Virtue",
+          "statement": "Every part of a work must be essential to one simple whole. No part should be dispensable or incongruous.",
+          "derivations": [
+            "Anti-Chimerism",
+            "Structural Congruity",
+            "The Simple Whole"
+          ]
+        },
+        {
+          "id": "H-A3",
+          "name": "Decorum governs All",
+          "statement": "Appropriateness to subject, character, genre, and audience is the governing principle of all creative choices.",
+          "derivations": [
+            "Fitness Algorithm",
+            "Genre-Style Matching",
+            "Authentic Expression"
+          ]
+        },
+        {
+          "id": "H-A4",
+          "name": "No Middle Ground",
+          "statement": "Poetry admits no mediocrity. If it falls short of the first rank, it is counted among the worst.",
+          "derivations": [
+            "Excellence Threshold",
+            "Absolute Quality",
+            "Rejection of the Trivial"
+          ]
+        }
+      ],
+      "structural_hierarchy": {
+        "levels": [
+          {
+            "level": 1,
+            "name": "ONE_SIMPLE_WHOLE",
+            "description": "The complete work unified by a single central design",
+            "elements": [
+              "Central Design",
+              "Organic Unity"
+            ]
+          },
+          {
+            "level": 2,
+            "name": "ACT",
+            "description": "One of five major structural divisions (for drama)",
+            "elements": [
+              "Progression",
+              "Transition"
+            ]
+          },
+          {
+            "level": 3,
+            "name": "SCENE",
+            "description": "Action display or narrated event following decorum",
+            "elements": [
+              "Action",
+              "Narration"
+            ]
+          },
+          {
+            "level": 4,
+            "name": "DICTION",
+            "description": "Word selection and metrical arrangement",
+            "elements": [
+              "Appropriate Style",
+              "Meter"
+            ]
+          }
+        ]
+      },
+      "core_algorithms": [
+        {
+          "name": "Chimera Test",
+          "purpose": "Identify and remove incongruous elements that damage structural unity",
+          "pseudocode": "FOR each element E in work: IF E.origin_domain != primary_domain: IF connection NOT justified: FLAG_AS_CHIMERIC; RETURN analysis;",
+          "inputs": [
+            "narrative_elements",
+            "central_design"
+          ],
+          "outputs": [
+            "unity_assessment",
+            "incongruity_flags"
+          ]
+        },
+        {
+          "name": "Ages of Man Algorithm",
+          "purpose": "Assign character traits based on the appropriate biological and social lifecycle stage",
+          "pseudocode": "age_bracket = determine_age(character); RETURN LIFECYCLE_PROFILE[age_bracket]; // Profiles: Boy, Youth, Mature Man, Old Man",
+          "inputs": [
+            "character_age"
+          ],
+          "outputs": [
+            "decorous_traits"
+          ]
+        },
+        {
+          "name": "In Medias Res Protocol",
+          "purpose": "Enter the narrative at the most engaging point rather than absolute origin",
+          "pseudocode": "1. IDENTIFY absolute_origin (The Double Egg); 2. IDENTIFY heart_of_things; 3. START at heart_of_things; 4. BLEND fiction with truth for consistency;",
+          "inputs": [
+            "total_chronology",
+            "thematic_center"
+          ],
+          "outputs": [
+            "epic_opening",
+            "narrative_momentum"
+          ]
+        },
+        {
+          "name": "Show vs Tell Decision Tree",
+          "purpose": "Determine whether an event should be displayed on stage or narrated",
+          "pseudocode": "IF event == transformation OR event == atrocity: method = NARRATION; ELIF event.impact == positive: method = SHOW; ELSE: method = CASE_BASIS;",
+          "inputs": [
+            "event_type",
+            "audience_impact"
+          ],
+          "outputs": [
+            "presentation_method"
+          ]
+        },
+        {
+          "name": "The Nine-Year Rule",
+          "purpose": "Ensure extreme polish through long-term gestation and revision",
+          "pseudocode": "WHILE time_elapsed < 9_YEARS: APPLY 'labor of the file'; SEEK honest critics; DELETE 'purple patches'; RETURN polished_work;",
+          "inputs": [
+            "draft_status",
+            "time_since_conception"
+          ],
+          "outputs": [
+            "readiness_judgment"
+          ]
+        }
+      ],
+      "diagnostic_questions": [
+        {
+          "id": "Q1",
+          "question": "Is every part of the work essential to one simple whole?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q2",
+          "question": "Do the style and speech match the character's age, rank, and situation (Decorum)?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q3",
+          "question": "Does the work enter 'in medias res' (into the heart of things)?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q4",
+          "question": "Are 'purple patches' (isolated brilliant but non-functional passages) removed?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q5",
+          "question": "Does the work aim to both instruct and delight?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q6",
+          "question": "Has the 'labor of the file' been applied to achieve tenfold perfection?",
+          "valid_if": "YES"
+        }
+      ],
+      "theoretical_correspondences": {
+        "maps_to": [
+          "Aristotle's Unity of Action",
+          "McKee's Value Turn (implied in Decorum shifts)",
+          "Tarkovsky's Time-Pressure (Labor requirement)",
+          "Pope's Essay on Criticism (Neo-classical adherence)"
+        ],
+        "sequence_pairs": [
+          "aristotle"
+        ]
+      },
+      "quick_reference": {
+        "core_operations": [
+          "Simplex dumtaxat et unum",
+          "Aut prodesse aut delectare",
+          "In medias res",
+          "Labor of the file"
+        ],
+        "key_constraints": [
+          "Five acts only",
+          "No fourth actor struggles",
+          "No unworthy gods intervening",
+          "No middle ground for poets"
         ]
       },
       "signature_patterns": null
@@ -4849,6 +6038,161 @@
           "Medium discovery every 15-30 minutes",
           "Major discovery every 1-2 hours",
           "Story fragments must be self-contained yet reference other fragments"
+        ]
+      },
+      "signature_patterns": null
+    },
+    "8-role-analyst": {
+      "id": "8-role-analyst",
+      "creator": "Liminal Narratological Suite",
+      "work": "8-Role Analyst Methodology",
+      "category": "Meta",
+      "axioms": [
+        {
+          "id": "8RA-A0",
+          "name": "Multi-Perspectival Synthesis",
+          "statement": "Truth in narrative is found at the intersection of conflicting critical roles. Exhaustive coverage requires simultaneous activation of all eight perspectives.",
+          "derivations": [
+            "Role Matrix",
+            "Tag-based Annotation",
+            "Holistic Diagnosis"
+          ]
+        },
+        {
+          "id": "8RA-A1",
+          "name": "Complete Ingestion Requirement",
+          "statement": "The entire narrative artifact must be read and held in context before any diagnostic documents are produced.",
+          "derivations": [
+            "Anti-Partial Analysis",
+            "Contextual Integrity",
+            "Working Memory Primacy"
+          ]
+        },
+        {
+          "id": "8RA-A2",
+          "name": "Deliverable Autonomy",
+          "statement": "Each analytical deliverable (Beat Map, Character Atlas, etc.) must function independently while contributing to a unified synthesis.",
+          "derivations": [
+            "Modular Analysis",
+            "Exhaustive Mapping",
+            "Cross-artifact Validation"
+          ]
+        }
+      ],
+      "structural_hierarchy": {
+        "levels": [
+          {
+            "level": 1,
+            "name": "ANALYST_PACKAGE",
+            "description": "The complete set of 8 core documents plus supplements",
+            "elements": [
+              "Coverage Report",
+              "Revision Roadmap",
+              "Diagnostic Report"
+            ]
+          },
+          {
+            "level": 2,
+            "name": "CRITICAL_PERSPECTIVE",
+            "description": "One of eight specialized analytical roles",
+            "elements": [
+              "Aesthete",
+              "Dramaturgist",
+              "Narratologist",
+              "Cinephile"
+            ]
+          },
+          {
+            "level": 3,
+            "name": "OBSERVATION_TAG",
+            "description": "The atomic unit of role-specific insight",
+            "elements": [
+              "Role Marker",
+              "Textual Evidence",
+              "Diagnostic Impact"
+            ]
+          }
+        ]
+      },
+      "core_algorithms": [
+        {
+          "name": "8-Role Activation Protocol",
+          "purpose": "Simultaneously process narrative data through eight distinct critical lenses",
+          "pseudocode": "FOR each_moment in artifact: [AESTHETE] -> evaluate form; [DRAMATURGIST] -> analyze tension; [NARRATOLOGIST] -> map mechanisms; [ART_HIST] -> note lineage; [CINEPHILE] -> comp works; [RHETORICIAN] -> analyze argument; [PRODUCER] -> assess feasibility; [FIRST-READER] -> report emotion; RETURN role_matrix_output;",
+          "inputs": [
+            "narrative_artifact",
+            "analyst_persona"
+          ],
+          "outputs": [
+            "tagged_observations",
+            "role_coverage_map"
+          ]
+        },
+        {
+          "name": "Ingestion Cycle",
+          "purpose": "Prepare narrative for analysis through iterative, specialized readings",
+          "pseudocode": "1. INITIAL_READ (Emotion/Engagement); 2. STRUCTURAL_READ (Act breaks/Nodes); 3. ANALYTICAL_READ (Scene annotation/Arc mapping); 4. SYNTHESIS (Pattern identification); RETURN analyzed_context;",
+          "inputs": [
+            "raw_script"
+          ],
+          "outputs": [
+            "working_context",
+            "metadata_extraction"
+          ]
+        }
+      ],
+      "diagnostic_questions": [
+        {
+          "id": "Q1",
+          "question": "Have all eight roles contributed observations to the final report?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q2",
+          "question": "Was the script read completely before analysis documents were started?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q3",
+          "question": "Is every diagnostic assessment backed by textual evidence (Line/Page)?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q4",
+          "question": "Does the report include a prioritized Revision Roadmap?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q5",
+          "question": "Is the Causal Binding Score derived from an exhaustive Beat Map?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q6",
+          "question": "Are 'First-Reader' emotional responses distinguished from 'Academic' theoretical ones?",
+          "valid_if": "YES"
+        }
+      ],
+      "theoretical_correspondences": {
+        "maps_to": [
+          "Industrial Script Coverage Standards",
+          "Academic Peer Review Protocols",
+          "Creative Writing Workshop Methodologies"
+        ],
+        "sequence_pairs": []
+      },
+      "quick_reference": {
+        "core_operations": [
+          "Simultaneous Role Synthesis",
+          "Four-Phase Ingestion",
+          "Modular Deliverable Generation",
+          "Priority Matrix Revision"
+        ],
+        "key_constraints": [
+          "No partial analysis",
+          "Evidence-backed diagnostics only",
+          "Full role-tag coverage required",
+          "Actionable revision items"
         ]
       },
       "signature_patterns": null
@@ -5526,6 +6870,215 @@
           "Operatic emotion requires sincerity, not ironic distance",
           "Hope must be demonstrated through action, not merely declared",
           "Player agency is bounded: high in battle/build, low in narrative outcome"
+        ]
+      },
+      "signature_patterns": null
+    },
+    "mckee": {
+      "id": "mckee",
+      "creator": "Robert McKee",
+      "work": "Story: Substance, Structure, Style",
+      "category": "Literature",
+      "axioms": [
+        {
+          "id": "RM-A0",
+          "name": "Principles over Rules",
+          "statement": "Anxious, inexperienced writers obey rules. Rebellious, unschooled writers break rules. Artists master the form.",
+          "derivations": [
+            "Universal Form",
+            "Contextual Application",
+            "Mastery of Craft"
+          ]
+        },
+        {
+          "id": "RM-A1",
+          "name": "The Master Law",
+          "statement": "You must not tell the audience what to think or feel. You must show and let them discover it themselves.",
+          "derivations": [
+            "Show Don't Tell",
+            "Audience Discovery",
+            "Emotional Authenticity"
+          ]
+        },
+        {
+          "id": "RM-A2",
+          "name": "The Law of Conflict",
+          "statement": "Nothing moves forward in a story except through conflict. All change is expressed through value shifts.",
+          "derivations": [
+            "Progressive Complications",
+            "Forces of Antagonism",
+            "Crisis Dilemmas"
+          ]
+        },
+        {
+          "id": "RM-A3",
+          "name": "Archetype vs Stereotype",
+          "statement": "Archetypes reveal deep human truth; stereotypes merely repeat surface conventions. Use the former, avoid the latter.",
+          "derivations": [
+            "Universal Resonance",
+            "Subversion of Cliche",
+            "Deep Psychological Truth"
+          ]
+        }
+      ],
+      "structural_hierarchy": {
+        "levels": [
+          {
+            "level": 1,
+            "name": "STORY",
+            "description": "Overarching unit containing all acts and the primary spine",
+            "elements": [
+              "Inciting Incident",
+              "Story Climax",
+              "Resolution"
+            ]
+          },
+          {
+            "level": 2,
+            "name": "ACT",
+            "description": "Major structural division culminating in a major reversal",
+            "elements": [
+              "Act Climax",
+              "Irreversible Change"
+            ]
+          },
+          {
+            "level": 3,
+            "name": "SEQUENCE",
+            "description": "Series of scenes building toward a moderate reversal",
+            "elements": [
+              "Thematic Unity",
+              "Moderate Reversal"
+            ]
+          },
+          {
+            "level": 4,
+            "name": "SCENE",
+            "description": "Action unit unified by time/place turning on a value change",
+            "elements": [
+              "Opening Value",
+              "The Gap",
+              "Closing Value"
+            ]
+          },
+          {
+            "level": 5,
+            "name": "BEAT",
+            "description": "Smallest unit of behavior in action/reaction exchange",
+            "elements": [
+              "Action",
+              "Reaction"
+            ]
+          }
+        ]
+      },
+      "core_algorithms": [
+        {
+          "name": "The Gap Algorithm",
+          "purpose": "Generate narrative tension through the difference between expectation and result",
+          "pseudocode": "1. Character takes action; 2. Character expects result Y; 3. World responds with result Z (Z != Y); 4. GAP opens; 5. Character escalates risk; REPEAT until Story Climax;",
+          "inputs": [
+            "character_intention",
+            "world_response"
+          ],
+          "outputs": [
+            "narrative_tension",
+            "structural_progression"
+          ]
+        },
+        {
+          "name": "Character Revelation Protocol",
+          "purpose": "Reveal true character through choice under pressure",
+          "pseudocode": "1. Establish characterization (surface); 2. Apply pressure; 3. Character makes choice; 4. IF choice != mask: REVEAL deep character; 5. ESCALATE pressure for deeper revelation;",
+          "inputs": [
+            "surface_traits",
+            "dilemma_pressure"
+          ],
+          "outputs": [
+            "character_dimension",
+            "true_nature_discovery"
+          ]
+        },
+        {
+          "name": "Controlling Idea Discovery",
+          "purpose": "Identify the thematic meaning emerging from the Story Climax",
+          "pseudocode": "final_value = story_climax.closing_value; cause = identify_cause(story_climax); RETURN f'{final_value} is achieved because {cause}';",
+          "inputs": [
+            "story_climax",
+            "causal_pathway"
+          ],
+          "outputs": [
+            "controlling_idea",
+            "thematic_unity"
+          ]
+        },
+        {
+          "name": "Scene Validity Test",
+          "purpose": "Ensure every scene contributes a structural value shift",
+          "pseudocode": "IF scene.opening_value == scene.closing_value: RETURN NON_EVENT (REJECT); ELSE: RETURN VALID_SCENE;",
+          "inputs": [
+            "scene_opening",
+            "scene_closing"
+          ],
+          "outputs": [
+            "scene_validity",
+            "value_turn_magnitude"
+          ]
+        }
+      ],
+      "diagnostic_questions": [
+        {
+          "id": "Q1",
+          "question": "Does every scene contain a value turn (opening value != closing value)?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q2",
+          "question": "Is there a clear 'Gap' between character expectation and world response?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q3",
+          "question": "Does the character's choice under pressure contradict their surface characterization?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q4",
+          "question": "Do the forces of antagonism equal or exceed the protagonist's capacities?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q5",
+          "question": "Is the climax a true dilemma between irreconcilable goods or lesser evils?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q6",
+          "question": "Is exposition converted into ammunition in present conflict?",
+          "valid_if": "YES"
+        }
+      ],
+      "theoretical_correspondences": {
+        "maps_to": [
+          "Aristotle's Plot Primacy (Mythos)",
+          "South Park's 'Therefore/But' (Causal Gaps)",
+          "Campbell's Monomyth (Archplot design)",
+          "Hitchcock's Suspense vs Surprise"
+        ],
+        "sequence_pairs": []
+      },
+      "quick_reference": {
+        "core_operations": [
+          "ACTION -> EXPECTATION -> RESULT != EXPECTATION (THE GAP)",
+          "Exposition = Ammunition",
+          "Characterization != Deep Character",
+          "Structure = Progressive Building Pressures"
+        ],
+        "key_constraints": [
+          "Nothing moves forward except through conflict",
+          "No text without subtext",
+          "Coincidence only to start trouble, never to resolve it",
+          "No hugging, no learning (for the cynical end of the triangle)"
         ]
       },
       "signature_patterns": null

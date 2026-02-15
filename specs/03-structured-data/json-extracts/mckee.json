@@ -1,0 +1,127 @@
+{
+  "id": "mckee",
+  "creator": "Robert McKee",
+  "work": "Story: Substance, Structure, Style",
+  "category": "Literature",
+  "axioms": [
+    {
+      "id": "RM-A0",
+      "name": "Principles over Rules",
+      "statement": "Anxious, inexperienced writers obey rules. Rebellious, unschooled writers break rules. Artists master the form.",
+      "derivations": ["Universal Form", "Contextual Application", "Mastery of Craft"]
+    },
+    {
+      "id": "RM-A1",
+      "name": "The Master Law",
+      "statement": "You must not tell the audience what to think or feel. You must show and let them discover it themselves.",
+      "derivations": ["Show Don't Tell", "Audience Discovery", "Emotional Authenticity"]
+    },
+    {
+      "id": "RM-A2",
+      "name": "The Law of Conflict",
+      "statement": "Nothing moves forward in a story except through conflict. All change is expressed through value shifts.",
+      "derivations": ["Progressive Complications", "Forces of Antagonism", "Crisis Dilemmas"]
+    },
+    {
+      "id": "RM-A3",
+      "name": "Archetype vs Stereotype",
+      "statement": "Archetypes reveal deep human truth; stereotypes merely repeat surface conventions. Use the former, avoid the latter.",
+      "derivations": ["Universal Resonance", "Subversion of Cliche", "Deep Psychological Truth"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "STORY",
+        "description": "Overarching unit containing all acts and the primary spine",
+        "elements": ["Inciting Incident", "Story Climax", "Resolution"]
+      },
+      {
+        "level": 2,
+        "name": "ACT",
+        "description": "Major structural division culminating in a major reversal",
+        "elements": ["Act Climax", "Irreversible Change"]
+      },
+      {
+        "level": 3,
+        "name": "SEQUENCE",
+        "description": "Series of scenes building toward a moderate reversal",
+        "elements": ["Thematic Unity", "Moderate Reversal"]
+      },
+      {
+        "level": 4,
+        "name": "SCENE",
+        "description": "Action unit unified by time/place turning on a value change",
+        "elements": ["Opening Value", "The Gap", "Closing Value"]
+      },
+      {
+        "level": 5,
+        "name": "BEAT",
+        "description": "Smallest unit of behavior in action/reaction exchange",
+        "elements": ["Action", "Reaction"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "The Gap Algorithm",
+      "purpose": "Generate narrative tension through the difference between expectation and result",
+      "pseudocode": "1. Character takes action; 2. Character expects result Y; 3. World responds with result Z (Z != Y); 4. GAP opens; 5. Character escalates risk; REPEAT until Story Climax;",
+      "inputs": ["character_intention", "world_response"],
+      "outputs": ["narrative_tension", "structural_progression"]
+    },
+    {
+      "name": "Character Revelation Protocol",
+      "purpose": "Reveal true character through choice under pressure",
+      "pseudocode": "1. Establish characterization (surface); 2. Apply pressure; 3. Character makes choice; 4. IF choice != mask: REVEAL deep character; 5. ESCALATE pressure for deeper revelation;",
+      "inputs": ["surface_traits", "dilemma_pressure"],
+      "outputs": ["character_dimension", "true_nature_discovery"]
+    },
+    {
+      "name": "Controlling Idea Discovery",
+      "purpose": "Identify the thematic meaning emerging from the Story Climax",
+      "pseudocode": "final_value = story_climax.closing_value; cause = identify_cause(story_climax); RETURN f'{final_value} is achieved because {cause}';",
+      "inputs": ["story_climax", "causal_pathway"],
+      "outputs": ["controlling_idea", "thematic_unity"]
+    },
+    {
+      "name": "Scene Validity Test",
+      "purpose": "Ensure every scene contributes a structural value shift",
+      "pseudocode": "IF scene.opening_value == scene.closing_value: RETURN NON_EVENT (REJECT); ELSE: RETURN VALID_SCENE;",
+      "inputs": ["scene_opening", "scene_closing"],
+      "outputs": ["scene_validity", "value_turn_magnitude"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Does every scene contain a value turn (opening value != closing value)?", "valid_if": "YES"},
+    {"id": "Q2", "question": "Is there a clear 'Gap' between character expectation and world response?", "valid_if": "YES"},
+    {"id": "Q3", "question": "Does the character's choice under pressure contradict their surface characterization?", "valid_if": "YES"},
+    {"id": "Q4", "question": "Do the forces of antagonism equal or exceed the protagonist's capacities?", "valid_if": "YES"},
+    {"id": "Q5", "question": "Is the climax a true dilemma between irreconcilable goods or lesser evils?", "valid_if": "YES"},
+    {"id": "Q6", "question": "Is exposition converted into ammunition in present conflict?", "valid_if": "YES"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "Aristotle's Plot Primacy (Mythos)",
+      "South Park's 'Therefore/But' (Causal Gaps)",
+      "Campbell's Monomyth (Archplot design)",
+      "Hitchcock's Suspense vs Surprise"
+    ],
+    "sequence_pairs": []
+  },
+  "quick_reference": {
+    "core_operations": [
+      "ACTION -> EXPECTATION -> RESULT != EXPECTATION (THE GAP)",
+      "Exposition = Ammunition",
+      "Characterization != Deep Character",
+      "Structure = Progressive Building Pressures"
+    ],
+    "key_constraints": [
+      "Nothing moves forward except through conflict",
+      "No text without subtext",
+      "Coincidence only to start trouble, never to resolve it",
+      "No hugging, no learning (for the cynical end of the triangle)"
+    ]
+  }
+}

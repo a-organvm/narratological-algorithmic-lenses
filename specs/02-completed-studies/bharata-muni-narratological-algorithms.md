@@ -10,13 +10,13 @@ The *Natyasastra* operates from foundational assumptions about the nature of dra
 
 | Axiom | Formulation |
 |-------|-------------|
-| B0 | Drama (Natya) is **mimicry** (anukarana) of the exploits of gods, Asuras, kings, and householders |
-| B1 | Drama exists to provide **satisfaction** to people of differing tastes in one place |
-| B2 | The **Sentiment** (rasa) is the soul of dramaâ€”no meaning proceeds without it |
-| B3 | Sentiments arise from **States** (bhava), not States from Sentiments |
-| B4 | Aesthetic experience is **tasted** (asvadayanti)â€”like culinary flavor from combined ingredients |
-| B5 | Successful representation requires **both** realistic (lokadharmi) and conventional (natyadharmi) practices |
-| B6 | The ultimate court of appeal concerning dramatic practice is **the people** |
+| B-A0 | **"Drama as Mimicry."** Natya is mimicry (anukarana) of the exploits of gods, Asuras, and humans. |
+| B-A1 | **"Sentiment as Soul."** The Sentiment (rasa) is the soul of dramaâ€”no meaning proceeds without it. |
+| B-A2 | **"Aesthetic Tasting."** Experience is 'tasted' (asvadayanti) like culinary flavor from ingredients. |
+| B-A3 | **"Dual Practice."** Successful representation requires both realistic (lokadharmi) and conventional (natyadharmi). |
+| B-A4 | Sentiments arise from **States** (bhava), not States from Sentiments. |
+| B-A5 | Drama exists to provide **satisfaction** to people of differing tastes in one place. |
+| B-A6 | The ultimate court of appeal concerning dramatic practice is **the people**. |
 
 ### 0.1 The Cooking Analogy (Central Metaphor)
 
@@ -969,9 +969,55 @@ DICTION_PRINCIPLES = {
 }
 ```
 
+## Structural Hierarchy
+
+The macro-unit is the **NATAKA**, spanning several acts. Each **ACT** contains single-day incidents. Plot stages are linked by one of five **SANDHI** junctures. The performance space is divided into symbolic **STAGE_ZONE** areas (Kakshya). The atomic unit is the **BEAT** (Abhinaya, Dhruva, Gati).
+
+---
+
+## Performance and Kinetic Algorithms
+
+### Performance-Integrated Architecture
+
+```
+FUNCTION performance_architecture(narrative_event):
+    IF character_entrance: PLAY praveśikī
+    IF scene_transition: PLAY antarā
+    IF emotional_resolution: PLAY prāsādikī
+    SYNC dhruva TO stage_action
+```
+
+### Spatial and Kinetic Grammar
+
+```
+FUNCTION spatial_kinetics(character, distance):
+    1. Identify character_type
+    2. SET base_gait (Gati)
+    3. MODIFY for emotional_state
+    4. ASSIGN stage_zone (Kakshya)
+    5. MAP walking_steps TO narrative_distance
+```
+
+### Content Admissibility Filter
+
+```
+ALGORITHM:
+    IF event IN [death_of_hero, battle, eating, sexual_union]:
+        CONVERT TO report_in_praveśaka
+    ELSE:
+        SHOW_WITH_CONVENTION
+```
+
 ---
 
 ## 11. Diagnostic Questions
+
+1. **Which Dominant State (sthayibhava) is being evoked?** (CLEAR IDENTIFICATION)
+2. **Are the determinants (causes) and consequents (expressions) appropriate to the rasa?** (YES)
+3. **Does character gait (Gati) match their social type and emotional state?** (YES)
+4. **Is character position on stage (Kakshya) used symbolically to represent distance or status?** (YES)
+5. **Are prohibited actions (death, battle) reported rather than shown directly?** (YES)
+6. **Does the musical cue (Dhruva) correctly signal the narrative beat (entrance, exit, transition)?** (YES)
 
 Answer the following questions to validate the dramatic structure:
 

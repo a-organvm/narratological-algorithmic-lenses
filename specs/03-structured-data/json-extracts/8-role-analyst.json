@@ -1,0 +1,94 @@
+{
+  "id": "8-role-analyst",
+  "creator": "Liminal Narratological Suite",
+  "work": "8-Role Analyst Methodology",
+  "category": "Meta",
+  "axioms": [
+    {
+      "id": "8RA-A0",
+      "name": "Multi-Perspectival Synthesis",
+      "statement": "Truth in narrative is found at the intersection of conflicting critical roles. Exhaustive coverage requires simultaneous activation of all eight perspectives.",
+      "derivations": ["Role Matrix", "Tag-based Annotation", "Holistic Diagnosis"]
+    },
+    {
+      "id": "8RA-A1",
+      "name": "Complete Ingestion Requirement",
+      "statement": "The entire narrative artifact must be read and held in context before any diagnostic documents are produced.",
+      "derivations": ["Anti-Partial Analysis", "Contextual Integrity", "Working Memory Primacy"]
+    },
+    {
+      "id": "8RA-A2",
+      "name": "Deliverable Autonomy",
+      "statement": "Each analytical deliverable (Beat Map, Character Atlas, etc.) must function independently while contributing to a unified synthesis.",
+      "derivations": ["Modular Analysis", "Exhaustive Mapping", "Cross-artifact Validation"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "ANALYST_PACKAGE",
+        "description": "The complete set of 8 core documents plus supplements",
+        "elements": ["Coverage Report", "Revision Roadmap", "Diagnostic Report"]
+      },
+      {
+        "level": 2,
+        "name": "CRITICAL_PERSPECTIVE",
+        "description": "One of eight specialized analytical roles",
+        "elements": ["Aesthete", "Dramaturgist", "Narratologist", "Cinephile"]
+      },
+      {
+        "level": 3,
+        "name": "OBSERVATION_TAG",
+        "description": "The atomic unit of role-specific insight",
+        "elements": ["Role Marker", "Textual Evidence", "Diagnostic Impact"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "8-Role Activation Protocol",
+      "purpose": "Simultaneously process narrative data through eight distinct critical lenses",
+      "pseudocode": "FOR each_moment in artifact: [AESTHETE] -> evaluate form; [DRAMATURGIST] -> analyze tension; [NARRATOLOGIST] -> map mechanisms; [ART_HIST] -> note lineage; [CINEPHILE] -> comp works; [RHETORICIAN] -> analyze argument; [PRODUCER] -> assess feasibility; [FIRST-READER] -> report emotion; RETURN role_matrix_output;",
+      "inputs": ["narrative_artifact", "analyst_persona"],
+      "outputs": ["tagged_observations", "role_coverage_map"]
+    },
+    {
+      "name": "Ingestion Cycle",
+      "purpose": "Prepare narrative for analysis through iterative, specialized readings",
+      "pseudocode": "1. INITIAL_READ (Emotion/Engagement); 2. STRUCTURAL_READ (Act breaks/Nodes); 3. ANALYTICAL_READ (Scene annotation/Arc mapping); 4. SYNTHESIS (Pattern identification); RETURN analyzed_context;",
+      "inputs": ["raw_script"],
+      "outputs": ["working_context", "metadata_extraction"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Have all eight roles contributed observations to the final report?", "valid_if": "YES"},
+    {"id": "Q2", "question": "Was the script read completely before analysis documents were started?", "valid_if": "YES"},
+    {"id": "Q3", "question": "Is every diagnostic assessment backed by textual evidence (Line/Page)?", "valid_if": "YES"},
+    {"id": "Q4", "question": "Does the report include a prioritized Revision Roadmap?", "valid_if": "YES"},
+    {"id": "Q5", "question": "Is the Causal Binding Score derived from an exhaustive Beat Map?", "valid_if": "YES"},
+    {"id": "Q6", "question": "Are 'First-Reader' emotional responses distinguished from 'Academic' theoretical ones?", "valid_if": "YES"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "Industrial Script Coverage Standards",
+      "Academic Peer Review Protocols",
+      "Creative Writing Workshop Methodologies"
+    ],
+    "sequence_pairs": []
+  },
+  "quick_reference": {
+    "core_operations": [
+      "Simultaneous Role Synthesis",
+      "Four-Phase Ingestion",
+      "Modular Deliverable Generation",
+      "Priority Matrix Revision"
+    ],
+    "key_constraints": [
+      "No partial analysis",
+      "Evidence-backed diagnostics only",
+      "Full role-tag coverage required",
+      "Actionable revision items"
+    ]
+  }
+}

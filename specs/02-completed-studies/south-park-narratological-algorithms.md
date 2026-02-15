@@ -1,6 +1,6 @@
 # South Park Narratological Algorithms
 
-A systematic distillation of the Parker/Stone "But/Therefore" framework into formal, implementable principles for narrative construction.
+A systematic distillation of the **Trey Parker & Matt Stone** "But/Therefore" framework into formal, implementable principles for narrative construction.
 
 **Source**: "The South Park But/Therefore Rule: A Complete Craft Analysis"
 
@@ -29,11 +29,11 @@ A systematic distillation of the Parker/Stone "But/Therefore" framework into for
 
 | Axiom | Formulation |
 |-------|-------------|
-| A0 | The technique is a **revision diagnostic**, not just a planning tool |
-| A1 | Causal connection transforms *sequence of events* into *story* |
-| A2 | Simplicity over complexity: "Just do one thing really right" |
-| A3 | Imperfection is assumed; systematic revision is the solution |
-| A4 | The technique enables both **generation** and **ruthless cutting** |
+| SP-A0 | The technique is a **revision diagnostic**, not just a planning tool |
+| SP-A1 | Causal connection transforms *sequence of events* into *story* |
+| SP-A2 | Simplicity over complexity: "Just do one thing really right" |
+| SP-A3 | Imperfection is assumed; systematic revision is the solution |
+| SP-A4 | The technique enables both **generation** and **ruthless cutting** |
 
 ### Source Quotes
 
@@ -527,9 +527,18 @@ The framework has been adapted across multiple domains:
 
 **David Perell** (writer/educator): Popularized the whiteboard testing method through his newsletter.
 
+## 15. Diagnostic Questions
+
+1. **Does Scene B happen BECAUSE of Scene A?** (Establish causation)
+2. **What PREVENTS the character from achieving their goal easily?** (Generate obstacle)
+3. **Has the character changed because of this scene?** (Verify transformation)
+4. **What NEW PROBLEM emerges from the resolution?** (Ensure continuation)
+5. **If I removed this scene, would anything downstream break?** (Validate necessity)
+6. **Are subplots interlinked with the main plot through causation?** (Verify integration)
+
 ---
 
-## 15. Why It Works
+## 16. Why It Works
 
 The technique succeeds because it **externalizes an internal cognitive process**:
 

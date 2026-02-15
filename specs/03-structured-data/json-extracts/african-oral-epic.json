@@ -1,0 +1,87 @@
+{
+  "id": "african-oral-epic",
+  "creator": "Traditional African (Mwindo / Sundiata)",
+  "work": "Oral Epic Tradition",
+  "category": "Classical",
+  "axioms": [
+    {
+      "id": "AOE-A0",
+      "name": "Performative Event",
+      "statement": "Narrative is a performative event, not a fixed text; it lives in the interaction between the griot and the audience.",
+      "derivations": ["Dynamic Adaptation", "Audience Co-creation", "Living Memory"]
+    },
+    {
+      "id": "AOE-A1",
+      "name": "Modular Structure",
+      "statement": "Structure is episodic and modular, allowing for expansion or contraction based on context.",
+      "derivations": ["Recursive Episodes", "Contextual Elasticity", "Non-linear Expansion"]
+    },
+    {
+      "id": "AOE-A2",
+      "name": "Formulaic Anchoring",
+      "statement": "Meaning is reinforced through formulaic repetition and proverbs, serving as structural anchors.",
+      "derivations": ["Oral Mnemonics", "Proverbial Summary", "Thematic Reinforcement"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "COMMUNAL_EPIC",
+        "description": "The complete cycle of societal transformation",
+        "elements": ["Macro-Mythos", "Communal Identity"]
+      },
+      {
+        "level": 2,
+        "name": "EPISODE",
+        "description": "A distinct, semi-autonomous narrative block",
+        "elements": ["Thematic Group", "Spatial Unit"]
+      },
+      {
+        "level": 3,
+        "name": "FORMULAIC_PHRASE",
+        "description": "Atomic storytelling units (genealogies, proverbs)",
+        "elements": ["Mnemonic Anchor", "Moral Lesson"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "Modular Expansion Algorithm",
+      "purpose": "Expand or contract narrative based on audience engagement and time constraints",
+      "pseudocode": "IF engagement == HIGH: EXPAND episode with variations; INSERT genealogies; ELSE: CONTRACT to core beats; USE proverbs for transitions; RETURN performance_instance;",
+      "inputs": ["core_mythos", "audience_engagement", "time_limit"],
+      "outputs": ["dynamic_performance", "communal_resonance"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Is the narrative composed of semi-autonomous episodes that can be expanded?", "valid_if": "YES"},
+    {"id": "Q2", "question": "Does the work use formulaic language (genealogies, proverbs) as structural anchors?", "valid_if": "YES"},
+    {"id": "Q3", "question": "Is the hero's journey pivotal to the fate of an entire group or nation?", "valid_if": "YES"},
+    {"id": "Q4", "question": "Does the performance incorporate elements of communal participation or music?", "valid_if": "YES"},
+    {"id": "Q5", "question": "Are proverbs used to summarize moral or narrative transitions?", "valid_if": "YES"},
+    {"id": "Q6", "question": "Does the narrative blend history, myth, and social norms into a unified whole?", "valid_if": "YES"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "Walter Ong's Orality and Literacy",
+      "Campbell's Hero's Journey (Communal variation)",
+      "Propp's Morphology (Modular blocks)"
+    ],
+    "sequence_pairs": []
+  },
+  "quick_reference": {
+    "core_operations": [
+      "Performative Adaptation",
+      "Formulaic Repetition",
+      "Episodic Expansion",
+      "Communal Participation"
+    ],
+    "key_constraints": [
+      "No fixed text",
+      "Hero serves society",
+      "Proverbs anchor transitions",
+      "Audience determines tempo"
+    ]
+  }
+}

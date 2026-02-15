@@ -1,0 +1,134 @@
+{
+  "id": "horace",
+  "creator": "Horace",
+  "work": "Ars Poetica",
+  "category": "Classical",
+  "axioms": [
+    {
+      "id": "H-A0",
+      "name": "Genius AND Art",
+      "statement": "Poetry requires both natural gift (genius) and disciplined study (art). Neither barren toil nor untrained talent suffices.",
+      "derivations": ["Balanced Mastery", "Labor Discipline", "Nature + Study ally"]
+    },
+    {
+      "id": "H-A1",
+      "name": "Instruct and Delight",
+      "statement": "The goal of poetry is to benefit (prodesse) and please (delectare). The optimal work blends the useful with the pleasant.",
+      "derivations": ["Moral Utility", "Emotional Pleasure", "Audience Universal Appeal"]
+    },
+    {
+      "id": "H-A2",
+      "name": "Unity as Supreme Virtue",
+      "statement": "Every part of a work must be essential to one simple whole. No part should be dispensable or incongruous.",
+      "derivations": ["Anti-Chimerism", "Structural Congruity", "The Simple Whole"]
+    },
+    {
+      "id": "H-A3",
+      "name": "Decorum governs All",
+      "statement": "Appropriateness to subject, character, genre, and audience is the governing principle of all creative choices.",
+      "derivations": ["Fitness Algorithm", "Genre-Style Matching", "Authentic Expression"]
+    },
+    {
+      "id": "H-A4",
+      "name": "No Middle Ground",
+      "statement": "Poetry admits no mediocrity. If it falls short of the first rank, it is counted among the worst.",
+      "derivations": ["Excellence Threshold", "Absolute Quality", "Rejection of the Trivial"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "ONE_SIMPLE_WHOLE",
+        "description": "The complete work unified by a single central design",
+        "elements": ["Central Design", "Organic Unity"]
+      },
+      {
+        "level": 2,
+        "name": "ACT",
+        "description": "One of five major structural divisions (for drama)",
+        "elements": ["Progression", "Transition"]
+      },
+      {
+        "level": 3,
+        "name": "SCENE",
+        "description": "Action display or narrated event following decorum",
+        "elements": ["Action", "Narration"]
+      },
+      {
+        "level": 4,
+        "name": "DICTION",
+        "description": "Word selection and metrical arrangement",
+        "elements": ["Appropriate Style", "Meter"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "Chimera Test",
+      "purpose": "Identify and remove incongruous elements that damage structural unity",
+      "pseudocode": "FOR each element E in work: IF E.origin_domain != primary_domain: IF connection NOT justified: FLAG_AS_CHIMERIC; RETURN analysis;",
+      "inputs": ["narrative_elements", "central_design"],
+      "outputs": ["unity_assessment", "incongruity_flags"]
+    },
+    {
+      "name": "Ages of Man Algorithm",
+      "purpose": "Assign character traits based on the appropriate biological and social lifecycle stage",
+      "pseudocode": "age_bracket = determine_age(character); RETURN LIFECYCLE_PROFILE[age_bracket]; // Profiles: Boy, Youth, Mature Man, Old Man",
+      "inputs": ["character_age"],
+      "outputs": ["decorous_traits"]
+    },
+    {
+      "name": "In Medias Res Protocol",
+      "purpose": "Enter the narrative at the most engaging point rather than absolute origin",
+      "pseudocode": "1. IDENTIFY absolute_origin (The Double Egg); 2. IDENTIFY heart_of_things; 3. START at heart_of_things; 4. BLEND fiction with truth for consistency;",
+      "inputs": ["total_chronology", "thematic_center"],
+      "outputs": ["epic_opening", "narrative_momentum"]
+    },
+    {
+      "name": "Show vs Tell Decision Tree",
+      "purpose": "Determine whether an event should be displayed on stage or narrated",
+      "pseudocode": "IF event == transformation OR event == atrocity: method = NARRATION; ELIF event.impact == positive: method = SHOW; ELSE: method = CASE_BASIS;",
+      "inputs": ["event_type", "audience_impact"],
+      "outputs": ["presentation_method"]
+    },
+    {
+      "name": "The Nine-Year Rule",
+      "purpose": "Ensure extreme polish through long-term gestation and revision",
+      "pseudocode": "WHILE time_elapsed < 9_YEARS: APPLY 'labor of the file'; SEEK honest critics; DELETE 'purple patches'; RETURN polished_work;",
+      "inputs": ["draft_status", "time_since_conception"],
+      "outputs": ["readiness_judgment"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Is every part of the work essential to one simple whole?", "valid_if": "YES"},
+    {"id": "Q2", "question": "Do the style and speech match the character's age, rank, and situation (Decorum)?", "valid_if": "YES"},
+    {"id": "Q3", "question": "Does the work enter 'in medias res' (into the heart of things)?", "valid_if": "YES"},
+    {"id": "Q4", "question": "Are 'purple patches' (isolated brilliant but non-functional passages) removed?", "valid_if": "YES"},
+    {"id": "Q5", "question": "Does the work aim to both instruct and delight?", "valid_if": "YES"},
+    {"id": "Q6", "question": "Has the 'labor of the file' been applied to achieve tenfold perfection?", "valid_if": "YES"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "Aristotle's Unity of Action",
+      "McKee's Value Turn (implied in Decorum shifts)",
+      "Tarkovsky's Time-Pressure (Labor requirement)",
+      "Pope's Essay on Criticism (Neo-classical adherence)"
+    ],
+    "sequence_pairs": ["aristotle"]
+  },
+  "quick_reference": {
+    "core_operations": [
+      "Simplex dumtaxat et unum",
+      "Aut prodesse aut delectare",
+      "In medias res",
+      "Labor of the file"
+    ],
+    "key_constraints": [
+      "Five acts only",
+      "No fourth actor struggles",
+      "No unworthy gods intervening",
+      "No middle ground for poets"
+    ]
+  }
+}

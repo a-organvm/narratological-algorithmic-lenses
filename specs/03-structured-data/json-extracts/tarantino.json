@@ -39,6 +39,12 @@
       "name": "75/25 Rule",
       "statement": "75% of stories work better linear; 25% gain resonance from non-linear telling. Know which you have.",
       "derivations": ["Test for resonance gain before scrambling", "Not on a crusade against linear storytelling", "Non-linear must create meaning"]
+    },
+    {
+      "id": "QT-A6",
+      "name": "Discovery Writing Paradox",
+      "statement": "The characters write the piece. Refuse to think ahead of the characters; if they don't know something, the writer doesn't know it either.",
+      "derivations": ["Character-led navigation", "Sequential discovery", "Commitment to ignorance"]
     }
   ],
   "structural_hierarchy": {
@@ -117,6 +123,20 @@
       "pseudocode": "PHASE 1: CONVERGENCE - Multiple armed parties, incompatible goals\nPHASE 2: EQUILIBRIUM - Weapons raised, stasis through terror\nPHASE 3: ESCALATION - Dialogue increases tension, new information\nPHASE 4: RESOLUTION - Carnage, negotiated exit, external interruption, or philosophical resolution",
       "inputs": ["parties", "incompatible_goals", "power_balance"],
       "outputs": ["standoff_structure", "resolution_type", "survivor_logic"]
+    },
+    {
+      "name": "Genre-Anchored Discovery Writing",
+      "purpose": "Use genre conventions as a structural scaffold to enable character-led discovery",
+      "pseudocode": "1. SELECT sub-genre; 2. IDENTIFY genre endpoint; 3. DEVELOP characters; 4. DISCOVER route sequentially; 5. TRUST genre pull; 6. CUT non-essential scenes;",
+      "inputs": ["sub_genre", "initial_characters"],
+      "outputs": ["discovered_narrative", "genre_fidelity_score"]
+    },
+    {
+      "name": "The Operatic Synthesis",
+      "purpose": "Elevate narrative to operatic proportions through heightened genre and music",
+      "pseudocode": "SYNTHESIS = heightened_genre + heightened_music + operatic_proportions; ENSURE emotional_maximalism == TRUE; RETURN tarantino_baseline_register;",
+      "inputs": ["genre_elements", "musical_tradition"],
+      "outputs": ["operatic_impact", "tonal_resonance"]
     }
   ],
   "diagnostic_questions": [
@@ -157,7 +177,7 @@
     },
     {
       "id": "Q8",
-      "question": "Have you identified your 'Sicilian scene' where dialogue becomes life-or-death?",
+      "question": "Have you identified your 'Sicilian scene'—where dialogue becomes life-or-death?",
       "valid_if": "At least one scene where weaker character gains moral victory through speech"
     },
     {
@@ -189,12 +209,18 @@
       "id": "Q14",
       "question": "If mixing genres, where are the collision points?",
       "valid_if": "Collision type identified (sequential, layered, tonal whiplash, hybrid)"
+    },
+    {
+      "id": "Q15",
+      "question": "Is the genre being used as a 'vehicle' for difficult or shameful content?",
+      "valid_if": "YES (e.g., The Southern)"
     }
   ],
   "theoretical_correspondences": {
     "maps_to": [
       "Ovid's Metamorphoses - non-linear linking masters, tonal modulation, linking devices",
-      "Larry David - dialogue as action/conflict, extended scenes, collision concept, digressive monologue"
+      "Larry David - dialogue as action/conflict, extended scenes, collision concept, digressive monologue",
+      "The Southern - Spaghetti Western aesthetics + shameful history content"
     ],
     "sequence_pairs": ["Ovid-Metamorphoses", "Larry-David-Curb"]
   },
@@ -205,14 +231,16 @@
       "DEFERRAL(threat_announced -> payoff_delayed)",
       "CHAPTER_ARCHITECTURE(autonomous_yet_integrated)",
       "GENRE_COLLISION(multiple_sub_genres)",
-      "STANDOFF_DYNAMICS(competing_interests)"
+      "STANDOFF_DYNAMICS(competing_interests)",
+      "GENRE_AS_OUTLINE(discovery_method)"
     ],
     "key_constraints": [
       "Chronology: IF scramble creates irony/resonance -> scramble; IF scramble just complicates -> stay linear; Apply 75/25 rule",
       "Dialogue: Tangent -> Tension -> Power Shift -> Defer -> Release; The band stretches and stretches",
       "Violence: Announce threat -> Defer resolution -> Brief payoff; Buildup:Violence ratio = 5:1 or greater",
       "Chapters: Each works alone AND contributes to whole; Title cards signal tonal/POV shifts",
-      "Scene Power: WHO controls NOW? WHEN does power shift? HOW does camera reflect power holder? WHY is violence deferred? WHAT tangent reveals character?"
+      "Scene Power: WHO controls NOW? WHEN does power shift? HOW does camera reflect power holder? WHY is violence deferred? WHAT tangent reveals character?",
+      "Discovery: Refuse to know more than characters while writing"
     ]
   }
 }

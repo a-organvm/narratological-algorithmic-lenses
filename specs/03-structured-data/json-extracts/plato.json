@@ -1,0 +1,115 @@
+{
+  "id": "plato",
+  "creator": "Plato",
+  "work": "The Republic",
+  "category": "Classical",
+  "axioms": [
+    {
+      "id": "P-A0",
+      "name": "Truth over Reverence",
+      "statement": "A man is not to be reverenced more than the truth. Evaluation of narrative must be dispassionate and grounded in reality.",
+      "derivations": ["Objective Critique", "Philosophical Rigor", "Anti-Aestheticism"]
+    },
+    {
+      "id": "P-A1",
+      "name": "Mimetic Art as Inferior",
+      "statement": "The imitative art is an inferior who marries an inferior, and has inferior offspring. It is thrice removed from the truth.",
+      "derivations": ["Ontological Hierarchy", "Appearance vs Reality", "Poetic Unreliability"]
+    },
+    {
+      "id": "P-A2",
+      "name": "Soul Formation",
+      "statement": "Narrative form affects soul formation. Imitations grow into habits and become a second nature, affecting body, voice, and mind.",
+      "derivations": ["Psychic Contagion", "Mimetic Character Debt", "Moral Responsibility of the Poet"]
+    },
+    {
+      "id": "P-A3",
+      "name": "The Master Goal",
+      "statement": "The goal of narrative regulation is justice in the soul, not aesthetic pleasure.",
+      "derivations": ["Psychic Governance", "Rational Primacy", "Censorship Protocol"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "FORMS",
+        "description": "Unique, eternal essences made by God/Nature",
+        "elements": ["The Idea", "True Existence"]
+      },
+      {
+        "level": 2,
+        "name": "PARTICULARS",
+        "description": "Physical objects made by craftsmen; semblances of truth",
+        "elements": ["Physical Instance", "Functional Object"]
+      },
+      {
+        "level": 3,
+        "name": "IMAGES",
+        "description": "Imitations of appearance made by artists; thrice removed from truth",
+        "elements": ["Mimetic Representation", "Shadowy Image"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "Narrative Mode Identification",
+      "purpose": "Classify the relationship between the poet's voice and the story content",
+      "pseudocode": "IF speaker == poet_voice: IF has_speeches: RETURN MIXED; ELSE: RETURN DIEGESIS; ELIF speaker == character_voice: RETURN MIMESIS;",
+      "inputs": ["passage_text", "speaker_identity"],
+      "outputs": ["narrative_mode"]
+    },
+    {
+      "name": "Content Regulation Protocol",
+      "purpose": "Filter narrative elements according to theological and heroic standards",
+      "pseudocode": "IF depicts_god_causing_evil OR depicts_god_transforming: REJECT; IF depicts_death_as_terrible OR hero_excessive_lamentation: REJECT; IF wicked_shown_as_happy: REJECT; ELSE: ADMIT;",
+      "inputs": ["narrative_content"],
+      "outputs": ["admissibility_status", "rejection_reason"]
+    },
+    {
+      "name": "Psychic Contagion Mechanism",
+      "purpose": "Assess how fictional emotions infect the audience's real-world psyche",
+      "pseudocode": "1. Identify target emotion; 2. Identify soul-part addressed (Rational/Spirited/Appetitive); 3. Evaluate if release weakens rational governance; 4. RETURN corruption_risk;",
+      "inputs": ["fictional_emotion", "audience_profile"],
+      "outputs": ["psychic_impact_assessment"]
+    },
+    {
+      "name": "Lie Typology Filter",
+      "purpose": "Distinguish between 'True Lies' (soul ignorance) and 'Verbal Lies' (useful fictions)",
+      "pseudocode": "IF lie_is_about_highest_realities: RETURN TRUE_LIE (ALWAYS_EVIL); ELIF lie_is_for_public_good_by_rulers: RETURN VERBAL_LIE (PERMITTED);",
+      "inputs": ["narrative_falsehood"],
+      "outputs": ["moral_status"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Does the poet speak in their own voice (Diegesis) or as a character (Mimesis)?", "valid_if": "DIEGESIS PREFERRED"},
+    {"id": "Q2", "question": "How many removes from the 'Form' (Truth) is this representation?", "valid_if": "MINIMAL REMOVES"},
+    {"id": "Q3", "question": "Which part of the soul (Rational, Spirited, Appetitive) does this narrative address?", "valid_if": "RATIONAL"},
+    {"id": "Q4", "question": "Are gods depicted as anything other than the source of good things?", "valid_if": "NO"},
+    {"id": "Q5", "question": "Does the work encourage emotional release that the audience would be ashamed of in real life?", "valid_if": "NO"},
+    {"id": "Q6", "question": "Does this work strengthen the 'city within' (rational governance)?", "valid_if": "YES"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "Aristotle's Defense of Mimesis (Contrast)",
+      "Genette's Narrative Discourse (Diegesis/Mimesis)",
+      "Baudrillard's Orders of Simulacra",
+      "Brecht's Alienation Effect (Anti-Mimesis)"
+    ],
+    "sequence_pairs": ["aristotle"]
+  },
+  "quick_reference": {
+    "core_operations": [
+      "Identify Narrative Mode",
+      "Map Ontological Level",
+      "Apply Content Regulation",
+      "Analyze Psychic Contagion"
+    ],
+    "key_constraints": [
+      "God is author of good only",
+      "No fear of death in heroes",
+      "No excessive lamentation",
+      "Truth > Aesthetic pleasure"
+    ]
+  }
+}

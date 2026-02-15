@@ -10,13 +10,13 @@ Horace's *Ars Poetica* (Epistle to the Pisos) operates as practical craft instru
 
 | Axiom | Formulation |
 |-------|-------------|
-| H0 | Poetry requires both **genius AND art**â€”neither barren toil nor untrained talent suffices |
-| H1 | The goal of poetry is to **instruct, delight, or both** (*aut prodesse aut delectare*) |
-| H2 | **Unity** is the supreme virtueâ€”no part should be dispensable or incongruous |
-| H3 | **Decorum** governs all choicesâ€”appropriateness to subject, character, genre, and audience |
-| H4 | The **probable impossible** is preferable to the **improbable possible** (via Aristotle) |
-| H5 | **Labor and revision** distinguish the artist from the amateur |
-| H6 | There is no **mediocrity in poetry**â€”excellence or nothing |
+| H-A0 | **"Genius AND Art."** Poetry requires both natural gift and disciplined study. |
+| H-A1 | **"Instruct and Delight."** The goal is to benefit (prodesse) and please (delectare). |
+| H-A2 | **"Unity as Supreme Virtue."** Every part must be essential to one simple whole. |
+| H-A3 | **"Decorum governs All."** Appropriateness to subject, character, genre, and audience. |
+| H-A4 | **"No Middle Ground."** Poetry admits no mediocrity; excellence or nothing. |
+| H-A5 | **Labor and revision** distinguish the artist from the amateur. |
+| H-A6 | The **probable impossible** is preferable to the **improbable possible**. |
 
 ### 0.1 The Dual Requirement: Genius + Labor
 
@@ -470,7 +470,7 @@ IMPLEMENTATION:
     return "True to one point, persu'd from end to end"
 ```
 
-### 4.3 Show vs. Tell Algorithm
+### 4.3 Show vs Tell Decision Tree
 
 ```
 PRINCIPLE:
@@ -1117,6 +1117,21 @@ def validate_work(work):
 | Sympathy principle | Emotional identification | Empathy for protagonist | Emotional grounding | Audience connection |
 | Character consistency | Character consistency | Arc integrity | Character bible | Character logic |
 | Nine-year rule | â€” | Patience/timing | Development cycles | Gestation period |
+
+## Structural Hierarchy
+
+The work must function as **ONE_SIMPLE_WHOLE**, a unified design. Within this whole, dramatic works are divided into five **ACT** segments. Each part of the action is a **SCENE** (displayed or narrated), and the atomic level is **DICTION** (word choice and meter).
+
+---
+
+## Diagnostic Questions
+
+1. **Is every part of the work essential to one simple whole?** (YES)
+2. **Do the style and speech match the character's age, rank, and situation (Decorum)?** (YES)
+3. **Does the work enter 'in medias res' (into the heart of things)?** (YES)
+4. **Are 'purple patches' (isolated brilliant but non-functional passages) removed?** (YES)
+5. **Does the work aim to both instruct and delight?** (YES)
+6. **Has the 'labor of the file' been applied to achieve tenfold perfection?** (YES)
 
 ---
 

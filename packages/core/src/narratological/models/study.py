@@ -23,6 +23,7 @@ class Category(str, Enum):
     LITERATURE = "Literature"
     INTERACTIVE = "Interactive"
     ANIMATION = "Animation"
+    META = "Meta"
 
 
 class Axiom(BaseModel):

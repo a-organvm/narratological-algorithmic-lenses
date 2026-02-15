@@ -1,0 +1,121 @@
+{
+  "id": "south-park",
+  "creator": "Trey Parker & Matt Stone",
+  "work": "South Park / 6 Days to Air",
+  "category": "Television",
+  "axioms": [
+    {
+      "id": "SP-A0",
+      "name": "The Rule of Replacing Ands",
+      "statement": "If the words 'and then' belong between beats, you're fucked. Replace them with 'BUT' or 'THEREFORE'.",
+      "derivations": ["Causal Binding", "Anti-Episodic Logic", "Structural Tightness"]
+    },
+    {
+      "id": "SP-A1",
+      "name": "Revision as Diagnostic",
+      "statement": "The technique is a revision diagnostic, not just a planning tool. Hunt for 'ands' during the rewrite.",
+      "derivations": ["Systematic Refinement", "Structural Auditing", "Iterative Improvement"]
+    },
+    {
+      "id": "SP-A2",
+      "name": "Single A-Story Focus",
+      "statement": "A single well-told A-story outperforms episodes juggling multiple diluted subplots.",
+      "derivations": ["Concentrated Causation", "Narrative Economy", "Primacy of the Main Arc"]
+    },
+    {
+      "id": "SP-A3",
+      "name": "Clarity over Complexity",
+      "statement": "Just do one thing really right. All you need is clarity.",
+      "derivations": ["Structural Simplicity", "Avoidance of Padding", "Momentum Maintenance"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "STORY",
+        "description": "The complete causal sequence",
+        "elements": ["Macro-Arc", "Value Reversal"]
+      },
+      {
+        "level": 2,
+        "name": "ACT",
+        "description": "Major structural division",
+        "elements": ["Setup", "Escalation", "Resolution"]
+      },
+      {
+        "level": 3,
+        "name": "BEAT",
+        "description": "The atomic story event",
+        "elements": ["Action", "Choice", "Impact"]
+      },
+      {
+        "level": 4,
+        "name": "CONNECTOR",
+        "description": "The logical relationship between beats",
+        "elements": ["BUT", "THEREFORE", "AND_THEN"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "Three-Word Diagnostic",
+      "purpose": "Identify and fix weak episodic transitions between story beats",
+      "pseudocode": "FOR each transition(A, B): IF B is consequence of A: RETURN THEREFORE; ELIF B is complication of A: RETURN BUT; ELSE: RETURN AND_THEN (FAIL);",
+      "inputs": ["beat_sequence"],
+      "outputs": ["connector_map", "problem_areas"]
+    },
+    {
+      "name": "The Shuffle Test",
+      "purpose": "Verify structural necessity through reorderability check",
+      "pseudocode": "FOR each permutation of beats: IF story_still_works(permutation): RETURN EPISODIC (FAIL); RETURN CAUSAL (PASS);",
+      "inputs": ["beat_sequence"],
+      "outputs": ["reorderability_score", "structural_validity"]
+    },
+    {
+      "name": "The Status Quo Test",
+      "purpose": "Ensure every scene creates persistent change",
+      "pseudocode": "IF world_state_before == world_state_after: RETURN AND_THEN (DELETE); ELSE: RETURN ORGANIC (RETAIN);",
+      "inputs": ["scene_content"],
+      "outputs": ["necessity_assessment"]
+    },
+    {
+      "name": "Subplot Integration Protocol",
+      "purpose": "Ensure all subplots causally interlink with the primary arc",
+      "pseudocode": "IF B-plot_resolution CAUSES A-plot_resolution: RETURN VALID; ELSE: RETURN INORGANIC (REJECT);",
+      "inputs": ["primary_plot", "secondary_plots"],
+      "outputs": ["interlinkage_status"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Does Scene B happen BECAUSE of Scene A?", "valid_if": "YES"},
+    {"id": "Q2", "question": "What PREVENTS the character from achieving their goal easily?", "valid_if": "CLEAR OBSTACLE"},
+    {"id": "Q3", "question": "Has the character changed because of this scene?", "valid_if": "YES"},
+    {"id": "Q4", "question": "What NEW PROBLEM emerges from the resolution?", "valid_if": "NOT NULL"},
+    {"id": "Q5", "question": "If I removed this scene, would anything downstream break?", "valid_if": "YES"},
+    {"id": "Q6", "question": "Are subplots interlinked with the main plot through causation?", "valid_if": "YES"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "Aristotle's Propter Hoc (Causation)",
+      "E.M. Forster's Plot definition",
+      "Pixar's 'Because of That' Story Spine",
+      "McKee's Progressive Complications"
+    ],
+    "sequence_pairs": []
+  },
+  "quick_reference": {
+    "core_operations": [
+      "Replace 'AND THEN' with 'BUT' or 'THEREFORE'",
+      "Apply the Shuffle Test for reorderability",
+      "Focus on a single tight A-story",
+      "Verify character choices drive transitions"
+    ],
+    "key_constraints": [
+      "No 'And Then' connectors allowed",
+      "World must change persistently each beat",
+      "Protagonist must be active, not passive",
+      "Complexity is a weakness; clarity is a strength"
+    ]
+  }
+}

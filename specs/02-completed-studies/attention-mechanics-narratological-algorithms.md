@@ -1,6 +1,6 @@
 # Attention Mechanics: A Cross-Media Meta-Principles Framework
 
-A foundational theoretical document establishing attention as the ur-currency of narrative and formalizing the mechanisms by which different media sustain engagement across time.
+A foundational theoretical document by **Cross-Media Synthesis** establishing attention as the ur-currency of narrative.
 
 **Status**: Meta-theoretical foundation (sits above individual artist/theorist algorithms)
 
@@ -337,7 +337,7 @@ INVOLUNTARY_RESPONSE_HIERARCHY:
 
 > "There is a principle in human nature which is disposed to raise a laugh, and this which you once restrained by reason, because you were afraid of being thought a buffoon, is now let out again."
 
-### 3.3 The Husband Test / The Brave Test
+### 3.3 Involuntary Response Test (The Husband Test / The Brave Test)
 
 ```python
 def involuntary_response_test(content: Narrative, audience: Person) -> bool:
@@ -500,7 +500,7 @@ SUBVERSION_DENSITY:
     Example: Godard, experimental film
 ```
 
-### 4.4 Mode Mixing
+### 4.4 Prediction Mode Assessment (Mode Mixing)
 
 ```python
 def assess_mode_mixing(narrative: Narrative) -> MixAssessment:
@@ -582,7 +582,7 @@ DENSITY_COMPENSATION_PRINCIPLE:
     - Pixar: Strong causation AND high density = maximum sustained attention
 ```
 
-### 5.3 The Parallel Stream Architecture
+### 5.3 Parallel Stream Audit (The Parallel Stream Architecture)
 
 ```
 PARALLEL_STREAM_MODEL:
@@ -1001,6 +1001,21 @@ This framework introduces:
 â”‚                                                                 â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
+
+## Structural Hierarchy
+
+Engagement is measured across the complete **ATTENTION_ARC**. Within this arc, individual **MOMENTUM_BLOCK** units (scenes, sequences) sustain focus. The atomic level is the **ATTENTION_UNIT** (frame, word, input).
+
+---
+
+## Diagnostic Questions
+
+1. **Does every micro-moment provide a justification for continued attention?** (YES)
+2. **Does the work target an involuntary physiological response (Tier 1)?** (NOT NULL)
+3. **Is causal binding (But/Therefore) strong enough to create momentum?** (YES)
+4. **Is information density high enough to compensate for any structural weaknesses?** (YES)
+5. **Which prediction mode (Anticipation vs Jazz) is dominant at the beat level?** (CONSISTENT)
+6. **Would the audience disengage if one sensory channel (e.g., audio) were removed?** (NO)
 
 ---
 
