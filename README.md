@@ -1,69 +1,117 @@
 # Narratological Algorithmic Lenses
 
-A monorepo for formalized narrative analysis tools and source materials.
+A computational engine for formalizing, analyzing, and applying narrative craft. 
+
+This system transforms abstract storytelling principles—from **Aristotle's** *Poetics* to **Phoebe Waller-Bridge's** *Fleabag*—into executable algorithms that can diagnose scripts, identify structural weaknesses, and simulate "Script Doctor" consultations.
+
+## Core Capabilities
+
+### 1. The Compendium
+A living library of 18+ formalized narrative frameworks, including:
+- **Classical**: Aristotle, Bharata Muni (Natyasastra), Ovid.
+- **Film**: Tarkovsky (Time-Pressure), Bergman (Interiority), Tarantino (Non-Linearity), Lynch (Dream Logic).
+- **Television**: Phoebe Waller-Bridge (Layered Obstacles), Larry David (Comedy Geometry).
+- **Interactive**: Zelda (Exploration), Final Fantasy (Ensemble).
+- **Comics**: Alan Moore (Formalism), Grant Morrison (Hypersigil), Kirby (Mythopoeia).
+
+### 2. Deep Diagnostics
+Quantitative and qualitative analysis of script structure:
+- **Causal Binding**: Measures the ratio of "THEREFORE/BUT" connections vs. "AND THEN" (Target > 60%).
+- **Reorderability**: Identifies scenes that can be moved without breaking causality (lower is better).
+- **Necessity**: Flags scenes that serve no structural or character function.
+- **Information Economy**: Detects redundant exposition and missing setups.
+
+### 3. The Script Doctor
+Collaborative AI analysis that simulates a writers' room with master creators:
+- **Pairings**: Ask **Tarkovsky** and **Bergman** to debate your script's pacing.
+- **Consultations**: Get a "prescription" for your second act from **Phoebe Waller-Bridge**.
+- **Dialogue**: Receive feedback formatted as a philosophical debate between conflicting narrative schools.
+
+### 4. Fountain Integration
+Native support for the **Fountain** screenplay format, allowing direct ingestion of professional scripts from Highland 2, Fade In, or VS Code.
+
+---
 
 ## Repository Layout
 
 ```text
 narratological-algorithmic-lenses/
-├── specs/                    # Narrative source material, templates, JSON exports
-│   ├── 00-chat-transcripts/
-│   ├── 01-primary-sources/
-│   ├── 02-completed-studies/
-│   ├── 03-structured-data/
-│   ├── 04-templates/
-│   ├── 05-secondary-sources/
-│   ├── 06-open-view-drafts/
-│   └── 07-skill-documentation/
-├── packages/
-│   ├── core/                 # Python library (models, algorithms, diagnostics)
-│   ├── cli/                  # Typer CLI wrapper
+├── specs/                    # The Knowledge Base
+│   ├── 02-completed-studies/ # Markdown source of truth for all algorithms
+│   ├── 03-structured-data/   # Validated JSON extracts (Compendium)
+│   └── 06-open-view-drafts/  # Case study screenplays
+├── packages/                 # The Software Stack
+│   ├── core/                 # Python library (models, parsers, diagnostics, LLM)
+│   ├── cli/                  # Command-line interface (Typer)
 │   ├── api/                  # FastAPI service
-│   └── web/                  # React + Vite frontend
-├── open-view-analysis/       # Research drafts and protocol worksheets
-├── pyproject.toml            # Workspace + pytest/ruff/mypy configuration
-└── package.json              # Web workspace scripts
+│   └── web/                  # React + Vite visualization dashboard
+└── docs/                     # Documentation & Roadmaps
 ```
 
 ## Getting Started
 
-### Python workspace
+### Prerequisites
+- Python 3.11+
+- `uv` (Universal Python Package Installer)
+- `npm` (for web dashboard)
+
+### Installation
 
 ```bash
+# Initialize Python workspace
 uv sync
-uv run pytest
-uv run narratological --help
-uv run uvicorn narratological_api.main:app --reload
-```
 
-### Web workspace
-
-```bash
+# Initialize Web workspace
 npm install
-npm run web:dev
-npm run web:build
-npm run web:test
 ```
 
-## Testing
+### Key Commands
 
-- Root Python test gate: `uv run pytest`
-- Core tests: `uv run pytest packages/core/tests`
-- CLI tests: `uv run pytest packages/cli/tests`
-- API tests: `uv run pytest packages/api/tests`
-- Web tests: `npm run web:test`
+**1. Analyze a Script**
+Run deep diagnostics on a Fountain or text script:
+```bash
+# Full battery (Causal, Reorderability, Necessity)
+uv run narratological diagnose all my_script.fountain
 
-## Data Loading
+# Targeted Causal Binding check
+uv run narratological diagnose causal my_script.fountain --target 0.8
+```
 
-The core package includes a bundled compendium at:
+**2. Consult the Script Doctor**
+Simulate a creative consultation between two masters:
+```bash
+# Consult Tarkovsky and Bergman (Sequence B)
+uv run narratological analyze script-doctor my_script.fountain --sequence B
 
-- `packages/core/src/narratological/data/narratological-algorithms-unified.json`
+# Custom pairing: Larry David vs. Aristotle
+uv run narratological analyze script-doctor my_script.fountain --primary larry-david --secondary aristotle
+```
 
-The loader resolves packaged resources first and falls back to repository paths for local development.
+**3. Explore the Compendium**
+```bash
+# List all available studies
+uv run narratological info
 
-## Notes
+# Validate data integrity
+uv run narratological validate compendium
+```
 
-- Requires Python 3.11+.
-- LLM-backed features require `ANTHROPIC_API_KEY` or `OPENAI_API_KEY`.
-- For deterministic local checks, run `uv run ruff check ...` and `uv run mypy ...` before opening a PR.
-- Quality ratchet policy: changes must not introduce new `ruff` or `mypy` violations in modified files.
+## Development
+
+### Data Synchronization
+The system maintains strict synchronization between Markdown research files and JSON computational models.
+If you edit a study in `specs/02-completed-studies/`, run:
+```bash
+uv run narratological validate sync
+```
+
+### Testing
+```bash
+uv run pytest                  # Run all Python tests
+uv run ruff check .            # Linting
+npm run web:test               # Run frontend tests
+```
+
+---
+
+*There and Back Again.*
