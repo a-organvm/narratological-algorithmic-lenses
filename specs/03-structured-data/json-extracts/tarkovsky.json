@@ -84,14 +84,14 @@
       "outputs": ["time_pressure_value", "cut_decision (CUT_VALID | EXTEND_OR_ADJUST | CONTINUE_SHOT)"]
     },
     {
-      "name": "Haiku Image Protocol",
+      "name": "Haiku Principle",
       "purpose": "Create images that mean nothing beyond themselves through direct perception unmediated by explanation",
       "pseudocode": "INPUT: object/scene; PROCESS: 1. Present image as it is without interpretation; 2. Meaning pre-exists in image, not constructed; 3. Juxtapose disparate elements to create whole larger than parts; 4. No symbolic encoding - image IS, does not REPRESENT; OUTPUT: direct_perception; ANTI-PATTERNS: [building through conventional methods, linguistic mediation, explanation of significance]",
       "inputs": ["subject", "object", "scene"],
       "outputs": ["direct_perception", "unmediated_image"]
     },
     {
-      "name": "Contemplative Image Algorithm",
+      "name": "Observation Algorithm",
       "purpose": "Achieve meditative image quality where camera observes rather than dramatizes",
       "pseudocode": "1. image = capture_without_stylization(subject); 2. sound = record_ambient_reality(environment); 3. duration = calculate_contemplation_duration(complexity); 4. associations = find_emotional_resonances(elements); 5. IF enhances_meaning: incorporate_painting/music/poetry; 6. NEVER: add_explanatory_voiceover OR use_conventional_symbolism; RETURN: MeditativeImage(image, sound, duration, associations, interpretation=None)",
       "inputs": ["subject", "environment", "complexity"],
@@ -105,7 +105,7 @@
       "outputs": ["poetic_arrangement", "memory-structured_narrative"]
     },
     {
-      "name": "Depict Transcendent Algorithm",
+      "name": "Depicting the Invisible",
       "purpose": "Show what cannot be shown by depicting the invisible through what it touches and moves",
       "pseudocode": "NEVER: represent_god_directly OR state_spiritual_truth_explicitly; visible_effects = find_material_manifestations(spiritual_content); FOR effect IN visible_effects: show_effect_on_material_world(effect); RETURN: Image(content=visible_effects, meaning=spiritual_content, access='felt, not explained')",
       "inputs": ["spiritual_content"],
