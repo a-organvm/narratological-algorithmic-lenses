@@ -89,8 +89,10 @@ class CausalBindingDiagnostic(BaseDiagnostic):
             transitions = context.transitions
         elif context.beat_map_available:
             transitions = self._extract_transitions_from_context(context)
+            context.transitions = transitions
         elif self.provider is not None:
             transitions = self._analyze_transitions_with_llm(context)
+            context.transitions = transitions
         else:
             # Cannot analyze without data or LLM
             return [
@@ -152,6 +154,7 @@ class CausalBindingDiagnostic(BaseDiagnostic):
             return self._calculate_score_from_transitions(context.transitions)
         elif context.beat_map_available:
             transitions = self._extract_transitions_from_context(context)
+            context.transitions = transitions
             return self._calculate_score_from_transitions(transitions)
 
         # Cannot calculate without data
@@ -214,47 +217,56 @@ class CausalBindingDiagnostic(BaseDiagnostic):
         self,
         context: DiagnosticContext,
     ) -> list[SceneTransition]:
-        """Use LLM to analyze scene transitions."""
+        """Use LLM to analyze scene transitions in overlapping chunks."""
         if self.provider is None:
             return []
 
-        prompt = self._build_analysis_prompt(context)
+        # Split scenes into chunks of 20 with 2-scene overlap
+        chunks = self._get_chunks(context.scenes, chunk_size=20, overlap=2)
+        all_transitions = []
+        seen_pairs = set()
 
-        try:
-            response = self.provider.complete_structured(
-                prompt,
-                LLMCausalResponse,
-                system=self._build_system_prompt(),
-            )
+        for chunk in chunks:
+            prompt = self._build_chunk_prompt(context.title, chunk)
 
-            transitions = []
-            for llm_trans in response.transitions:
-                connector_map = {
-                    "BUT": ConnectorType.BUT,
-                    "THEREFORE": ConnectorType.THEREFORE,
-                    "AND_THEN": ConnectorType.AND_THEN,
-                    "AND THEN": ConnectorType.AND_THEN,
-                    "MEANWHILE": ConnectorType.MEANWHILE,
-                }
-                connector = connector_map.get(llm_trans.connector.upper())
-
-                transitions.append(
-                    SceneTransition(
-                        from_scene=llm_trans.from_scene,
-                        to_scene=llm_trans.to_scene,
-                        connector=connector,
-                        explanation=llm_trans.explanation,
-                        is_causal=llm_trans.is_causal,
-                    )
+            try:
+                response = self.provider.complete_structured(
+                    prompt,
+                    LLMCausalResponse,
+                    system=self._build_system_prompt(),
                 )
 
-            return transitions
+                for llm_trans in response.transitions:
+                    pair = (llm_trans.from_scene, llm_trans.to_scene)
+                    if pair in seen_pairs:
+                        continue
+                    seen_pairs.add(pair)
 
-        except Exception as e:
-            print(f"[DEBUG] LLM Causal Analysis failed: {e}")
-            import traceback
-            traceback.print_exc()
-            return []
+                    connector_map = {
+                        "BUT": ConnectorType.BUT,
+                        "THEREFORE": ConnectorType.THEREFORE,
+                        "AND_THEN": ConnectorType.AND_THEN,
+                        "AND THEN": ConnectorType.AND_THEN,
+                        "MEANWHILE": ConnectorType.MEANWHILE,
+                    }
+                    connector = connector_map.get(llm_trans.connector.upper())
+
+                    all_transitions.append(
+                        SceneTransition(
+                            from_scene=llm_trans.from_scene,
+                            to_scene=llm_trans.to_scene,
+                            connector=connector,
+                            explanation=llm_trans.explanation,
+                            is_causal=llm_trans.is_causal,
+                        )
+                    )
+
+            except Exception as e:
+                # Log error for this chunk but continue with others
+                print(f"[DEBUG] Causal analysis failed for chunk: {e}")
+                continue
+
+        return all_transitions
 
     def _calculate_score_from_transitions(
         self,
@@ -286,17 +298,15 @@ For each transition between scenes, determine the connector type:
 Strong narratives use BUT and THEREFORE (causal connectors).
 Weak narratives use AND_THEN (episodic, non-causal)."""
 
-    def _build_analysis_prompt(self, context: DiagnosticContext) -> str:
-        """Build analysis prompt for LLM."""
+    def _build_chunk_prompt(self, title: str, scenes: list[dict]) -> str:
+        """Build analysis prompt for a specific chunk of scenes."""
         scenes_text = []
-        for s in context.scenes[:30]:  # Limit for context window
+        for s in scenes:
             scenes_text.append(
                 f"Scene {s.get('number', '?')}: {s.get('summary', 'No summary')}"
             )
 
-        return f"""Analyze the causal binding between scenes in this script.
-
-TITLE: {context.title}
+        return f"""Analyze the causal binding between the following scenes in the script "{title}".
 
 SCENES:
 {chr(10).join(scenes_text)}
@@ -310,3 +320,7 @@ Respond with JSON containing:
 - transitions: Array of transition analyses
 - weak_transitions: Scene numbers with weak (AND_THEN) binding
 - recommendations: Suggestions for improving causal binding"""
+
+    def _build_analysis_prompt(self, context: DiagnosticContext) -> str:
+        """Deprecated: use _build_chunk_prompt instead."""
+        return ""

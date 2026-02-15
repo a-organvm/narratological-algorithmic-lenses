@@ -57,7 +57,7 @@ EPISODE
 | Unit | Definition | Constraint |
 |------|------------|------------|
 | **Storyline** | One character's independent pursuit of a goal | Must be funny *in isolation* AND *in intersection* |
-| **Bridge Element** | Object, location, or acquaintance appearing in multiple storylines | Must seem insignificant when planted |
+| **Bridge Element** | The planted connector between lines (**BRIDGE_ELEMENT**) | Must seem insignificant when planted |
 | **Collision Point** | Moment when storylines mechanically intersect | Must be causal, not coincidental at resolution |
 | **Retrofit** | Reverse-engineering setups from a discovered collision | Standard practice; non-linear composition |
 
@@ -301,15 +301,14 @@ Comedy that feels spontaneous but is architecturally precise.
 
 ## 8. Structural Diagnostic Questions
 
-Before finalizing any episode, apply these five questions:
+Before finalizing any episode, apply these questions:
 
-| # | Question | Target |
-|---|----------|--------|
-| 1 | What object, location, or person can connect multiple storylines without characters knowing? | Bridge elements |
-| 2 | What action in Storyline A could mechanically affect Storyline B's outcome? | Causal linkage |
-| 3 | Working backwards: what collision would be most satisfying? What setups does that require? | Retrofit validation |
-| 4 | Is each storyline funny independently, AND funny in how it intersects? | Dual comedy test |
-| 5 | Does the resolution feel like cause-and-effect, or like cosmic moral judgment? | Amoral karma check |
+1. **What object, location, or person connects multiple storylines without characters knowing?** (Bridge elements)
+2. **Does an action in Storyline A mechanically affect Storyline B's outcome?** (Causal linkage)
+3. **Is each storyline funny in complete isolation?** (Dual comedy test)
+4. **Does the resolution feel like cause-and-effect rather than moral judgment?** (Amoral karma check)
+5. **Do characters end exactly where they started, without learning a lesson?** (Static character state)
+6. **Is the biggest laugh positioned at the moment of collision?** (Climactic placement)
 
 ---
 

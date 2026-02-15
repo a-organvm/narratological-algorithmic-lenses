@@ -158,6 +158,38 @@ class BaseDiagnostic(ABC):
             framework_source=self.diagnostic_type.value,
         )
 
+    def _get_chunks(self, scenes: list[dict], chunk_size: int = 20, overlap: int = 2) -> list[list[dict]]:
+        """Split scenes into overlapping chunks for exhaustive analysis.
+        
+        Args:
+            scenes: The full list of scene dictionaries.
+            chunk_size: Number of scenes per chunk.
+            overlap: Number of scenes to overlap between chunks (to maintain transition context).
+            
+        Returns:
+            List of scene lists (chunks).
+        """
+        if not scenes:
+            return []
+            
+        if len(scenes) <= chunk_size:
+            return [scenes]
+            
+        chunks = []
+        start = 0
+        while start < len(scenes):
+            end = min(start + chunk_size, len(scenes))
+            chunks.append(scenes[start:end])
+            
+            # If we've reached the end, stop
+            if end == len(scenes):
+                break
+                
+            # Move start forward by chunk_size - overlap
+            start += (chunk_size - overlap)
+            
+        return chunks
+
     def __repr__(self) -> str:
         """String representation."""
         return f"{self.__class__.__name__}(type={self.diagnostic_type.value})"

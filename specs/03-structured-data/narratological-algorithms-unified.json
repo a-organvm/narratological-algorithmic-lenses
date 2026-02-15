@@ -2,8 +2,8 @@
   "meta": {
     "title": "Narratological Algorithmic Lenses Compendium",
     "version": "0.1.0",
-    "generated": "2026-02-15T10:16:43.323883",
-    "study_count": 17,
+    "generated": "2026-02-15T11:43:07.167418",
+    "study_count": 18,
     "categories": [
       "Animation",
       "Classical",
@@ -1776,6 +1776,204 @@
           "Genre conventions must be treated as literal historical events",
           "Future setting must illuminate current conditions",
           "Information must function as both weapon and liberation"
+        ]
+      },
+      "signature_patterns": null
+    },
+    "larry-david": {
+      "id": "larry-david",
+      "creator": "Larry David",
+      "work": "Seinfeld / Curb Your Enthusiasm",
+      "category": "Television",
+      "axioms": [
+        {
+          "id": "LD-A0",
+          "name": "No Hugging, No Learning",
+          "statement": "Characters never develop, mature, or learn from mistakes. Sentimentality is rejected in favor of behavioral realism.",
+          "derivations": [
+            "Static character state",
+            "Rejection of growth arcs",
+            "Emotional equilibrium"
+          ]
+        },
+        {
+          "id": "LD-A1",
+          "name": "Mechanical Karma",
+          "statement": "Consequences arise from causal chains, not ethical judgments. The universe is amoral and reacts to actions, not intentions.",
+          "derivations": [
+            "Amoral karma engine",
+            "Causal punishment",
+            "Logical vs Moral outcomes"
+          ]
+        },
+        {
+          "id": "LD-A2",
+          "name": "Comedy Geometry",
+          "statement": "The mathematical arrangement of story intersections where actions in one plot mechanically trigger disasters in another.",
+          "derivations": [
+            "Interwoven plotting",
+            "Structural collision",
+            "Mathematical precision"
+          ]
+        },
+        {
+          "id": "LD-A3",
+          "name": "Pattern Completion",
+          "statement": "Satisfaction comes from pattern completion, not justice. The closure is structural, not moral.",
+          "derivations": [
+            "Operational aesthetic",
+            "Inevitability",
+            "Closure through collision"
+          ]
+        }
+      ],
+      "structural_hierarchy": {
+        "levels": [
+          {
+            "level": 1,
+            "name": "EPISODE",
+            "description": "The complete 22-minute mechanical unit",
+            "elements": [
+              "Thematic Convergence",
+              "Final Collision"
+            ]
+          },
+          {
+            "level": 2,
+            "name": "STORYLINE",
+            "description": "Parallel independent pursuit of goals",
+            "elements": [
+              "Whim/Ramification",
+              "Personal Antagonism",
+              "Goal-Oriented"
+            ]
+          },
+          {
+            "level": 3,
+            "name": "SCENE",
+            "description": "Cross-cut unit of action",
+            "elements": [
+              "Pacing",
+              "Bridge Introduction"
+            ]
+          },
+          {
+            "level": 4,
+            "name": "BRIDGE_ELEMENT",
+            "description": "The planted connector between lines",
+            "elements": [
+              "Shared Location",
+              "Transferred Object",
+              "Mutual Acquaintance"
+            ]
+          }
+        ]
+      },
+      "core_algorithms": [
+        {
+          "name": "Retrofit Plotting Algorithm",
+          "purpose": "Reverse-engineer setups from a discovered or designed collision point",
+          "pseudocode": "1. DESIGN satisfying collision point; 2. IDENTIFY required bridge elements (object/location/person); 3. PLANT bridges insignificantly in early scenes; 4. VERIFY causal chain without premature revelation;",
+          "inputs": [
+            "collision_concept",
+            "storylines"
+          ],
+          "outputs": [
+            "calibrated_setups",
+            "geometry_map"
+          ]
+        },
+        {
+          "name": "Amoral Karma Engine",
+          "purpose": "Generate consequences based on mechanical causation rather than moral worth",
+          "pseudocode": "FOR each action: TRACE physical consequences; IF action intersects BRIDGE_ELEMENT: TRIGGER collision; IGNORE character_moral_standing; RETURN mechanical_outcome;",
+          "inputs": [
+            "character_action",
+            "bridge_elements"
+          ],
+          "outputs": [
+            "mechanical_consequence",
+            "ironic_justice"
+          ]
+        },
+        {
+          "name": "Storyline Independence Test",
+          "purpose": "Ensure each parallel line is viable in isolation before collision",
+          "pseudocode": "FOR each storyline: TEST internal_validity; TEST isolation_comedy; TEST intersection_potential; IF passes ALL: STORYLINE_VALID; ELSE: REDESIGN;",
+          "inputs": [
+            "storyline_drafts"
+          ],
+          "outputs": [
+            "validity_report",
+            "comedy_metrics"
+          ]
+        },
+        {
+          "name": "Curb Protocol",
+          "purpose": "Combine rigid structural precision with authentic, fluid dialogue",
+          "pseudocode": "FIXED: {beats, motivations, convergences, collisions}; FLUID: {dialogue, additional_connections, character_voice}; STEER improv BACK TO fixed_beats;",
+          "inputs": [
+            "episode_outline",
+            "character_voice"
+          ],
+          "outputs": [
+            "spontaneous_architecture",
+            "authentic_comedy"
+          ]
+        }
+      ],
+      "diagnostic_questions": [
+        {
+          "id": "Q1",
+          "question": "What object, location, or person connects multiple storylines without characters knowing?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q2",
+          "question": "Does an action in Storyline A mechanically affect Storyline B's outcome?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q3",
+          "question": "Is each storyline funny in complete isolation?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q4",
+          "question": "Does the resolution feel like cause-and-effect rather than moral judgment?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q5",
+          "question": "Do characters end exactly where they started, without learning a lesson?",
+          "valid_if": "YES"
+        },
+        {
+          "id": "Q6",
+          "question": "Is the biggest laugh positioned at the moment of collision?",
+          "valid_if": "YES"
+        }
+      ],
+      "theoretical_correspondences": {
+        "maps_to": [
+          "Feydeau's Farce Mechanics (improbable contrivance, meeting of avoiders)",
+          "Jason Mittell's Operational Aesthetic (narrative complexity)",
+          "Aristotle's Probability/Necessity (as mechanical chain)"
+        ],
+        "sequence_pairs": []
+      },
+      "quick_reference": {
+        "core_operations": [
+          "Design 3-5 independent storylines",
+          "Plant bridge elements (location/object/person)",
+          "Retrofit setups from collision point",
+          "Collide via mechanical cause, not moral judgment"
+        ],
+        "key_constraints": [
+          "No hugging, no learning",
+          "Consequences follow causal chains, not ethics",
+          "Characters must not development or mature",
+          "Inevitability in retrospect, surprise in the moment"
         ]
       },
       "signature_patterns": null

@@ -146,13 +146,16 @@ class ReorderabilityDiagnostic(BaseDiagnostic):
 
         for scene in context.scenes:
             scene_num = scene.get("number", 0)
-
-            # Simple heuristic: scenes with no explicit connector
+            
+            # Simple heuristic: scenes with no explicit connector 
             # and generic functions are more reorderable
             connector = scene.get("connector")
-            function = scene.get("function", "").upper()
-
+            func_val = scene.get("function")
+            function = func_val.upper() if func_val else ""
+            
             # Key structural scenes are not reorderable
+
+        
             key_functions = {"INCITE", "CLIMAX", "CRISIS", "RESOLVE"}
             is_key = function in key_functions
 
@@ -178,44 +181,58 @@ class ReorderabilityDiagnostic(BaseDiagnostic):
         self,
         context: DiagnosticContext,
     ) -> list[ReorderabilityAssessment]:
-        """Use LLM for reorderability analysis."""
+        """Use LLM for reorderability analysis in overlapping chunks."""
         if self.provider is None:
             return self._analyze_algorithmically(context)
 
-        prompt = self._build_prompt(context)
+        # Split scenes into chunks of 20 with 2-scene overlap
+        chunks = self._get_chunks(context.scenes, chunk_size=20, overlap=2)
+        all_assessments = []
+        seen_scenes = set()
 
-        try:
-            response = self.provider.complete_structured(
-                prompt,
-                LLMReorderabilityResponse,
-                system="You are analyzing whether scenes could be reordered without narrative damage.",
-            )
+        for chunk in chunks:
+            prompt = self._build_chunk_prompt(context.title, chunk)
 
-            assessments = []
-            for item in response.assessments:
-                assessments.append(
-                    ReorderabilityAssessment(
-                        scene_number=item.get("scene_number", 0),
-                        is_reorderable=item.get("is_reorderable", False),
-                        reason=item.get("reason"),
-                        alternative_positions=item.get("alternative_positions", []),
-                    )
+            try:
+                response = self.provider.complete_structured(
+                    prompt,
+                    LLMReorderabilityResponse,
+                    system="You are analyzing whether scenes could be reordered without narrative damage.",
                 )
-            return assessments
 
-        except Exception:
+                for item in response.assessments:
+                    scene_num = item.get("scene_number", 0)
+                    if scene_num in seen_scenes:
+                        continue
+                    seen_scenes.add(scene_num)
+
+                    all_assessments.append(
+                        ReorderabilityAssessment(
+                            scene_number=scene_num,
+                            is_reorderable=item.get("is_reorderable", False),
+                            reason=item.get("reason"),
+                            alternative_positions=item.get("alternative_positions", []),
+                        )
+                    )
+
+            except Exception as e:
+                print(f"[DEBUG] Reorderability analysis failed for chunk: {e}")
+                continue
+
+        # If we failed to get any assessments, fallback to algorithmic
+        if not all_assessments:
             return self._analyze_algorithmically(context)
+            
+        return all_assessments
 
-    def _build_prompt(self, context: DiagnosticContext) -> str:
-        """Build LLM prompt."""
+    def _build_chunk_prompt(self, title: str, scenes: list[dict]) -> str:
+        """Build LLM prompt for a chunk of scenes."""
         scenes_text = "\n".join(
             f"Scene {s.get('number')}: {s.get('summary', 'No summary')}"
-            for s in context.scenes[:30]
+            for s in scenes
         )
 
-        return f"""Analyze which scenes in this script could be reordered without damaging the narrative.
-
-TITLE: {context.title}
+        return f"""Analyze which scenes in the script "{title}" could be reordered without damaging the narrative.
 
 SCENES:
 {scenes_text}
@@ -227,8 +244,12 @@ For each scene, determine:
 
 Respond with JSON containing:
 - assessments: Array with scene_number, is_reorderable, reason, alternative_positions
-- reorderable_count: How many scenes could be reordered
+- reorderable_count: How many scenes in THIS CHUNK could be reordered
 - recommendations: Suggestions for tightening scene dependencies"""
+
+    def _build_prompt(self, context: DiagnosticContext) -> str:
+        """Deprecated: use _build_chunk_prompt instead."""
+        return ""
 
 
 # =============================================================================
@@ -323,7 +344,8 @@ class NecessityDiagnostic(BaseDiagnostic):
 
         for scene in context.scenes:
             scene_num = scene.get("number", 0)
-            function = scene.get("function", "").upper()
+            func_val = scene.get("function")
+            function = func_val.upper() if func_val else ""
 
             # Key structural scenes are always necessary
             key_functions = {"INCITE", "CLIMAX", "CRISIS", "RESOLVE", "SETUP", "PAYOFF"}
@@ -348,44 +370,58 @@ class NecessityDiagnostic(BaseDiagnostic):
         self,
         context: DiagnosticContext,
     ) -> list[NecessityAssessment]:
-        """Use LLM for necessity analysis."""
+        """Use LLM for necessity analysis in overlapping chunks."""
         if self.provider is None:
             return self._analyze_algorithmically(context)
 
-        prompt = self._build_prompt(context)
+        # Split scenes into chunks of 20 with 2-scene overlap
+        chunks = self._get_chunks(context.scenes, chunk_size=20, overlap=2)
+        all_assessments = []
+        seen_scenes = set()
 
-        try:
-            response = self.provider.complete_structured(
-                prompt,
-                LLMNecessityResponse,
-                system="You are analyzing whether each scene is essential to the narrative.",
-            )
+        for chunk in chunks:
+            prompt = self._build_chunk_prompt(context.title, chunk)
 
-            assessments = []
-            for item in response.assessments:
-                assessments.append(
-                    NecessityAssessment(
-                        scene_number=item.get("scene_number", 0),
-                        is_necessary=item.get("is_necessary", True),
-                        narrative_functions=item.get("functions", []),
-                        removal_impact=item.get("removal_impact"),
-                    )
+            try:
+                response = self.provider.complete_structured(
+                    prompt,
+                    LLMNecessityResponse,
+                    system="You are analyzing whether each scene is essential to the narrative.",
                 )
-            return assessments
 
-        except Exception:
+                for item in response.assessments:
+                    scene_num = item.get("scene_number", 0)
+                    if scene_num in seen_scenes:
+                        continue
+                    seen_scenes.add(scene_num)
+
+                    all_assessments.append(
+                        NecessityAssessment(
+                            scene_number=scene_num,
+                            is_necessary=item.get("is_necessary", True),
+                            narrative_functions=item.get("functions", []),
+                            removal_impact=item.get("removal_impact"),
+                        )
+                    )
+
+            except Exception as e:
+                print(f"[DEBUG] Necessity analysis failed for chunk: {e}")
+                continue
+
+        # If we failed to get any assessments, fallback to algorithmic
+        if not all_assessments:
             return self._analyze_algorithmically(context)
+            
+        return all_assessments
 
-    def _build_prompt(self, context: DiagnosticContext) -> str:
-        """Build LLM prompt."""
+    def _build_chunk_prompt(self, title: str, scenes: list[dict]) -> str:
+        """Build LLM prompt for a chunk of scenes."""
         scenes_text = "\n".join(
             f"Scene {s.get('number')}: {s.get('summary', 'No summary')}"
-            for s in context.scenes[:30]
+            for s in scenes
         )
 
-        return f"""Analyze which scenes in this script are essential to the narrative.
-
-TITLE: {context.title}
+        return f"""Analyze which scenes in the script "{title}" are essential to the narrative.
 
 SCENES:
 {scenes_text}
@@ -397,8 +433,12 @@ For each scene, determine:
 
 Respond with JSON containing:
 - assessments: Array with scene_number, is_necessary, functions, removal_impact
-- unnecessary_count: How many scenes could potentially be cut
+- unnecessary_count: How many scenes in THIS CHUNK could potentially be cut
 - recommendations: Suggestions for consolidation"""
+
+    def _build_prompt(self, context: DiagnosticContext) -> str:
+        """Deprecated: use _build_chunk_prompt instead."""
+        return ""
 
 
 # =============================================================================
@@ -499,52 +539,68 @@ class InformationEconomyDiagnostic(BaseDiagnostic):
             return DiagnosticSeverity.CRITICAL
 
     def _analyze_with_llm(self, context: DiagnosticContext) -> dict:
-        """Use LLM for information economy analysis."""
+        """Use LLM for information economy analysis in overlapping chunks."""
         if self.provider is None:
             return {"efficiency_score": 1.0}
 
-        prompt = self._build_prompt(context)
+        # Split scenes into chunks
+        chunks = self._get_chunks(context.scenes, chunk_size=20, overlap=2)
+        all_redundant = []
+        all_missing = []
+        scores = []
+        all_recommendations = []
 
-        try:
-            response = self.provider.complete_structured(
-                prompt,
-                LLMInfoEconomyResponse,
-                system="You are analyzing information delivery efficiency in a script.",
-            )
+        for chunk in chunks:
+            prompt = self._build_chunk_prompt(context.title, chunk)
 
-            return {
-                "redundant_expositions": response.redundant_expositions,
-                "missing_setups": response.missing_setups,
-                "efficiency_score": response.efficiency_score,
-                "recommendations": response.recommendations,
-            }
+            try:
+                response = self.provider.complete_structured(
+                    prompt,
+                    LLMInfoEconomyResponse,
+                    system="You are analyzing information delivery efficiency in a script.",
+                )
 
-        except Exception:
-            return {"efficiency_score": 1.0}
+                all_redundant.extend(response.redundant_expositions)
+                all_missing.extend(response.missing_setups)
+                scores.append(response.efficiency_score)
+                all_recommendations.extend(response.recommendations)
 
-    def _build_prompt(self, context: DiagnosticContext) -> str:
-        """Build LLM prompt."""
+            except Exception as e:
+                print(f"[DEBUG] Information economy analysis failed for chunk: {e}")
+                continue
+
+        return {
+            "redundant_expositions": all_redundant,
+            "missing_setups": all_missing,
+            "efficiency_score": sum(scores) / len(scores) if scores else 1.0,
+            "recommendations": list(set(all_recommendations)),
+        }
+
+    def _build_chunk_prompt(self, title: str, scenes: list[dict]) -> str:
+        """Build LLM prompt for a chunk of scenes."""
         scenes_text = "\n".join(
             f"Scene {s.get('number')}: {s.get('summary', 'No summary')}"
-            for s in context.scenes[:30]
+            for s in scenes
         )
 
-        return f"""Analyze the information economy of this script.
-
-TITLE: {context.title}
+        return f"""Analyze the information economy of the script "{title}".
 
 SCENES:
 {scenes_text}
 
 Identify:
-1. REDUNDANT EXPOSITION: Information delivered multiple times unnecessarily
+1. REDUNDANT EXPOSITION: Information delivered multiple times unnecessarily in THIS CHUNK
 2. MISSING SETUPS: Payoffs or reveals without earlier plants
 3. EXPOSITION DUMPS: Heavy exposition that could be more organic
 
-Rate overall information efficiency from 0.0 to 1.0.
+Rate information efficiency for THIS CHUNK from 0.0 to 1.0.
 
 Respond with JSON containing:
 - redundant_expositions: Array with content, scenes
 - missing_setups: Array with payoff, scene
 - efficiency_score: Float 0.0-1.0
 - recommendations: Suggestions for improvement"""
+
+    def _build_prompt(self, context: DiagnosticContext) -> str:
+        """Deprecated: use _build_chunk_prompt instead."""
+        return ""
