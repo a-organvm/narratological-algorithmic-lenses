@@ -24,7 +24,7 @@ T = TypeVar("T", bound=BaseModel)
 def _clean_json_content(content: str) -> str:
     """Clean LLM output to ensure valid JSON.
 
-    Strips markdown code blocks and handles raw newlines in string values.
+    Strips markdown code blocks, balances braces, and handles raw newlines.
     """
     content = content.strip()
     
@@ -32,40 +32,51 @@ def _clean_json_content(content: str) -> str:
     content = content.replace("“", '"').replace("”", '"').replace("‘", "'").replace("’", "'")
 
     # Remove markdown code blocks if present
-    if content.startswith("```"):
+    if "```" in content:
         match = re.search(r"```(?:json)?\s*(.*?)\s*```", content, re.DOTALL)
         if match:
             content = match.group(1)
         else:
-            lines = content.split("\n")
-            if lines[0].startswith("```"):
-                lines = lines[1:]
-            if lines and lines[-1].strip() == "```":
-                lines = lines[:-1]
-            content = "\n".join(lines)
+            # Fallback for messy markdown
+            content = re.sub(r"```[a-z]*", "", content)
+            content = content.replace("```", "")
 
     content = content.strip()
 
-    # If it doesn't look like a JSON object/array, try to find one
-    if not (content.startswith("{") or content.startswith("[")):
-        match = re.search(r"(\{.*\}|\[.*\])", content, re.DOTALL)
-        if match:
-            content = match.group(1)
+    # BRACE BALANCING: Find the first '{' and the matching last '}'
+    # This strips conversational preamble and trailing chatter.
+    start_idx = content.find("{")
+    if start_idx != -1:
+        # Find the outermost balanced closing brace
+        brace_count = 0
+        end_idx = -1
+        for i in range(start_idx, len(content)):
+            if content[i] == "{":
+                brace_count += 1
+            elif content[i] == "}":
+                brace_count -= 1
+                if brace_count == 0:
+                    end_idx = i + 1
+                    break
+        
+        if end_idx != -1:
+            content = content[start_idx:end_idx]
 
     # Remove non-printable control characters EXCEPT newline, tab, cr
     content = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", content)
 
-    # Heuristic for internal newlines in strings:
-    # Most local LLMs produce invalid JSON because they put real newlines 
-    # inside property values.
-    # We look for lines that don't end with JSON structural characters.
+    # Surgical repair for common local LLM errors
+    # 1. Python-style booleans
+    content = re.sub(r":\s*True\b", ": true", content)
+    content = re.sub(r":\s*False\b", ": false", content)
+    content = re.sub(r":\s*None\b", ": null", content)
+
+    # 2. Heuristic for internal newlines in strings:
     lines = content.split("\n")
     repaired_lines = []
     for i, line in enumerate(lines):
         stripped = line.strip()
-        # If line ends with a structural char OR a primitive value (true/false/null/number)
-        # Structural chars: , : { } [ ] "
-        # Primitive values regex: (true|false|null|-?\d+(\.\d+)?)\s*$
+        # If line ends with a structural char OR a primitive value
         if stripped and (
             re.search(r'[:,\[\{\}\]\"]\s*$', stripped) or 
             re.search(r'(true|false|null|-?\d+(\.\d+)?)\s*$', stripped, re.IGNORECASE)
@@ -289,18 +300,25 @@ class OllamaProvider:
     ) -> T:
         """Generate a structured completion matching a Pydantic schema."""
         schema_json = json.dumps(schema.model_json_schema(), indent=2)
+        
+        # Simpler prompt for local models
         structured_prompt = f"""{prompt}
 
-Respond with valid JSON matching this schema:
+RETURN ONLY A VALID JSON OBJECT MATCHING THIS SCHEMA:
 {schema_json}
 
-Return ONLY the JSON object, no additional text or markdown code blocks."""
+NO PREAMBLE. NO EXPLANATION. NO MARKDOWN. ONLY THE JSON OBJECT.
+"""
 
         result = self.complete(structured_prompt, system=system)
         content = _clean_json_content(result.content)
         
         try:
             data = json.loads(content)
+            # Handle cases where model wraps result in another object
+            if isinstance(data, dict) and len(data) == 1 and list(data.keys())[0] in ("data", "result", "output"):
+                data = list(data.values())[0]
+                
             return schema.model_validate(data)
         except Exception as e:
             # Enhanced debugging for JSON errors
@@ -308,11 +326,9 @@ Return ONLY the JSON object, no additional text or markdown code blocks."""
                 print(f"\n[DEBUG] JSON Decode Error: {e.msg} at pos {e.pos}")
                 snippet = content[max(0, e.pos-40):min(len(content), e.pos+40)]
                 print(f"[DEBUG] Snippet around error: {snippet!r}")
-                if e.pos < len(content):
-                    problem_char = content[e.pos]
-                    print(f"[DEBUG] Problem character: {problem_char!r} (hex: {hex(ord(problem_char))})")
             else:
                 print(f"\n[DEBUG] Validation Error: {e}")
+                print(f"[DEBUG] Raw Content: {content!r}")
             
             raise
 

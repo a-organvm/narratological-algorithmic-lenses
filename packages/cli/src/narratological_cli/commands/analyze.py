@@ -593,6 +593,21 @@ def _display_script_doctor_result(result) -> None:
         border_style="magenta",
     ))
 
+    # Display debate rounds if present
+    if result.debate_rounds:
+        console.print("\n[bold yellow]Multi-Agent Debate Rounds:[/bold yellow]")
+        for round_data in result.debate_rounds:
+            round_name = round_data.get("round", "Unknown Round")
+            console.print(f"\n[bold underline]{round_name}[/bold underline]")
+            content = round_data.get("content", "")
+            if isinstance(content, list):
+                for entry in content:
+                    c = entry.get("creator", "Creator")
+                    f = entry.get("feedback", "")
+                    console.print(f"  [bold cyan]{c}:[/bold cyan] {f}")
+            else:
+                console.print(f"  {content}")
+
     # Display dialogue
     console.print("\n[bold italic magenta]Collaborative Dialogue:[/bold italic magenta]")
     for entry in result.dialogue:
@@ -638,6 +653,10 @@ def script_doctor(
         Optional[str],
         typer.Option("--secondary", "-p2", help="Secondary study ID (if not using sequence)"),
     ] = None,
+    debate: Annotated[
+        bool,
+        typer.Option("--debate", "-d", help="Enable exhaustive multi-agent debate mode"),
+    ] = False,
     provider: Annotated[
         str,
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
@@ -689,7 +708,8 @@ def script_doctor(
 
     console.print(Panel(
         f"[bold]Analyzing:[/bold] {script_path.name}\n"
-        f"[bold]Doctors:[/bold] {study1.creator} & {study2.creator}",
+        f"[bold]Doctors:[/bold] {study1.creator} & {study2.creator}\n"
+        f"[bold]Debate Mode:[/bold] {'Enabled' if debate else 'Disabled'}",
         title="Script Doctor Consultation",
     ))
 
@@ -711,7 +731,7 @@ def script_doctor(
 
     with console.status("[bold magenta]Consulting the doctors..."):
         try:
-            result = doctor.analyze(context, study1, study2)
+            result = doctor.analyze(context, study1, study2, debate_mode=debate)
             _display_script_doctor_result(result)
         except Exception as e:
             console.print(f"[red]Analysis failed: {e}[/red]")

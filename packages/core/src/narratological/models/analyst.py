@@ -221,6 +221,10 @@ class ScriptDoctorResult(BaseModel):
     dialogue: list[dict[str, str]] = Field(
         description="Collaborative feedback formatted as a dialogue (creator: feedback)"
     )
+    debate_rounds: list[dict[str, Any]] | None = Field(
+        default=None,
+        description="Structured multi-agent debate rounds (Thesis, Antithesis, Synthesis)"
+    )
     joint_recommendations: list[str] = Field(
         description="Merged recommendations agreed upon by both creators"
     )
