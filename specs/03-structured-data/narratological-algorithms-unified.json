@@ -2,7 +2,7 @@
   "meta": {
     "title": "Narratological Algorithmic Lenses Compendium",
     "version": "0.1.0",
-    "generated": "2026-02-15T16:03:18.412921",
+    "generated": "2026-02-15T16:41:32.367470",
     "study_count": 28,
     "categories": [
       "Animation",
@@ -846,29 +846,12 @@
           "Surrealist Cinema Tradition (Breton, Dali, Bunuel): access unconscious, reject rationality, automatic creation",
           "Bunuel: symbolic literalization, dream logic narrative, sexuality and violence fused",
           "Freudian/Jungian Unconscious: collective/personal unconscious, nightmare as valid as dream",
-          "Transcendental Meditation: technique for accessing unconscious material"
+          "Transcendental Meditation: technique for accessing unconscious material",
+          "Stanley Kubrick's Non-Submersible Units (Visual primacy / Structural opacity)"
         ],
         "sequence_pairs": [
-          {
-            "lynch": "Dream and Unconscious emphasis",
-            "tarkovsky": "Memory and Time emphasis"
-          },
-          {
-            "lynch": "Juxtaposition, rhythm, rupture",
-            "tarkovsky": "Prolonged gaze, contemplative stillness"
-          },
-          {
-            "lynch": "Dread, uncanny, beauty in horror",
-            "tarkovsky": "Melancholy, elegy, spiritual yearning"
-          },
-          {
-            "lynch": "American mythology/suburbia",
-            "tarkovsky": "Nostalgia, childhood, Russia"
-          },
-          {
-            "lynch": "Transcendental meditation method",
-            "bunuel": "Automatic writing, dream journals method"
-          }
+          "tarkovsky",
+          "kubrick"
         ]
       },
       "quick_reference": {
@@ -1339,10 +1322,12 @@
           "Aristotle's Defense of Mimesis (Contrast)",
           "Genette's Narrative Discourse (Diegesis/Mimesis)",
           "Baudrillard's Orders of Simulacra",
-          "Brecht's Alienation Effect (Anti-Mimesis)"
+          "Brecht's Alienation Effect (Anti-Mimesis)",
+          "8-Role Analyst Methodology (Holistic synthesis vs Standardization)"
         ],
         "sequence_pairs": [
-          "aristotle"
+          "aristotle",
+          "8-role-analyst"
         ]
       },
       "quick_reference": {
@@ -1890,56 +1875,7 @@
           "Cyberpunk genre lineage"
         ],
         "sequence_pairs": [
-          {
-            "dimension": "Primary mode",
-            "morrison": "Magical/mystical",
-            "ellis": "Journalistic/analytical"
-          },
-          {
-            "dimension": "Density source",
-            "morrison": "Symbolic layering",
-            "ellis": "Informational density"
-          },
-          {
-            "dimension": "Reader relationship",
-            "morrison": "Initiation",
-            "ellis": "Investigation"
-          },
-          {
-            "dimension": "Reality concept",
-            "morrison": "Writable/alterable",
-            "ellis": "Observable/exposable"
-          },
-          {
-            "dimension": "Fiction's function",
-            "morrison": "Change reality",
-            "ellis": "Reveal reality"
-          },
-          {
-            "dimension": "Characteristic tool",
-            "morrison": "Hypersigil",
-            "ellis": "Briefing/exposition"
-          },
-          {
-            "dimension": "Prose style",
-            "gibson": "Fragmented, noir-inflected",
-            "ellis": "Conversational, confrontational"
-          },
-          {
-            "dimension": "Technology role",
-            "gibson": "Defining environmental force",
-            "ellis": "Tool for social analysis"
-          },
-          {
-            "dimension": "Protagonist type",
-            "gibson": "Marginal operator",
-            "ellis": "Crusading journalist"
-          },
-          {
-            "dimension": "Information treatment",
-            "gibson": "Commodity/currency",
-            "ellis": "Weapon/liberation"
-          }
+          "morrison"
         ]
       },
       "quick_reference": {
@@ -2087,9 +2023,12 @@
         "maps_to": [
           "Walter Ong's Orality and Literacy",
           "Campbell's Hero's Journey (Communal variation)",
-          "Propp's Morphology (Modular blocks)"
+          "Propp's Morphology (Modular blocks)",
+          "Kishōtenketsu (Conflict-agnostic development)"
         ],
-        "sequence_pairs": []
+        "sequence_pairs": [
+          "kishotenketsu"
+        ]
       },
       "quick_reference": {
         "core_operations": [
@@ -2285,9 +2224,12 @@
         "maps_to": [
           "Feydeau's Farce Mechanics (improbable contrivance, meeting of avoiders)",
           "Jason Mittell's Operational Aesthetic (narrative complexity)",
-          "Aristotle's Probability/Necessity (as mechanical chain)"
+          "Aristotle's Probability/Necessity (as mechanical chain)",
+          "Horace's Decorum (Fitness/Social Manners)"
         ],
-        "sequence_pairs": []
+        "sequence_pairs": [
+          "horace"
+        ]
       },
       "quick_reference": {
         "core_operations": [
@@ -2884,7 +2826,8 @@
           "Non-linear memory psychology"
         ],
         "sequence_pairs": [
-          "Bergman"
+          "bergman",
+          "kubrick"
         ]
       },
       "quick_reference": {
@@ -3020,9 +2963,12 @@
         "maps_to": [
           "Contrast: Western Conflict-driven Plot (Aristotle)",
           "Parallel: Pixar's 'Until One Day' (Ten)",
-          "Tarkovsky's Atmospheric Unity"
+          "Tarkovsky's Atmospheric Unity",
+          "African Oral Epic (Episodic/Modular expansion)"
         ],
-        "sequence_pairs": []
+        "sequence_pairs": [
+          "african-oral-epic"
+        ]
       },
       "quick_reference": {
         "core_operations": [
@@ -3279,8 +3225,10 @@
           "Hero's Journey 'Call to Adventure'"
         ],
         "sequence_pairs": [
-          "Bharata Muni",
-          "Ovid"
+          "bharata-muni",
+          "ovid-metamorphoses",
+          "south-park",
+          "mckee"
         ]
       },
       "quick_reference": {
@@ -3469,9 +3417,12 @@
           "Aristotle's Catharsis (Involuntary response)",
           "McKee's Law of Diminishing Returns",
           "Parker/Stone's Causal Binding",
-          "Scott McCloud's Closure theory"
+          "Scott McCloud's Closure theory",
+          "Heroine's Journey (Somatic/Internal integration)"
         ],
-        "sequence_pairs": []
+        "sequence_pairs": [
+          "heroine-journey"
+        ]
       },
       "quick_reference": {
         "core_operations": [
@@ -4032,7 +3983,9 @@
           "Pixar's 'Because of That' Story Spine",
           "McKee's Progressive Complications"
         ],
-        "sequence_pairs": []
+        "sequence_pairs": [
+          "aristotle"
+        ]
       },
       "quick_reference": {
         "core_operations": [
@@ -4576,8 +4529,8 @@
           "Nietzschean tragedy (Apollonian form/Dionysian music)"
         ],
         "sequence_pairs": [
-          "Tarkovsky",
-          "Lynch"
+          "tarkovsky",
+          "david-lynch"
         ]
       },
       "quick_reference": {
@@ -4767,9 +4720,12 @@
         "maps_to": [
           "McKee's 'Gap' (Intention vs Result)",
           "Sorkin's 'Intention + Obstacle'",
-          "Chekhov's 'Gun' (Weaponized props)"
+          "Chekhov's 'Gun' (Weaponized props)",
+          "Bergman's Interiority ( Confessional/Conflicted psyche)"
         ],
-        "sequence_pairs": []
+        "sequence_pairs": [
+          "bergman"
+        ]
       },
       "quick_reference": {
         "core_operations": [
@@ -5419,9 +5375,12 @@
         "maps_to": [
           "Contrast: Campbell's Hero's Journey",
           "Parallel: Kishotenketsu's internal harmony",
-          "Jungian Analytical Psychology"
+          "Jungian Analytical Psychology",
+          "Attention Mechanics (Internal/Somatic engagement)"
         ],
-        "sequence_pairs": []
+        "sequence_pairs": [
+          "attention-mechanics"
+        ]
       },
       "quick_reference": {
         "core_operations": [
@@ -5636,10 +5595,12 @@
           "Aristotle's Unity of Action",
           "McKee's Value Turn (implied in Decorum shifts)",
           "Tarkovsky's Time-Pressure (Labor requirement)",
-          "Pope's Essay on Criticism (Neo-classical adherence)"
+          "Pope's Essay on Criticism (Neo-classical adherence)",
+          "Larry David's Comedy Geometry (Social Decorum vs Social Friction)"
         ],
         "sequence_pairs": [
-          "aristotle"
+          "aristotle",
+          "larry-david"
         ]
       },
       "quick_reference": {
@@ -6177,9 +6138,12 @@
         "maps_to": [
           "Industrial Script Coverage Standards",
           "Academic Peer Review Protocols",
-          "Creative Writing Workshop Methodologies"
+          "Creative Writing Workshop Methodologies",
+          "Plato's Republic (Content standardization/Censorship)"
         ],
-        "sequence_pairs": []
+        "sequence_pairs": [
+          "plato"
+        ]
       },
       "quick_reference": {
         "core_operations": [
@@ -6466,10 +6430,12 @@
           "Heidegger - Being-toward-death",
           "Kierkegaard - Stages on Life's Way",
           "Buber - I-Thou / I-It",
-          "Merleau-Ponty - Flesh of the world"
+          "Merleau-Ponty - Flesh of the world",
+          "PWB's Layered Obstacles (Interiorized friction)"
         ],
         "sequence_pairs": [
-          "Tarkovsky"
+          "tarkovsky",
+          "waller-bridge"
         ]
       },
       "quick_reference": {
@@ -7065,7 +7031,9 @@
           "Campbell's Monomyth (Archplot design)",
           "Hitchcock's Suspense vs Surprise"
         ],
-        "sequence_pairs": []
+        "sequence_pairs": [
+          "aristotle"
+        ]
       },
       "quick_reference": {
         "core_operations": [

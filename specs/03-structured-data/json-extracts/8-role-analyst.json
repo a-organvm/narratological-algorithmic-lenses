@@ -73,9 +73,10 @@
     "maps_to": [
       "Industrial Script Coverage Standards",
       "Academic Peer Review Protocols",
-      "Creative Writing Workshop Methodologies"
+      "Creative Writing Workshop Methodologies",
+      "Plato's Republic (Content standardization/Censorship)"
     ],
-    "sequence_pairs": []
+    "sequence_pairs": ["plato"]
   },
   "quick_reference": {
     "core_operations": [

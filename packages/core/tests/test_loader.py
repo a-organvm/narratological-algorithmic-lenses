@@ -34,26 +34,26 @@ class TestLoadCompendium:
         """Test loading the compendium from an explicit path."""
         compendium = load_compendium(compendium_path)
         assert isinstance(compendium, Compendium)
-        assert compendium.meta.study_count == 14
+        assert compendium.meta.study_count >= 27
 
     def test_load_compendium_default_outside_repo_cwd(self, monkeypatch, tmp_path):
         """Default loading should work from outside the repository directory."""
         monkeypatch.chdir(tmp_path)
         compendium = load_compendium()
         assert isinstance(compendium, Compendium)
-        assert compendium.meta.study_count == 14
+        assert compendium.meta.study_count >= 27
 
     def test_compendium_has_all_categories(self, compendium_path):
         """Test that the compendium has all expected categories."""
         compendium = load_compendium(compendium_path)
-        expected = {"Classical", "Film", "Comics", "Literature", "Interactive", "Animation"}
+        expected = {"Classical", "Film", "Comics", "Literature", "Interactive", "Animation", "Television", "Meta"}
         actual = set(compendium.meta.categories)
         assert actual == expected
 
     def test_compendium_studies_count(self, compendium_path):
         """Test that the compendium has the expected number of studies."""
         compendium = load_compendium(compendium_path)
-        assert len(compendium.studies) == 14
+        assert len(compendium.studies) >= 27
 
 
 class TestLoadStudy:
@@ -119,7 +119,7 @@ class TestListStudies:
     def test_list_available_studies(self, compendium_path):
         """Test listing all available study IDs."""
         ids = list_available_studies(compendium_path)
-        assert len(ids) == 14
+        assert len(ids) >= 27
         assert "bergman" in ids
         assert "zelda" in ids
         assert "pixar" in ids
@@ -131,7 +131,7 @@ class TestGetStudySummary:
     def test_get_study_summary(self, compendium_path):
         """Test getting study summaries."""
         summaries = get_study_summary(compendium_path)
-        assert len(summaries) == 14
+        assert len(summaries) >= 27
 
         # Check summary structure
         for summary in summaries:

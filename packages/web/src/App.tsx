@@ -2,6 +2,7 @@ import { Routes, Route, Link } from 'react-router-dom'
 import StudyExplorer from './components/StudyExplorer'
 import AlgorithmViewer from './components/AlgorithmViewer'
 import DiagnosticRunner from './components/DiagnosticRunner'
+import { ScriptDoctorWorkbench } from './components/ScriptDoctorWorkbench'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Link to="/">Studies</Link>
           <Link to="/algorithms">Algorithms</Link>
           <Link to="/diagnostics">Diagnostics</Link>
+          <Link to="/script-doctor">Script Doctor</Link>
         </nav>
       </header>
 
@@ -22,6 +24,7 @@ function App() {
           <Route path="/algorithms" element={<AlgorithmViewer />} />
           <Route path="/algorithms/:studyId/:algoName" element={<AlgorithmViewer />} />
           <Route path="/diagnostics" element={<DiagnosticRunner />} />
+          <Route path="/script-doctor" element={<ScriptDoctorWorkbench />} />
         </Routes>
       </main>
 

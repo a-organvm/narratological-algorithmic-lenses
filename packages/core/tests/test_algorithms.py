@@ -56,13 +56,13 @@ class TestAlgorithmRegistry:
     def test_registry_loads_all_algorithms(self, registry):
         """Test that the registry loads all algorithms from the compendium."""
         total = registry.count()
-        # We expect ~92 algorithms across 14 studies
-        assert total >= 80, f"Expected at least 80 algorithms, got {total}"
+        # We expect ~110+ algorithms across 27+ studies
+        assert total >= 100, f"Expected at least 100 algorithms, got {total}"
 
     def test_registry_has_all_studies(self, registry):
-        """Test that the registry has algorithms from all 14 studies."""
+        """Test that the registry has algorithms from all core studies."""
         studies = registry.list_studies()
-        assert len(studies) == 14, f"Expected 14 studies, got {len(studies)}"
+        assert len(studies) >= 27, f"Expected at least 27 studies, got {len(studies)}"
 
     def test_registry_get_algorithm(self, registry):
         """Test getting a specific algorithm."""
@@ -123,7 +123,7 @@ class TestAlgorithmRegistry:
     def test_registry_count_by_study(self, registry):
         """Test getting counts per study."""
         counts = registry.count_by_study()
-        assert len(counts) == 14
+        assert len(counts) >= 27
         assert all(c >= 1 for c in counts.values())
 
     def test_registry_contains(self, registry):

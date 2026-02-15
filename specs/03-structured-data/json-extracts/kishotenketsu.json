@@ -60,9 +60,10 @@
     "maps_to": [
       "Contrast: Western Conflict-driven Plot (Aristotle)",
       "Parallel: Pixar's 'Until One Day' (Ten)",
-      "Tarkovsky's Atmospheric Unity"
+      "Tarkovsky's Atmospheric Unity",
+      "African Oral Epic (Episodic/Modular expansion)"
     ],
-    "sequence_pairs": []
+    "sequence_pairs": ["african-oral-epic"]
   },
   "quick_reference": {
     "core_operations": [

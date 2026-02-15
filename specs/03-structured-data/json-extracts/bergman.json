@@ -169,9 +169,10 @@
       "Heidegger - Being-toward-death",
       "Kierkegaard - Stages on Life's Way",
       "Buber - I-Thou / I-It",
-      "Merleau-Ponty - Flesh of the world"
+      "Merleau-Ponty - Flesh of the world",
+      "PWB's Layered Obstacles (Interiorized friction)"
     ],
-    "sequence_pairs": ["Tarkovsky"]
+    "sequence_pairs": ["tarkovsky", "waller-bridge"]
   },
   "quick_reference": {
     "core_operations": [

@@ -113,9 +113,10 @@
       "Aristotle's Unity of Action",
       "McKee's Value Turn (implied in Decorum shifts)",
       "Tarkovsky's Time-Pressure (Labor requirement)",
-      "Pope's Essay on Criticism (Neo-classical adherence)"
+      "Pope's Essay on Criticism (Neo-classical adherence)",
+      "Larry David's Comedy Geometry (Social Decorum vs Social Friction)"
     ],
-    "sequence_pairs": ["aristotle"]
+    "sequence_pairs": ["aristotle", "larry-david"]
   },
   "quick_reference": {
     "core_operations": [

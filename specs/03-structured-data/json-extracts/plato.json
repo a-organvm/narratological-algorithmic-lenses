@@ -94,9 +94,10 @@
       "Aristotle's Defense of Mimesis (Contrast)",
       "Genette's Narrative Discourse (Diegesis/Mimesis)",
       "Baudrillard's Orders of Simulacra",
-      "Brecht's Alienation Effect (Anti-Mimesis)"
+      "Brecht's Alienation Effect (Anti-Mimesis)",
+      "8-Role Analyst Methodology (Holistic synthesis vs Standardization)"
     ],
-    "sequence_pairs": ["aristotle"]
+    "sequence_pairs": ["aristotle", "8-role-analyst"]
   },
   "quick_reference": {
     "core_operations": [

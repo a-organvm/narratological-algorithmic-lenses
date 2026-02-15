@@ -167,58 +167,7 @@
       "British Invasion of American Comics",
       "Cyberpunk genre lineage"
     ],
-    "sequence_pairs": [
-      {
-        "dimension": "Primary mode",
-        "morrison": "Magical/mystical",
-        "ellis": "Journalistic/analytical"
-      },
-      {
-        "dimension": "Density source",
-        "morrison": "Symbolic layering",
-        "ellis": "Informational density"
-      },
-      {
-        "dimension": "Reader relationship",
-        "morrison": "Initiation",
-        "ellis": "Investigation"
-      },
-      {
-        "dimension": "Reality concept",
-        "morrison": "Writable/alterable",
-        "ellis": "Observable/exposable"
-      },
-      {
-        "dimension": "Fiction's function",
-        "morrison": "Change reality",
-        "ellis": "Reveal reality"
-      },
-      {
-        "dimension": "Characteristic tool",
-        "morrison": "Hypersigil",
-        "ellis": "Briefing/exposition"
-      },
-      {
-        "dimension": "Prose style",
-        "gibson": "Fragmented, noir-inflected",
-        "ellis": "Conversational, confrontational"
-      },
-      {
-        "dimension": "Technology role",
-        "gibson": "Defining environmental force",
-        "ellis": "Tool for social analysis"
-      },
-      {
-        "dimension": "Protagonist type",
-        "gibson": "Marginal operator",
-        "ellis": "Crusading journalist"
-      },
-      {
-        "dimension": "Information treatment",
-        "gibson": "Commodity/currency",
-        "ellis": "Weapon/liberation"
-      }
-    ]
+    "sequence_pairs": ["morrison"]
   },
   "quick_reference": {
     "core_operations": [

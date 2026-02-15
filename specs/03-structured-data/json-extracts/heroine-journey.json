@@ -66,9 +66,10 @@
     "maps_to": [
       "Contrast: Campbell's Hero's Journey",
       "Parallel: Kishotenketsu's internal harmony",
-      "Jungian Analytical Psychology"
+      "Jungian Analytical Psychology",
+      "Attention Mechanics (Internal/Somatic engagement)"
     ],
-    "sequence_pairs": []
+    "sequence_pairs": ["attention-mechanics"]
   },
   "quick_reference": {
     "core_operations": [

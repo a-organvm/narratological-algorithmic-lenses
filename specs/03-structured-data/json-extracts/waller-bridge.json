@@ -93,9 +93,10 @@
     "maps_to": [
       "McKee's 'Gap' (Intention vs Result)",
       "Sorkin's 'Intention + Obstacle'",
-      "Chekhov's 'Gun' (Weaponized props)"
+      "Chekhov's 'Gun' (Weaponized props)",
+      "Bergman's Interiority ( Confessional/Conflicted psyche)"
     ],
-    "sequence_pairs": []
+    "sequence_pairs": ["bergman"]
   },
   "quick_reference": {
     "core_operations": [

@@ -66,9 +66,10 @@
     "maps_to": [
       "Walter Ong's Orality and Literacy",
       "Campbell's Hero's Journey (Communal variation)",
-      "Propp's Morphology (Modular blocks)"
+      "Propp's Morphology (Modular blocks)",
+      "Kishōtenketsu (Conflict-agnostic development)"
     ],
-    "sequence_pairs": []
+    "sequence_pairs": ["kishotenketsu"]
   },
   "quick_reference": {
     "core_operations": [

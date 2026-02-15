@@ -164,6 +164,59 @@ async def get_character_atlas(analysis_id: str) -> dict[str, Any]:
     )
 
 
+class ScriptDoctorRequest(BaseModel):
+    """Request model for Script Doctor consultation."""
+
+    content: str = Field(..., description="Script content (Fountain or text)")
+    primary_id: str = Field(..., description="ID of the primary study")
+    secondary_id: str = Field(..., description="ID of the secondary study")
+    debate_mode: bool = Field(False, description="Enable exhaustive debate mode")
+    provider: str = Field("ollama", description="LLM provider")
+    model: str | None = Field(None, description="LLM model")
+
+
+@router.post("/script-doctor")
+async def script_doctor_consultation(request: ScriptDoctorRequest) -> dict[str, Any]:
+    """Perform a collaborative 'Script Doctor' analysis using creator pairs."""
+    from narratological.loader import load_compendium
+    from narratological.llm.script_doctor import ScriptDoctorAnalyst
+    from narratological.models.analyst import AnalystContext
+    from narratological.llm.providers import get_provider
+    from narratological.parsers.fountain import parse_fountain
+
+    # Load data
+    compendium = load_compendium()
+    s1 = compendium.get_study(request.primary_id)
+    s2 = compendium.get_study(request.secondary_id)
+
+    if not s1 or not s2:
+        raise HTTPException(
+            status_code=404,
+            detail=f"One or both studies not found: {request.primary_id}, {request.secondary_id}"
+        )
+
+    # Parse script
+    try:
+        script = parse_fountain(request.content)
+        context = AnalystContext.from_script(script)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Failed to parse script: {e}")
+
+    # Get provider and analyst
+    try:
+        llm = get_provider(request.provider, model=request.model)
+        doctor = ScriptDoctorAnalyst(llm)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Initialization failed: {e}")
+
+    # Perform consultation
+    try:
+        result = doctor.analyze(context, s1, s2, debate_mode=request.debate_mode)
+        return result.model_dump()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Analysis failed: {e}")
+
+
 @router.get("/frameworks")
 async def list_analysis_frameworks() -> list[dict[str, Any]]:
     """List available frameworks for analysis."""

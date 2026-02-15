@@ -123,7 +123,7 @@ class TestCategory:
 
     def test_category_values(self):
         """Test that all expected categories exist."""
-        expected = {"Classical", "Film", "Comics", "Literature", "Interactive", "Animation"}
+        expected = {"Classical", "Film", "Comics", "Literature", "Interactive", "Animation", "Television", "Meta"}
         actual = {c.value for c in Category}
         assert actual == expected
 

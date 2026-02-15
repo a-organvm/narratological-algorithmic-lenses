@@ -177,30 +177,10 @@
       "Surrealist Cinema Tradition (Breton, Dali, Bunuel): access unconscious, reject rationality, automatic creation",
       "Bunuel: symbolic literalization, dream logic narrative, sexuality and violence fused",
       "Freudian/Jungian Unconscious: collective/personal unconscious, nightmare as valid as dream",
-      "Transcendental Meditation: technique for accessing unconscious material"
+      "Transcendental Meditation: technique for accessing unconscious material",
+      "Stanley Kubrick's Non-Submersible Units (Visual primacy / Structural opacity)"
     ],
-    "sequence_pairs": [
-      {
-        "lynch": "Dream and Unconscious emphasis",
-        "tarkovsky": "Memory and Time emphasis"
-      },
-      {
-        "lynch": "Juxtaposition, rhythm, rupture",
-        "tarkovsky": "Prolonged gaze, contemplative stillness"
-      },
-      {
-        "lynch": "Dread, uncanny, beauty in horror",
-        "tarkovsky": "Melancholy, elegy, spiritual yearning"
-      },
-      {
-        "lynch": "American mythology/suburbia",
-        "tarkovsky": "Nostalgia, childhood, Russia"
-      },
-      {
-        "lynch": "Transcendental meditation method",
-        "bunuel": "Automatic writing, dream journals method"
-      }
-    ]
+    "sequence_pairs": ["tarkovsky", "kubrick"]
   },
   "quick_reference": {
     "core_operations": [

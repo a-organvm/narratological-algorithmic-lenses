@@ -94,9 +94,10 @@
       "Aristotle's Catharsis (Involuntary response)",
       "McKee's Law of Diminishing Returns",
       "Parker/Stone's Causal Binding",
-      "Scott McCloud's Closure theory"
+      "Scott McCloud's Closure theory",
+      "Heroine's Journey (Somatic/Internal integration)"
     ],
-    "sequence_pairs": []
+    "sequence_pairs": ["heroine-journey"]
   },
   "quick_reference": {
     "core_operations": [

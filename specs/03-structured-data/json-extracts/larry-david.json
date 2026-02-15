@@ -99,9 +99,10 @@
     "maps_to": [
       "Feydeau's Farce Mechanics (improbable contrivance, meeting of avoiders)",
       "Jason Mittell's Operational Aesthetic (narrative complexity)",
-      "Aristotle's Probability/Necessity (as mechanical chain)"
+      "Aristotle's Probability/Necessity (as mechanical chain)",
+      "Horace's Decorum (Fitness/Social Manners)"
     ],
-    "sequence_pairs": []
+    "sequence_pairs": ["horace"]
   },
   "quick_reference": {
     "core_operations": [

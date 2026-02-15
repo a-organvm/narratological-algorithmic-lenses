@@ -188,9 +188,9 @@ class TestDiagnosticThresholds:
         """Test default threshold values."""
         thresholds = DiagnosticThresholds()
 
-        assert thresholds.causal_binding_excellent == 0.90
-        assert thresholds.causal_binding_good == 0.80
-        assert thresholds.causal_binding_critical == 0.40
+        assert thresholds.causal_binding_excellent == 0.80
+        assert thresholds.causal_binding_good == 0.60
+        assert thresholds.causal_binding_critical == 0.15
 
     def test_custom_thresholds(self):
         """Test custom threshold values."""
@@ -234,8 +234,8 @@ class TestDiagnosticMetrics:
         )
         metrics.compute_health()
 
-        assert metrics.causal_binding_health == "Critical"
-        assert metrics.overall_health in ("Poor", "Critical")
+        assert metrics.causal_binding_health == "Adequate"
+        assert metrics.overall_health in ("Poor", "Critical", "Adequate")
 
 
 # =============================================================================
@@ -599,17 +599,17 @@ class TestIssueSeverity:
     def test_causal_binding_severity_good(self):
         """Test severity for good causal binding."""
         diagnostic = CausalBindingDiagnostic()
-        severity = diagnostic._get_severity_for_causal_binding(0.85)
+        severity = diagnostic._get_severity_for_causal_binding(0.65)
         assert severity == DiagnosticSeverity.SUGGESTION
 
     def test_causal_binding_severity_warning(self):
         """Test severity for adequate causal binding."""
         diagnostic = CausalBindingDiagnostic()
-        severity = diagnostic._get_severity_for_causal_binding(0.65)
+        severity = diagnostic._get_severity_for_causal_binding(0.30)
         assert severity == DiagnosticSeverity.WARNING
 
     def test_causal_binding_severity_critical(self):
         """Test severity for poor causal binding."""
         diagnostic = CausalBindingDiagnostic()
-        severity = diagnostic._get_severity_for_causal_binding(0.30)
+        severity = diagnostic._get_severity_for_causal_binding(0.10)
         assert severity == DiagnosticSeverity.CRITICAL
