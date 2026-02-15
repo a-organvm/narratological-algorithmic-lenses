@@ -55,6 +55,11 @@ def parse_script(
     if not path.exists():
         raise FileNotFoundError(f"Script file not found: {path}")
 
+    # Use Fountain parser for .fountain files
+    if path.suffix.lower() == ".fountain":
+        from narratological.parsers.fountain import parse_fountain
+        return parse_fountain(path)
+
     text = path.read_text(encoding="utf-8")
     script_title = title or path.stem.replace("_", " ").replace("-", " ").title()
 

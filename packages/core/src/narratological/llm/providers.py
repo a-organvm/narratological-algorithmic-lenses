@@ -27,6 +27,9 @@ def _clean_json_content(content: str) -> str:
     Strips markdown code blocks and handles raw newlines in string values.
     """
     content = content.strip()
+    
+    # Normalize smart quotes to straight quotes
+    content = content.replace("“", '"').replace("”", '"').replace("‘", "'").replace("’", "'")
 
     # Remove markdown code blocks if present
     if content.startswith("```"):
@@ -60,14 +63,20 @@ def _clean_json_content(content: str) -> str:
     repaired_lines = []
     for i, line in enumerate(lines):
         stripped = line.strip()
-        # If line ends with a comma, brace, bracket or double quote followed by whitespace, 
-        # it's likely structural.
-        if stripped and not re.search(r'[:,\[\{\}\]\"]\s*$', stripped):
+        # If line ends with a structural char OR a primitive value (true/false/null/number)
+        # Structural chars: , : { } [ ] "
+        # Primitive values regex: (true|false|null|-?\d+(\.\d+)?)\s*$
+        if stripped and (
+            re.search(r'[:,\[\{\}\]\"]\s*$', stripped) or 
+            re.search(r'(true|false|null|-?\d+(\.\d+)?)\s*$', stripped, re.IGNORECASE)
+        ):
+            repaired_lines.append(line + "\n")
+        else:
             # Potential raw newline inside a string value
             if i < len(lines) - 1:
                 repaired_lines.append(line + "\\n")
                 continue
-        repaired_lines.append(line + "\n")
+            repaired_lines.append(line + "\n")
     
     content = "".join(repaired_lines)
     

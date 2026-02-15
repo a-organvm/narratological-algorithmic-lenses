@@ -105,6 +105,7 @@ def diagnose_causal_binding(
     # Load input
     try:
         script, context = load_input(script_path)
+        console.print(f"[dim]Detected {len(context.scenes)} scenes for analysis[/dim]")
     except (FileNotFoundError, ValueError) as e:
         console.print(f"[red]{e}[/red]")
         raise typer.Exit(1)

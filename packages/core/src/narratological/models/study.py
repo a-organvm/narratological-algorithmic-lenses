@@ -18,6 +18,7 @@ class Category(str, Enum):
 
     CLASSICAL = "Classical"
     FILM = "Film"
+    TELEVISION = "Television"
     COMICS = "Comics"
     LITERATURE = "Literature"
     INTERACTIVE = "Interactive"

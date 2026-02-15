@@ -6,9 +6,9 @@ narrative causal strength.
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Annotated
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, BeforeValidator
 
 from narratological.diagnostics.base import BaseDiagnostic
 from narratological.diagnostics.models import (
@@ -21,6 +21,12 @@ from narratological.models.report import DiagnosticIssue, DiagnosticSeverity
 
 if TYPE_CHECKING:
     from narratological.llm.providers import LLMProvider
+
+
+def ensure_list(v):
+    if isinstance(v, str):
+        return [v]
+    return v
 
 
 class LLMTransitionAnalysis(BaseModel):
@@ -41,7 +47,7 @@ class LLMCausalResponse(BaseModel):
         default_factory=list,
         description="Scene numbers with weak causal binding",
     )
-    recommendations: list[str] = Field(default_factory=list)
+    recommendations: Annotated[list[str], BeforeValidator(ensure_list)] = Field(default_factory=list)
 
 
 class CausalBindingDiagnostic(BaseDiagnostic):
@@ -113,11 +119,21 @@ class CausalBindingDiagnostic(BaseDiagnostic):
 
         # Add overall score issue
         overall_severity = self._get_severity_for_causal_binding(score)
+        
+        if score >= self.thresholds.causal_binding_excellent:
+            recommendation = "Excellent causal density. The narrative drive is self-sustaining."
+        elif score >= self.thresholds.causal_binding_good:
+            recommendation = "Strong binding. Focus on tightening the remaining 'AND THEN' transitions."
+        elif score >= self.thresholds.causal_binding_adequate:
+            recommendation = "Loose binding. The narrative feels episodic. Replace 'AND THEN' with 'THEREFORE' or 'BUT'."
+        else:
+            recommendation = "Critical failure of causality. The story is a series of disconnected events. Rewrite for causal logic."
+
         issues.append(
             self.create_issue(
-                description=f"Overall causal binding ratio: {score:.0%} (target >80%)",
+                description=f"Overall causal binding ratio: {score:.0%} (Target >{self.thresholds.causal_binding_good:.0%})",
                 severity=overall_severity,
-                recommendation="Strengthen cause-effect relationships between scenes" if score < 0.80 else "Causal binding is strong",
+                recommendation=recommendation,
             )
         )
 
@@ -234,7 +250,10 @@ class CausalBindingDiagnostic(BaseDiagnostic):
 
             return transitions
 
-        except Exception:
+        except Exception as e:
+            print(f"[DEBUG] LLM Causal Analysis failed: {e}")
+            import traceback
+            traceback.print_exc()
             return []
 
     def _calculate_score_from_transitions(

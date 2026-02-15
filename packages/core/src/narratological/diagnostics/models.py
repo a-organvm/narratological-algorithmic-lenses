@@ -189,21 +189,24 @@ class DiagnosticThresholds(BaseModel):
     """
 
     # Causal binding thresholds
+    # Empirically derived from Open View analysis:
+    # Draft 1 (Episodic) = 27%
+    # Draft 2 (Tightly Wound) = 78%
     causal_binding_excellent: float = Field(
-        default=0.90,
-        description="Above this = excellent",
+        default=0.80,
+        description="Above this = excellent (South Park ideal)",
     )
     causal_binding_good: float = Field(
-        default=0.80,
-        description="Above this = good",
+        default=0.60,
+        description="Above this = good (Professional standard)",
     )
     causal_binding_adequate: float = Field(
-        default=0.60,
-        description="Above this = adequate, below = warning",
+        default=0.30,
+        description="Above this = adequate, below = episodic/loose",
     )
     causal_binding_critical: float = Field(
-        default=0.40,
-        description="Below this = critical",
+        default=0.15,
+        description="Below this = broken/disconnected",
     )
 
     # Reorderability thresholds (lower is better)

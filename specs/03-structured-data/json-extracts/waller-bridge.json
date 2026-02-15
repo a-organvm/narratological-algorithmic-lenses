@@ -1,0 +1,113 @@
+{
+  "id": "waller-bridge",
+  "creator": "Phoebe Waller-Bridge",
+  "work": "Fleabag / Killing Eve",
+  "category": "Television",
+  "axioms": [
+    {
+      "id": "PWB-A0",
+      "name": "The Three Things Rule",
+      "statement": "There should be at least three things going on in one scene at the same time. Otherwise it's just a conversation about a bank loan.",
+      "derivations": ["Minimum Scene Complexity", "Obstacle Layering", "Scene Density"]
+    },
+    {
+      "id": "PWB-A1",
+      "name": "Reality Through Obstacles",
+      "statement": "The more you put on a person, the more real it feels. Real conversations rarely happen in neutral conditions.",
+      "derivations": ["Reality Generation Principle", "Neutral Condition Violation", "Authentic Pressure"]
+    },
+    {
+      "id": "PWB-A2",
+      "name": "Show Through Navigation",
+      "statement": "Obstacles force showing rather than telling—character is revealed through how they navigate complications, not what they declare.",
+      "derivations": ["Character Revelation", "Action over Dialogue", "Navigational Truth"]
+    },
+    {
+      "id": "PWB-A3",
+      "name": "Disarm Then Punch",
+      "statement": "Disarm the audience with comedy, then punch them in the gut with drama when they least expect it.",
+      "derivations": ["Tonal Oscillation", "Emotional Ambush", "Comedy as Trojan Horse"]
+    }
+  ],
+  "structural_hierarchy": {
+    "levels": [
+      {
+        "level": 1,
+        "name": "EPISODE",
+        "description": "Complete narrative unit",
+        "elements": ["Thematic Question", "Emotional Arc"]
+      },
+      {
+        "level": 2,
+        "name": "SCENE",
+        "description": "The atomic unit of drama",
+        "elements": ["Primary Intention", "Physical Obstacles", "Interpersonal Complications", "The Gap"]
+      },
+      {
+        "level": 3,
+        "name": "LAYER",
+        "description": "Distinct simultaneous track of action",
+        "elements": ["Intention", "Physical", "Interpersonal"]
+      }
+    ]
+  },
+  "core_algorithms": [
+    {
+      "name": "The Three Things Rule",
+      "purpose": "Ensure minimum dramatic density by layering simultaneous obstacles",
+      "pseudocode": "FOR scene IN script: obstacles = extract_obstacles(scene); distinct = deduplicate(obstacles); IF count(distinct) < 3: RETURN DRAMATICALLY_INERT; ELSE: RETURN HAS_REALITY",
+      "inputs": ["scene_content", "character_intention"],
+      "outputs": ["scene_validity", "complexity_score"]
+    },
+    {
+      "name": "Disarm-Then-Punch Protocol",
+      "purpose": "Deliver emotional impact by lowering audience defenses with comedy",
+      "pseudocode": "1. Introduce complication -> GENERATE LAUGHTER (Guard Lowered); 2. Maintain comic rhythm; 3. SUDDENLY deliver emotional payload (Punch); 4. TIMING: When least expected;",
+      "inputs": ["scene_beat", "emotional_payload"],
+      "outputs": ["emotional_impact", "tonal_shift"]
+    },
+    {
+      "name": "Reality Generation Principle",
+      "purpose": "Create authenticity by violating neutral conditions",
+      "pseudocode": "neutral_state = identify_neutral_conditions(scene); violations = select_violations(physical, bodily, temporal); APPLY violations TO scene; FORCE character TO navigate_while_pursuing_goal;",
+      "inputs": ["scene_context", "neutral_conditions"],
+      "outputs": ["authentic_pressure", "character_revelation"]
+    },
+    {
+      "name": "Fourth Wall Breaking (Direct Address)",
+      "purpose": "Establish intimacy and complicity with the audience",
+      "pseudocode": "IF character feels misunderstood/isolated: TURN to camera; SHARE subtext/judgment; ESTABLISH complicity; EFFECT: Audience becomes confidant/co-conspirator;",
+      "inputs": ["character_isolation", "internal_thought"],
+      "outputs": ["intimacy", "complicity"]
+    }
+  ],
+  "diagnostic_questions": [
+    {"id": "Q1", "question": "Are there at least three distinct things going on in this scene simultaneously?", "valid_if": "YES"},
+    {"id": "Q2", "question": "Could this scene happen in neutral conditions?", "valid_if": "NO"},
+    {"id": "Q3", "question": "Is the character revealed through how they navigate obstacles?", "valid_if": "YES"},
+    {"id": "Q4", "question": "Does comedy disarm the audience before a dramatic punch?", "valid_if": "YES"},
+    {"id": "Q5", "question": "Is the environment actively making the character's goal harder?", "valid_if": "YES"},
+    {"id": "Q6", "question": "Do obstacles interact and multiply each other?", "valid_if": "YES"}
+  ],
+  "theoretical_correspondences": {
+    "maps_to": [
+      "McKee's 'Gap' (Intention vs Result)",
+      "Sorkin's 'Intention + Obstacle'",
+      "Chekhov's 'Gun' (Weaponized props)"
+    ],
+    "sequence_pairs": []
+  },
+  "quick_reference": {
+    "core_operations": [
+      "Layer 1: Intention",
+      "Layer 2: Physical Obstacles",
+      "Layer 3: Interpersonal Complications",
+      "Layer 4: The Gap (Intention != Result)"
+    ],
+    "key_constraints": [
+      "Minimum 3 simultaneous obstacles",
+      "Real conversations never happen in neutral conditions",
+      "Comedy opens the door for drama"
+    ]
+  }
+}

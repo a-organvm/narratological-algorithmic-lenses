@@ -25,14 +25,22 @@ A systematic distillation of the "Three Things Going On" technique into formal, 
 
 ## 0. Meta-Principles (Axioms)
 
+
+
 | Axiom | Formulation |
+
 |-------|-------------|
-| A0 | Scenes require obstacles to generate drama, reveal character, and propel narrative forward |
-| A1 | "The more you put on a person, the more real it feels" |
-| A2 | Obstacles force *showing* rather than *telling*â€”character is revealed through navigation, not declaration |
-| A3 | Complications create comedy that opens viewers to emotional impact |
-| A4 | The technique operates fractally: what works for story works for act, scene, and beat |
-| A5 | Concrete/physical obstacles are preferable to abstract complications |
+
+| PWB-A0 | Scenes require obstacles to generate drama, reveal character, and propel narrative forward |
+
+| PWB-A1 | "The more you put on a person, the more real it feels" |
+
+| PWB-A2 | Obstacles force *showing* rather than *telling*
+
+â€”character is revealed through navigation, not declaration |
+| PWB-A3 | Complications create comedy that opens viewers to emotional impact |
+| PWB-A4 | The technique operates fractally: what works for story works for act, scene, and beat |
+| PWB-A5 | Concrete/physical obstacles are preferable to abstract complications |
 
 ### Source Quotes
 
@@ -44,7 +52,9 @@ A systematic distillation of the "Three Things Going On" technique into formal, 
 
 ---
 
-## 1. Core Formula
+## 1. The Three Things Rule (Core Formula)
+
+The structural unit of the show is the **EPISODE**.
 
 ```
 MINIMUM_SCENE_COMPLEXITY = 3
@@ -69,6 +79,8 @@ DRAMA = f(INTENTION Ã— OBSTACLES)
 ---
 
 ## 2. The Four-Layer Scene Construction Protocol
+
+The atomic unit is the **SCENE**, constructed from multiple **LAYER** tracks.
 
 ```python
 def construct_scene(character, context):
@@ -224,7 +236,7 @@ SHOW_DONT_TELL_THROUGH_OBSTACLES:
 
 ---
 
-## 5. The Disarm-Then-Punch Algorithm
+## 5. The Disarm-Then-Punch Protocol
 
 ```python
 def disarm_then_punch(scene, emotional_payload):
@@ -534,19 +546,12 @@ PHYSICAL:          INTERPERSONAL:         STRUCTURAL:
 
 ### Diagnostic Questions
 
-```
-1. "Is this just a conversation about [topic]?"
-   â†’ If yes, add obstacles
-   
-2. "Does character get what they expect?"
-   â†’ If yes, introduce gap
-   
-3. "Could this scene happen in neutral conditions?"
-   â†’ If yes, violate those conditions
-   
-4. "Am I TELLING character's nature or SHOWING through navigation?"
-   â†’ If telling, force obstacle navigation
-```
+1. **Are there at least three distinct things going on in this scene simultaneously?** (YES)
+2. **Could this scene happen in neutral conditions?** (NO)
+3. **Is the character revealed through how they navigate obstacles?** (YES)
+4. **Does comedy disarm the audience before a dramatic punch?** (YES)
+5. **Is the environment actively making the character's goal harder?** (YES)
+6. **Do obstacles interact and multiply each other?** (YES)
 
 ### The Fundamental Test
 
@@ -556,6 +561,21 @@ PHYSICAL:          INTERPERSONAL:         STRUCTURAL:
 > If YES â†’ scene has reality
 
 ---
+
+## 12. Fourth Wall Breaking (Direct Address)
+
+The camera is a character (the friend/confidant).
+
+```python
+def check_direct_address(character_state):
+    """
+    Establish intimacy and complicity.
+    """
+    if character.feels_misunderstood_by_world:
+        turn_to_camera()
+        share_private_judgment()
+        establish_complicity()
+```
 
 ## Appendix: Implementation Notes
 
