@@ -242,6 +242,17 @@ class Compendium(BaseModel):
         sequences = self.cross_references.get("sequences", [])
         return [SequencePair.model_validate(s) for s in sequences]
 
+    def get_pair_from_sequence(self, sequence_id: str) -> tuple[Study, Study] | None:
+        """Get the two studies involved in a sequence."""
+        for seq in self.get_sequence_pairs():
+            if seq.id == sequence_id or seq.name.lower() == sequence_id.lower():
+                if len(seq.studies) >= 2:
+                    s1 = self.get_study(seq.studies[0])
+                    s2 = self.get_study(seq.studies[1])
+                    if s1 and s2:
+                        return s1, s2
+        return None
+
     def get_paired_study(self, study_id: str) -> Study | None:
         """Get the paired study for a given study (if any)."""
         for pair in self.get_sequence_pairs():

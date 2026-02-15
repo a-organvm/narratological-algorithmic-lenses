@@ -196,6 +196,40 @@ class SynthesisConfig(BaseModel):
     )
 
 
+class CoAuthoringPair(BaseModel):
+    """A pair of creators acting as collaborative 'Script Doctors'.
+
+    Uses Sequence Pairs from the compendium to drive synthesis.
+    """
+
+    primary_id: str = Field(description="First creator/study ID")
+    secondary_id: str = Field(description="Second creator/study ID")
+    theme: str | None = Field(default=None, description="The unifying theme of this pair")
+    synergy_instruction: str | None = Field(
+        default=None,
+        description="Specific instructions on how these two should collaborate",
+    )
+
+
+class ScriptDoctorResult(BaseModel):
+    """The output of a Script Doctor analysis pass.
+
+    Synthesizes feedback as a collaborative dialogue between creators.
+    """
+
+    pair: CoAuthoringPair
+    dialogue: list[dict[str, str]] = Field(
+        description="Collaborative feedback formatted as a dialogue (creator: feedback)"
+    )
+    joint_recommendations: list[str] = Field(
+        description="Merged recommendations agreed upon by both creators"
+    )
+    creative_tension: list[str] = Field(
+        description="Areas where the creators' philosophies diverge regarding the script"
+    )
+    final_prescription: str = Field(description="The singular 'next step' for the writer")
+
+
 class MultiRoleAnalysis(BaseModel):
     """Complete multi-role analysis result.
 

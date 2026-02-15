@@ -582,3 +582,137 @@ def batch_analyze(
         summary_path = output / "batch_summary.json"
         summary_path.write_text(json.dumps(results, indent=2), encoding="utf-8")
         console.print(f"\n[dim]Summary saved to: {summary_path}[/dim]")
+
+
+def _display_script_doctor_result(result) -> None:
+    """Display a Script Doctor analysis result."""
+    console.print(Panel(
+        f"[bold]Pair:[/bold] {result.pair.primary_id} & {result.pair.secondary_id}\n"
+        f"[bold]Theme:[/bold] {result.pair.theme}",
+        title="Script Doctor Analysis",
+        border_style="magenta",
+    ))
+
+    # Display dialogue
+    console.print("\n[bold italic magenta]Collaborative Dialogue:[/bold italic magenta]")
+    for entry in result.dialogue:
+        name = entry.get("creator", "Unknown")
+        feedback = entry.get("feedback", "")
+        console.print(f"\n[bold cyan]{name}:[/bold cyan] [italic]{feedback}[/italic]")
+
+    # Joint recommendations
+    if result.joint_recommendations:
+        console.print("\n[bold green]Joint Recommendations[/bold green]")
+        for rec in result.joint_recommendations:
+            console.print(f"  + {rec}")
+
+    # Creative tension
+    if result.creative_tension:
+        console.print("\n[bold yellow]Creative Tension[/bold yellow]")
+        for tension in result.creative_tension:
+            console.print(f"  ~ {tension}")
+
+    # Final Prescription
+    console.print(Panel(
+        f"[bold white]{result.final_prescription}[/bold white]",
+        title="Final Prescription",
+        border_style="bold green",
+    ))
+
+
+@app.command("script-doctor")
+def script_doctor(
+    script_path: Annotated[
+        Path,
+        typer.Argument(help="Path to script file"),
+    ],
+    sequence: Annotated[
+        Optional[str],
+        typer.Option("--sequence", "-s", help="Sequence ID (A-G) or name (e.g., 'B' or 'Cinematic Interiority')"),
+    ] = None,
+    primary: Annotated[
+        Optional[str],
+        typer.Option("--primary", "-p1", help="Primary study ID (if not using sequence)"),
+    ] = None,
+    secondary: Annotated[
+        Optional[str],
+        typer.Option("--secondary", "-p2", help="Secondary study ID (if not using sequence)"),
+    ] = None,
+    provider: Annotated[
+        str,
+        typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
+    ] = "ollama",
+    model: Annotated[
+        Optional[str],
+        typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
+    ] = None,
+    base_url: Annotated[
+        Optional[str],
+        typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
+    ] = None,
+) -> None:
+    """Perform a collaborative 'Script Doctor' analysis using creator pairs.
+
+    This command uses paired narratological lenses to provide synthesized,
+    multi-dimensional feedback on your script.
+    """
+    from narratological.loader import load_compendium
+    from narratological.llm.script_doctor import ScriptDoctorAnalyst
+    from narratological.models.analyst import AnalystContext
+
+    if not script_path.exists():
+        console.print(f"[red]Script file not found: {script_path}[/red]")
+        raise typer.Exit(1)
+
+    # Resolve studies
+    compendium = load_compendium()
+    study1 = None
+    study2 = None
+
+    if sequence:
+        pair = compendium.get_pair_from_sequence(sequence)
+        if pair:
+            study1, study2 = pair
+        else:
+            console.print(f"[red]Sequence '{sequence}' not found.[/red]")
+            raise typer.Exit(1)
+    elif primary and secondary:
+        study1 = compendium.get_study(primary)
+        study2 = compendium.get_study(secondary)
+        if not study1 or not study2:
+            missing = primary if not study1 else secondary
+            console.print(f"[red]Study '{missing}' not found.[/red]")
+            raise typer.Exit(1)
+    else:
+        console.print("[red]Must provide either --sequence or both --primary and --secondary[/red]")
+        raise typer.Exit(1)
+
+    console.print(Panel(
+        f"[bold]Analyzing:[/bold] {script_path.name}\n"
+        f"[bold]Doctors:[/bold] {study1.creator} & {study2.creator}",
+        title="Script Doctor Consultation",
+    ))
+
+    # Parse script
+    try:
+        script = parse_script(script_path)
+        context = AnalystContext.from_script(script)
+    except Exception as e:
+        console.print(f"[red]Failed to parse script: {e}[/red]")
+        raise typer.Exit(1)
+
+    # Get provider and analyst
+    try:
+        llm = get_provider(provider, model=model, base_url=base_url, verbose=True)
+        doctor = ScriptDoctorAnalyst(llm)
+    except Exception as e:
+        console.print(f"[red]Initialization failed: {e}[/red]")
+        raise typer.Exit(1)
+
+    with console.status("[bold magenta]Consulting the doctors..."):
+        try:
+            result = doctor.analyze(context, study1, study2)
+            _display_script_doctor_result(result)
+        except Exception as e:
+            console.print(f"[red]Analysis failed: {e}[/red]")
+            raise typer.Exit(1)

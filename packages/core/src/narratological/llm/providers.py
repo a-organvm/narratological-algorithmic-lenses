@@ -7,6 +7,7 @@ and a MockProvider for testing without API calls.
 from __future__ import annotations
 
 import json
+import re
 from abc import abstractmethod
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, Protocol, TypeVar, runtime_checkable
@@ -18,6 +19,59 @@ if TYPE_CHECKING:
 
 
 T = TypeVar("T", bound=BaseModel)
+
+
+def _clean_json_content(content: str) -> str:
+    """Clean LLM output to ensure valid JSON.
+
+    Strips markdown code blocks and handles raw newlines in string values.
+    """
+    content = content.strip()
+
+    # Remove markdown code blocks if present
+    if content.startswith("```"):
+        match = re.search(r"```(?:json)?\s*(.*?)\s*```", content, re.DOTALL)
+        if match:
+            content = match.group(1)
+        else:
+            lines = content.split("\n")
+            if lines[0].startswith("```"):
+                lines = lines[1:]
+            if lines and lines[-1].strip() == "```":
+                lines = lines[:-1]
+            content = "\n".join(lines)
+
+    content = content.strip()
+
+    # If it doesn't look like a JSON object/array, try to find one
+    if not (content.startswith("{") or content.startswith("[")):
+        match = re.search(r"(\{.*\}|\[.*\])", content, re.DOTALL)
+        if match:
+            content = match.group(1)
+
+    # Remove non-printable control characters EXCEPT newline, tab, cr
+    content = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", content)
+
+    # Heuristic for internal newlines in strings:
+    # Most local LLMs produce invalid JSON because they put real newlines 
+    # inside property values.
+    # We look for lines that don't end with JSON structural characters.
+    lines = content.split("\n")
+    repaired_lines = []
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        # If line ends with a comma, brace, bracket or double quote followed by whitespace, 
+        # it's likely structural.
+        if stripped and not re.search(r'[:,\[\{\}\]\"]\s*$', stripped):
+            # Potential raw newline inside a string value
+            if i < len(lines) - 1:
+                repaired_lines.append(line + "\\n")
+                continue
+        repaired_lines.append(line + "\n")
+    
+    content = "".join(repaired_lines)
+    
+    return content.strip()
 
 
 @dataclass
@@ -137,12 +191,12 @@ class AnthropicProvider:
 Respond with valid JSON matching this schema:
 {schema_json}
 
-Return ONLY the JSON object, no additional text."""
+        Return ONLY the JSON object, no additional text."""
 
         result = self.complete(structured_prompt, system=system)
-        data = json.loads(result.content)
+        content = _clean_json_content(result.content)
+        data = json.loads(content)
         return schema.model_validate(data)
-
 
 class OllamaProvider:
     """LLM provider using Ollama's OpenAI-compatible API.
@@ -234,20 +288,24 @@ Respond with valid JSON matching this schema:
 Return ONLY the JSON object, no additional text or markdown code blocks."""
 
         result = self.complete(structured_prompt, system=system)
-
-        # Handle potential markdown code block wrapping
-        content = result.content.strip()
-        if content.startswith("```"):
-            # Remove markdown code block
-            lines = content.split("\n")
-            if lines[0].startswith("```"):
-                lines = lines[1:]
-            if lines and lines[-1].strip() == "```":
-                lines = lines[:-1]
-            content = "\n".join(lines)
-
-        data = json.loads(content)
-        return schema.model_validate(data)
+        content = _clean_json_content(result.content)
+        
+        try:
+            data = json.loads(content)
+            return schema.model_validate(data)
+        except Exception as e:
+            # Enhanced debugging for JSON errors
+            if isinstance(e, json.JSONDecodeError):
+                print(f"\n[DEBUG] JSON Decode Error: {e.msg} at pos {e.pos}")
+                snippet = content[max(0, e.pos-40):min(len(content), e.pos+40)]
+                print(f"[DEBUG] Snippet around error: {snippet!r}")
+                if e.pos < len(content):
+                    problem_char = content[e.pos]
+                    print(f"[DEBUG] Problem character: {problem_char!r} (hex: {hex(ord(problem_char))})")
+            else:
+                print(f"\n[DEBUG] Validation Error: {e}")
+            
+            raise
 
 
 class OpenAIProvider:
@@ -327,12 +385,12 @@ class OpenAIProvider:
 Respond with valid JSON matching this schema:
 {schema_json}
 
-Return ONLY the JSON object, no additional text."""
+        Return ONLY the JSON object, no additional text."""
 
         result = self.complete(structured_prompt, system=system)
-        data = json.loads(result.content)
+        content = _clean_json_content(result.content)
+        data = json.loads(content)
         return schema.model_validate(data)
-
 
 @dataclass
 class MockResponse:
