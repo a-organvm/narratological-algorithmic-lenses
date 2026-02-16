@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Platinum Sprint: CI/CD workflow, standardized badge row, ADR documentation
 - Initial CHANGELOG following Keep a Changelog format
+- Claude Desktop project intake: 52 files, 27 conversation threads (119 files total)
+- `docs/plans/there+back-again.md`: exhaustive macro→micro→macro roadmap
+
+### Changed
+
+- README.md: fix study count (28), expand repo layout to all 13 spec directories, add Protocol Framework section, add Project History section, link roadmap from closing line
 
 ## [0.1.0] - 2026-02-11
 
