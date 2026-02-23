@@ -12,8 +12,8 @@ org: organvm-i-theoria
 metadata:
   implementation_status: PRODUCTION
   tier: standard
-  promotion_status: CANDIDATE
-  last_validated: "2026-02-11"
+  promotion_status: PUBLIC_PROCESS
+  last_validated: "2026-02-23"
   generated: "2026-02-12"
   sprint: "AUTONOMY"
 
