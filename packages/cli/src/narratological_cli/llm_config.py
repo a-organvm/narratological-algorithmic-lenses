@@ -149,11 +149,7 @@ def _print_provider_info(
 def provider_help_text() -> str:
     """Generate help text for provider options."""
     return (
-        "LLM provider to use. Options:\n"
-        "  - ollama: Local models via Ollama (default, no API key needed)\n"
-        "  - anthropic: Claude models (requires ANTHROPIC_API_KEY)\n"
-        "  - openai: OpenAI models (requires OPENAI_API_KEY)\n"
-        "  - mock: Mock responses for testing"
+        "LLM provider to use: ollama (default), anthropic, openai, or mock."
     )
 
 
