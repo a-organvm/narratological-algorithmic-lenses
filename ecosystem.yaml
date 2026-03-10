@@ -1,0 +1,9 @@
+schema_version: '1.0'
+repo: narratological-algorithmic-lenses
+organ: I
+display_name: "14 narratological studies \xD7 92 algorithms \u2014 formalizing narrative\
+  \ principles from Aristotle to Pixar as executable code, with CLI, API, web dashboard,\
+  \ and real screenplay analysis"
+delivery:
+- platform: web_app
+  status: not_started
