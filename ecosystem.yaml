@@ -1,9 +1,38 @@
 schema_version: '1.0'
 repo: narratological-algorithmic-lenses
 organ: I
-display_name: "14 narratological studies \xD7 92 algorithms \u2014 formalizing narrative\
-  \ principles from Aristotle to Pixar as executable code, with CLI, API, web dashboard,\
-  \ and real screenplay analysis"
+display_name: "14 narratological studies x 92 algorithms — formalizing narrative principles as executable code"
+
 delivery:
+- platform: python_library
+  status: live
+  priority: critical
+  notes: "Python package with 92 algorithms spanning Aristotle to Pixar"
+  next_action: "Maintain and extend algorithm coverage"
+- platform: cli_tool
+  status: live
+  priority: high
+  notes: "CLI for running narrative analysis on text and screenplays"
+  next_action: "Add batch processing for corpus-level analysis"
 - platform: web_app
-  status: not_started
+  status: in_progress
+  priority: medium
+  notes: "Web dashboard for interactive screenplay analysis"
+  next_action: "Complete visualization layer for analysis results"
+- platform: api
+  status: in_progress
+  priority: medium
+  notes: "REST API for programmatic narrative analysis"
+  next_action: "Finalize API schema and add rate limiting"
+
+content:
+- platform: docs_site
+  status: planned
+  priority: high
+  notes: "Algorithm reference, study summaries, analysis methodology"
+  next_action: "Document each of 14 studies and their derived algorithms"
+- platform: academic_writing
+  status: in_progress
+  priority: high
+  notes: "Paper on computational narratology with real screenplay results"
+  next_action: "Complete analysis section with corpus findings"
