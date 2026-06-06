@@ -46,7 +46,7 @@ async def get_diagnostic_questions(study_id: str) -> list[dict[str, Any]]:
     try:
         study = load_study(study_id)
     except KeyError as e:
-        raise HTTPException(status_code=404, detail=str(e))
+        raise HTTPException(status_code=404, detail=str(e)) from e
 
     return [q.model_dump() for q in study.diagnostic_questions]
 
@@ -131,7 +131,7 @@ async def run_framework_diagnostics(
     try:
         study = load_study(study_id)
     except KeyError as e:
-        raise HTTPException(status_code=404, detail=str(e))
+        raise HTTPException(status_code=404, detail=str(e)) from e
 
     # In a full implementation, this would run each diagnostic
     # against the analyzed script
@@ -173,7 +173,7 @@ async def get_all_diagnostic_questions(
             raise HTTPException(
                 status_code=400,
                 detail=f"Invalid category: {category}",
-            )
+            ) from None
     else:
         studies = list(compendium.studies.values())
 

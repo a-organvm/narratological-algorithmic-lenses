@@ -18,11 +18,7 @@ if TYPE_CHECKING:
 
 
 import os
-from importlib import resources
-from pathlib import Path
 from typing import TYPE_CHECKING
-
-from narratological.models.study import Compendium, Study
 
 if TYPE_CHECKING:
     from os import PathLike
@@ -30,7 +26,7 @@ if TYPE_CHECKING:
 
 def _get_compendium_path() -> Path | None:
     """Resolve the path to the unified compendium.
-    
+
     Priority:
     1. NARRATOLOGICAL_COMPENDIUM env var
     2. Local development path (specs/03-structured-data/...)

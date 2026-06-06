@@ -48,7 +48,7 @@ narratological-algorithmic-lenses/
 ├── specs/                          # The Knowledge Base
 │   ├── 00-chat-transcripts/        # Claude Desktop conversation archive (27 threads)
 │   ├── 01-primary-sources/         # Original source documents
-│   ├── 02-completed-studies/       # Markdown source of truth (28 studies + 1 report)
+│   ├── 02-completed-studies/       # Markdown source of truth (28 studies)
 │   ├── 03-structured-data/         # Validated JSON extracts & unified compendium
 │   ├── 04-templates/               # Study and analysis templates
 │   ├── 05-secondary-sources/       # Supplementary research materials

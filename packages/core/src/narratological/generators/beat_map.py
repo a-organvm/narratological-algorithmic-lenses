@@ -6,7 +6,7 @@ connectors, and tension analysis.
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 from pydantic import BaseModel, Field
 
@@ -22,7 +22,6 @@ from narratological.generators.prompts import (
 )
 from narratological.generators.utils import (
     calculate_average_tension,
-    calculate_causal_binding_ratio,
     calculate_connector_distribution,
     calculate_function_distribution,
     format_page_range,

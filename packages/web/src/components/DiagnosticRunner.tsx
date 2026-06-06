@@ -1,13 +1,6 @@
 import { useState, useEffect } from 'react'
 import { fetchStudies, type StudySummary } from '../api/client'
 
-interface DiagnosticQuestion {
-  study_id: string
-  question_id: string
-  question: string
-  valid_if: string
-}
-
 export default function DiagnosticRunner() {
   const [studies, setStudies] = useState<StudySummary[]>([])
   const [selectedStudy, setSelectedStudy] = useState<string>('')

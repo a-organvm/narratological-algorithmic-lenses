@@ -22,8 +22,7 @@ from narratological.algorithms import (
     get_registry,
     reset_registry,
 )
-from narratological.llm import MockProvider, MockResponse, get_provider
-
+from narratological.llm import MockProvider, get_provider
 
 # Path to the actual unified JSON for integration tests
 SPECS_PATH = Path(__file__).parent.parent.parent.parent / "specs" / "03-structured-data"

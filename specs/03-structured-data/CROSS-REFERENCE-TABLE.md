@@ -5,6 +5,7 @@
 | ID | Creator | Category | Axiom Count | Algorithm Count | Sequence Pair(s) |
 |----|---------|----------|-------------|-----------------|------------------|
 | ovid-metamorphoses | Ovid | Classical | 5 | 5 | Gaiman, Tarantino |
+| bharata-muni | Bharata Muni | Classical | 7 | 8 | Aristotle |
 | tarkovsky | Andrei Tarkovsky | Film | 6 | 6 | Bergman, Kubrick |
 | bergman | Ingmar Bergman | Film | 6 | 6 | Tarkovsky, Waller-Bridge |
 | alan-moore | Alan Moore | Comics | 7 | 5 | Morrison |
@@ -166,4 +167,4 @@
 ---
 
 *Generated: February 15, 2026*
-*Total Studies: 27 | Total Axioms: ~120 | Total Algorithms: ~110*
+*Total Studies: 28 | Total Axioms: ~127 | Total Algorithms: ~118*

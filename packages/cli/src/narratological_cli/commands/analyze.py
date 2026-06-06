@@ -2,7 +2,7 @@
 
 import json
 from pathlib import Path
-from typing import Annotated, Optional
+from typing import Annotated
 
 import typer
 from rich.console import Console
@@ -142,11 +142,11 @@ def analyze_script(
         typer.Argument(help="Path to script file (txt, pdf, fdx)"),
     ],
     framework: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--framework", "-f", help="Primary framework/study to apply"),
     ] = None,
     output: Annotated[
-        Optional[Path],
+        Path | None,
         typer.Option("--output", "-o", help="Output directory for reports"),
     ] = None,
     reports: Annotated[
@@ -158,11 +158,11 @@ def analyze_script(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -172,8 +172,8 @@ def analyze_script(
     based on the selected framework(s).
     """
     from narratological.generators.base import GeneratorConfig
-    from narratological.generators.coverage import CoverageReportGenerator
     from narratological.generators.beat_map import BeatMapReportGenerator
+    from narratological.generators.coverage import CoverageReportGenerator
 
     if not script_path.exists():
         console.print(f"[red]Script file not found: {script_path}[/red]")
@@ -192,14 +192,14 @@ def analyze_script(
         console.print(f"[dim]Parsed {len(script.scenes)} scenes, {len(script.characters)} characters[/dim]")
     except (FileNotFoundError, ValueError) as e:
         console.print(f"[red]Failed to parse script: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url, verbose=True)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Configure generators
     config = GeneratorConfig(
@@ -270,7 +270,7 @@ def analyze_scene(
         typer.Argument(help="Scene text to analyze (or path to file)"),
     ],
     framework: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--framework", "-f", help="Framework to apply"),
     ] = None,
     provider: Annotated[
@@ -278,11 +278,11 @@ def analyze_scene(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -307,9 +307,9 @@ def analyze_scene(
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Define response model for scene analysis
     class SceneAnalysis(BaseModel):
@@ -373,7 +373,7 @@ Provide analysis as a JSON object."""
 
     except Exception as e:
         console.print(f"[red]Analysis failed: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
 
 @app.command("compare")
@@ -385,15 +385,15 @@ def compare_scripts(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
     output: Annotated[
-        Optional[Path],
+        Path | None,
         typer.Option("--output", "-o", help="Output path for comparison report"),
     ] = None,
 ) -> None:
@@ -415,14 +415,14 @@ def compare_scripts(
         script_2 = parse_script(script_b)
     except (FileNotFoundError, ValueError) as e:
         console.print(f"[red]Failed to parse scripts: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Run diagnostics on both
     runner = create_diagnostic_runner(provider=llm)
@@ -463,7 +463,7 @@ def compare_scripts(
     console.print(table)
 
     # Health comparison
-    console.print(f"\n[bold]Overall Health:[/bold]")
+    console.print("\n[bold]Overall Health:[/bold]")
     console.print(f"  {script_a.stem}: {report_a.overall_health}")
     console.print(f"  {script_b.stem}: {report_b.overall_health}")
 
@@ -488,7 +488,7 @@ def batch_analyze(
         typer.Option("--pattern", "-p", help="File pattern to match"),
     ] = "*.txt",
     output: Annotated[
-        Optional[Path],
+        Path | None,
         typer.Option("--output", "-o", help="Output directory"),
     ] = None,
     provider: Annotated[
@@ -496,11 +496,11 @@ def batch_analyze(
         typer.Option("--provider", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -524,9 +524,9 @@ def batch_analyze(
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     runner = create_diagnostic_runner(provider=llm)
 
@@ -642,15 +642,15 @@ def script_doctor(
         typer.Argument(help="Path to script file"),
     ],
     sequence: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--sequence", "-s", help="Sequence ID (A-G) or name (e.g., 'B' or 'Cinematic Interiority')"),
     ] = None,
     primary: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--primary", "-p1", help="Primary study ID (if not using sequence)"),
     ] = None,
     secondary: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--secondary", "-p2", help="Secondary study ID (if not using sequence)"),
     ] = None,
     debate: Annotated[
@@ -662,11 +662,11 @@ def script_doctor(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -675,8 +675,8 @@ def script_doctor(
     This command uses paired narratological lenses to provide synthesized,
     multi-dimensional feedback on your script.
     """
-    from narratological.loader import load_compendium
     from narratological.llm.script_doctor import ScriptDoctorAnalyst
+    from narratological.loader import load_compendium
     from narratological.models.analyst import AnalystContext
 
     if not script_path.exists():
@@ -719,7 +719,7 @@ def script_doctor(
         context = AnalystContext.from_script(script)
     except Exception as e:
         console.print(f"[red]Failed to parse script: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Get provider and analyst
     try:
@@ -727,7 +727,7 @@ def script_doctor(
         doctor = ScriptDoctorAnalyst(llm)
     except Exception as e:
         console.print(f"[red]Initialization failed: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     with console.status("[bold magenta]Consulting the doctors..."):
         try:
@@ -735,4 +735,4 @@ def script_doctor(
             _display_script_doctor_result(result)
         except Exception as e:
             console.print(f"[red]Analysis failed: {e}[/red]")
-            raise typer.Exit(1)
+            raise typer.Exit(1) from e

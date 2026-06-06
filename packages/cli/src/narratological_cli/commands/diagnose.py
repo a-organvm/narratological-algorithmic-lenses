@@ -1,7 +1,7 @@
 """CLI commands for running diagnostic tests."""
 
 from pathlib import Path
-from typing import Annotated, Optional
+from typing import Annotated
 
 import typer
 from rich.console import Console
@@ -80,11 +80,11 @@ def diagnose_causal_binding(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -93,8 +93,8 @@ def diagnose_causal_binding(
     Strong narratives have >80% causal connectors (BUT/THEREFORE).
     Weak episodic structures rely on AND THEN connections.
     """
-    from narratological.diagnostics.runner import create_diagnostic_runner
     from narratological.diagnostics.models import DiagnosticThresholds
+    from narratological.diagnostics.runner import create_diagnostic_runner
 
     console.print(Panel(
         f"[bold]Target:[/bold] {target:.0%} causal binding\n"
@@ -108,14 +108,14 @@ def diagnose_causal_binding(
         console.print(f"[dim]Detected {len(context.scenes)} scenes for analysis[/dim]")
     except (FileNotFoundError, ValueError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Configure thresholds
     thresholds = DiagnosticThresholds(causal_binding_good=target)
@@ -144,11 +144,11 @@ def diagnose_reorderability(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -169,14 +169,14 @@ def diagnose_reorderability(
         script, context = load_input(script_path)
     except (FileNotFoundError, ValueError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Run diagnostic
     runner = create_diagnostic_runner(provider=llm)
@@ -203,11 +203,11 @@ def diagnose_necessity(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -228,14 +228,14 @@ def diagnose_necessity(
         script, context = load_input(script_path)
     except (FileNotFoundError, ValueError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Run diagnostic
     runner = create_diagnostic_runner(provider=llm)
@@ -266,11 +266,11 @@ def diagnose_with_framework(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -286,7 +286,7 @@ def diagnose_with_framework(
         study = load_study(study_id)
     except KeyError as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     console.print(Panel(
         f"[bold]Framework:[/bold] {study.creator} - {study.work}\n"
@@ -315,7 +315,7 @@ def diagnose_with_framework(
         script, context = load_input(script_path)
     except (FileNotFoundError, ValueError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Set active study for the context
     context.active_studies = [study_id]
@@ -323,16 +323,16 @@ def diagnose_with_framework(
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Run framework diagnostic
     compendium = load_compendium()
     runner = create_diagnostic_runner(provider=llm, compendium=compendium)
     issues = runner.run_framework(context, study_ids=[study_id])
 
-    console.print(f"\n[bold]Framework Analysis Results:[/bold]")
+    console.print("\n[bold]Framework Analysis Results:[/bold]")
     if issues:
         for issue in issues:
             severity_color = {
@@ -356,7 +356,7 @@ def diagnose_all(
         typer.Argument(help="Path to script file or beat map JSON"),
     ],
     output: Annotated[
-        Optional[Path],
+        Path | None,
         typer.Option("--output", "-o", help="Output path for diagnostic report JSON"),
     ] = None,
     provider: Annotated[
@@ -364,11 +364,11 @@ def diagnose_all(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
     include_framework: Annotated[
@@ -394,14 +394,14 @@ def diagnose_all(
         script, context = load_input(script_path)
     except (FileNotFoundError, ValueError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Run full diagnostic battery
     compendium = load_compendium() if include_framework else None
@@ -438,13 +438,13 @@ def diagnose_all(
     console.print(table)
 
     # Issue summary
-    console.print(f"\n[bold]Issues Found:[/bold]")
+    console.print("\n[bold]Issues Found:[/bold]")
     console.print(f"  [red]Critical:[/red] {report.critical_count}")
     console.print(f"  [yellow]Warning:[/yellow] {report.warning_count}")
 
     # Priority fixes
     if report.priority_fixes:
-        console.print(f"\n[bold]Priority Fixes:[/bold]")
+        console.print("\n[bold]Priority Fixes:[/bold]")
         for i, fix in enumerate(report.priority_fixes[:5], 1):
             console.print(f"  {i}. {fix}")
 

@@ -12,10 +12,10 @@ from typing import TYPE_CHECKING
 from pydantic import BaseModel, Field
 
 from narratological.models.analyst import (
+    ROLE_STUDY_MAPPING,
     AnalystContext,
     AnalystObservation,
     AnalystRole,
-    ROLE_STUDY_MAPPING,
     RoleAnalysisResult,
 )
 

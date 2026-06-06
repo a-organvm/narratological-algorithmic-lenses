@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Annotated
 
-from pydantic import BaseModel, Field, BeforeValidator
+from pydantic import BaseModel, BeforeValidator, Field
 
 from narratological.diagnostics.base import BaseDiagnostic
 from narratological.diagnostics.models import (
@@ -20,7 +20,7 @@ from narratological.models.analysis import ConnectorType
 from narratological.models.report import DiagnosticIssue, DiagnosticSeverity
 
 if TYPE_CHECKING:
-    from narratological.llm.providers import LLMProvider
+    pass
 
 
 def ensure_list(v):
@@ -121,7 +121,7 @@ class CausalBindingDiagnostic(BaseDiagnostic):
 
         # Add overall score issue
         overall_severity = self._get_severity_for_causal_binding(score)
-        
+
         if score >= self.thresholds.causal_binding_excellent:
             recommendation = "Excellent causal density. The narrative drive is self-sustaining."
         elif score >= self.thresholds.causal_binding_good:

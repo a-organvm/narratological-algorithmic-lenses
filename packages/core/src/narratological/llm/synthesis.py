@@ -236,7 +236,7 @@ class MultiRoleOrchestrator:
 
         # Simple heuristic: if multiple roles observe in same category,
         # it's a consensus area; high variance in confidence suggests divergence
-        for category, obs_list in by_category.items():
+        for _category, obs_list in by_category.items():
             if len(obs_list) >= 2:
                 # Multiple roles observed this category
                 confidences = [o.confidence for o in obs_list]

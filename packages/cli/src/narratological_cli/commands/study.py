@@ -1,11 +1,9 @@
 """CLI commands for exploring narratological studies."""
 
-from pathlib import Path
-from typing import Annotated, Optional
+from typing import Annotated
 
 import typer
 from rich.console import Console
-from rich.markdown import Markdown
 from rich.panel import Panel
 from rich.table import Table
 from rich.tree import Tree
@@ -17,7 +15,7 @@ console = Console()
 @app.command("list")
 def list_studies(
     category: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--category", "-c", help="Filter by category"),
     ] = None,
 ) -> None:
@@ -34,7 +32,7 @@ def list_studies(
         except ValueError:
             console.print(f"[red]Invalid category: {category}[/red]")
             console.print(f"Valid categories: {', '.join(c.value for c in Category)}")
-            raise typer.Exit(1)
+            raise typer.Exit(1) from None
     else:
         studies = list(compendium.studies.values())
 
@@ -61,7 +59,7 @@ def list_studies(
 def show_study(
     study_id: Annotated[str, typer.Argument(help="Study ID to show")],
     section: Annotated[
-        Optional[str],
+        str | None,
         typer.Option(
             "--section",
             "-s",
@@ -76,7 +74,7 @@ def show_study(
         study = load_study(study_id)
     except KeyError as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Header
     console.print(Panel(
@@ -162,7 +160,7 @@ def show_axiom(
         study = load_study(study_id)
     except KeyError as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     axiom = study.get_axiom(axiom_id)
     if axiom is None:
@@ -192,7 +190,7 @@ def show_algorithm(
         study = load_study(study_id)
     except KeyError as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     algo = study.get_algorithm(algo_name)
     if algo is None:
@@ -201,7 +199,7 @@ def show_algorithm(
         if len(matches) == 1:
             algo = matches[0]
         elif matches:
-            console.print(f"[yellow]Multiple matches found:[/yellow]")
+            console.print("[yellow]Multiple matches found:[/yellow]")
             for m in matches:
                 console.print(f"  - {m.name}")
             raise typer.Exit(1)

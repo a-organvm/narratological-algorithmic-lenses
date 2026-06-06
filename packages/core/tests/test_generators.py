@@ -11,7 +11,6 @@ Tests cover:
 import pytest
 
 from narratological.generators import (
-    BaseReportGenerator,
     BeatMapReportGenerator,
     CharacterAtlasReportGenerator,
     CoverageReportGenerator,
@@ -36,7 +35,6 @@ from narratological.models.report import (
     RecommendationType,
     StructuralReport,
 )
-
 
 # =============================================================================
 # Fixtures
@@ -288,7 +286,7 @@ class TestBeatMapReportGenerator:
         )
 
         gen = BeatMapReportGenerator(provider=mock_provider)
-        report = gen.generate(script)
+        _report = gen.generate(script)
 
         assert len(mock_provider.get_calls()) == 1
 

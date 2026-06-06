@@ -4,6 +4,7 @@ A comprehensive library for narrative analysis using formalized algorithms
 extracted from master storytellers.
 """
 
+from narratological.loader import load_compendium, load_study
 from narratological.models.study import (
     Algorithm,
     Axiom,
@@ -14,7 +15,6 @@ from narratological.models.study import (
     Study,
     TheoreticalCorrespondences,
 )
-from narratological.loader import load_compendium, load_study
 
 __version__ = "0.1.0"
 

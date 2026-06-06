@@ -6,8 +6,8 @@ for analysis, generation, and validation using LLM providers.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from enum import Enum
+from dataclasses import dataclass
+from enum import StrEnum
 from typing import TYPE_CHECKING, Any
 
 from pydantic import BaseModel, Field
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     from narratological.llm.providers import LLMProvider
 
 
-class ExecutionMode(str, Enum):
+class ExecutionMode(StrEnum):
     """Mode of algorithm execution."""
 
     ANALYZE = "analyze"

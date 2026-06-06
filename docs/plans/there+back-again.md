@@ -121,11 +121,11 @@ All of this material was ingested into the repository at commit `2e1029f` and no
 
 ### Milestone 2: Data Integrity Hardening
 
-- [ ] Validate all 28 JSON extracts load cleanly via `uv run narratological validate compendium`
-- [ ] Ensure `ovid-study-research-report.md` is correctly classified (research report, not a study)
-- [ ] Verify Bharata Muni supplement/extended in `05-secondary-sources/` are properly cross-referenced
-- [ ] Confirm unified compendium JSON matches all 28 individual extracts
-- [ ] Run `uv run narratological validate sync` — fix any drift
+- [x] Validate all 28 JSON extracts load cleanly via `uv run narratological validate compendium`
+- [x] Ensure `ovid-study-research-report.md` is correctly classified (research report, not a study)
+- [x] Verify Bharata Muni supplement/extended in `05-secondary-sources/` are properly cross-referenced
+- [x] Confirm unified compendium JSON matches all 28 individual extracts
+- [x] Run `uv run narratological validate sync` — fix any drift
 
 ### Milestone 3: Package Hardening
 

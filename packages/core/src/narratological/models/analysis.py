@@ -6,13 +6,13 @@ and stories using the narratological algorithms.
 
 from __future__ import annotations
 
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 from pydantic import BaseModel, Field
 
 
-class BeatFunction(str, Enum):
+class BeatFunction(StrEnum):
     """Scene/beat function codes based on the SKILL.md methodology.
 
     These 15 codes classify the narrative function of each scene or beat.
@@ -35,7 +35,7 @@ class BeatFunction(str, Enum):
     CODA = "CODA"  # Ending commentary
 
 
-class ArcClassification(str, Enum):
+class ArcClassification(StrEnum):
     """Character arc types based on transformation patterns."""
 
     POSITIVE = "positive"  # Growth toward better state
@@ -45,7 +45,7 @@ class ArcClassification(str, Enum):
     REDEEMED = "redeemed"  # Recovered from negative to positive
 
 
-class ConnectorType(str, Enum):
+class ConnectorType(StrEnum):
     """Scene connector types for causal binding analysis.
 
     Based on the South Park "therefore" rule: BUT/THEREFORE indicates

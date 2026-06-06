@@ -6,23 +6,19 @@ methodology: Coverage, Beat Map, Structural, Character Atlas, and Diagnostic.
 
 from __future__ import annotations
 
-from enum import Enum
 from datetime import datetime
+from enum import StrEnum
 
 from pydantic import BaseModel, Field
 
 from narratological.models.analysis import (
     ArcClassification,
-    Beat,
     BeatFunction,
-    Character,
     ConnectorType,
-    Scene,
-    ThematicElement,
 )
 
 
-class RecommendationType(str, Enum):
+class RecommendationType(StrEnum):
     """Types of recommendations in coverage reports."""
 
     CONSIDER = "CONSIDER"  # Suggest for reading/production
@@ -31,7 +27,7 @@ class RecommendationType(str, Enum):
     URGENT = "URGENT"  # High priority recommendation
 
 
-class DiagnosticSeverity(str, Enum):
+class DiagnosticSeverity(StrEnum):
     """Severity levels for diagnostic issues."""
 
     CRITICAL = "critical"  # Must be fixed

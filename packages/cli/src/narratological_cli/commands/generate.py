@@ -1,7 +1,7 @@
 """CLI commands for generating narrative structures."""
 
 from pathlib import Path
-from typing import Annotated, Optional
+from typing import Annotated
 
 import typer
 from pydantic import BaseModel, Field
@@ -89,7 +89,7 @@ def generate_outline(
         typer.Option("--acts", "-a", help="Number of acts"),
     ] = 3,
     output: Annotated[
-        Optional[Path],
+        Path | None,
         typer.Option("--output", "-o", help="Output file path"),
     ] = None,
     provider: Annotated[
@@ -97,11 +97,11 @@ def generate_outline(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -116,7 +116,7 @@ def generate_outline(
         study = load_study(framework)
     except KeyError as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     console.print(Panel(
         f"[bold]Premise:[/bold] {premise}\n"
@@ -128,14 +128,14 @@ def generate_outline(
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url, verbose=True)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Build system prompt from study
     structural_hierarchy = "\n".join(
-        f"Level {l.level}: {l.name} - {l.description}"
-        for l in study.structural_hierarchy.levels
+        f"Level {lvl.level}: {lvl.name} - {lvl.description}"
+        for lvl in study.structural_hierarchy.levels
     )
 
     axioms = "\n".join(
@@ -214,7 +214,7 @@ Follow the {study.creator} methodology for structure and character."""
 
     except Exception as e:
         console.print(f"[red]Generation failed: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
 
 @app.command("beats")
@@ -236,11 +236,11 @@ def generate_beats(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -257,7 +257,7 @@ def generate_beats(
         valid = ", ".join(f.value for f in BeatFunction)
         console.print(f"[red]Invalid function: {function}[/red]")
         console.print(f"Valid functions: {valid}")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from None
 
     console.print(Panel(
         f"[bold]Scene:[/bold] {scene_description[:100]}{'...' if len(scene_description) > 100 else ''}\n"
@@ -269,9 +269,9 @@ def generate_beats(
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Beat function characteristics
     characteristics = {
@@ -343,7 +343,7 @@ Also provide a tension arc (1-10 scale) for each beat."""
 
     except Exception as e:
         console.print(f"[red]Generation failed: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
 
 @app.command("character")
@@ -353,7 +353,7 @@ def generate_character(
         typer.Argument(help="Character role (protagonist, antagonist, mentor, etc.)"),
     ],
     genre: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--genre", "-g", help="Genre context"),
     ] = None,
     framework: Annotated[
@@ -361,11 +361,11 @@ def generate_character(
         typer.Option("--framework", "-f", help="Framework for character design"),
     ] = "pixar",
     context: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--context", "-c", help="Story context or premise"),
     ] = None,
     output: Annotated[
-        Optional[Path],
+        Path | None,
         typer.Option("--output", "-o", help="Output file path"),
     ] = None,
     provider: Annotated[
@@ -373,11 +373,11 @@ def generate_character(
         typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -392,7 +392,7 @@ def generate_character(
         study = load_study(framework)
     except KeyError as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     console.print(Panel(
         f"[bold]Role:[/bold] {role}\n"
@@ -404,9 +404,9 @@ def generate_character(
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Build system prompt
     axioms = "\n".join(
@@ -494,7 +494,7 @@ Include:
 
     except Exception as e:
         console.print(f"[red]Generation failed: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
 
 @app.command("transformation")
@@ -512,11 +512,11 @@ def generate_transformation(
         typer.Option("--preserve", "-p", help="What to preserve (mens pristina)"),
     ] = "consciousness",
     target_form: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--target", "-t", help="Target form of transformation"),
     ] = None,
     output: Annotated[
-        Optional[Path],
+        Path | None,
         typer.Option("--output", "-o", help="Output file path"),
     ] = None,
     provider: Annotated[
@@ -524,11 +524,11 @@ def generate_transformation(
         typer.Option("--provider", help=PROVIDER_OPTION_HELP),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
     ] = None,
 ) -> None:
@@ -552,9 +552,9 @@ def generate_transformation(
     # Get LLM provider
     try:
         llm = get_provider(provider, model=model, base_url=base_url)
-    except (ValueError, EnvironmentError, ImportError) as e:
+    except (OSError, ValueError, ImportError) as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Build system prompt from Ovid study
     axioms = "\n".join(
@@ -585,7 +585,7 @@ KEY CONCEPTS:
 - Divine Causation: Transformations have cosmic/mythological causes
 - Symbolic Meaning: Every transformation carries thematic weight"""
 
-    target_context = f" into {target_form}" if target_form else ""
+    _target_context = f" into {target_form}" if target_form else ""
 
     prompt = f"""Generate an Ovidian transformation sequence for:
 
@@ -613,10 +613,10 @@ Follow Ovid's style: specific physical details, emotional resonance, cosmic sign
         for key, value in result.pre_state.items():
             console.print(f"  {key}: {value}")
 
-        console.print(f"\n[bold yellow]TRIGGER[/bold yellow]")
+        console.print("\n[bold yellow]TRIGGER[/bold yellow]")
         console.print(f"  {result.trigger}")
 
-        console.print(f"\n[bold]TRANSFORMATION PROCESS[/bold]")
+        console.print("\n[bold]TRANSFORMATION PROCESS[/bold]")
         for i, stage in enumerate(result.process, 1):
             console.print(f"  {i}. {stage}")
 
@@ -624,10 +624,10 @@ Follow Ovid's style: specific physical details, emotional resonance, cosmic sign
         for key, value in result.post_state.items():
             console.print(f"  {key}: {value}")
 
-        console.print(f"\n[bold magenta]MENS PRISTINA[/bold magenta]")
+        console.print("\n[bold magenta]MENS PRISTINA[/bold magenta]")
         console.print(f"  {result.mens_pristina}")
 
-        console.print(f"\n[bold]THEMATIC MEANING[/bold]")
+        console.print("\n[bold]THEMATIC MEANING[/bold]")
         console.print(f"  {result.thematic_meaning}")
 
         # Save output
@@ -638,4 +638,4 @@ Follow Ovid's style: specific physical details, emotional resonance, cosmic sign
 
     except Exception as e:
         console.print(f"[red]Generation failed: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e

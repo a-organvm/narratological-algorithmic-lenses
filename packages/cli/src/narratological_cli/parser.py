@@ -9,17 +9,14 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from typing import Any
 
 from narratological.diagnostics.models import DiagnosticContext, SceneTransition
 from narratological.models.analysis import (
-    BeatFunction,
     Character,
     ConnectorType,
     Scene,
     Script,
 )
-
 
 # Scene detection patterns
 SLUGLINE_PATTERN = re.compile(
@@ -224,7 +221,7 @@ def _extract_characters(text: str) -> list[Character]:
         characters.append(Character(
             name=name,
             role="character",  # Generic role, can be refined by analysis
-            description=f"Character appearing in script",
+            description="Character appearing in script",
         ))
 
     return characters

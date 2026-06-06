@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from enum import Enum
+from enum import StrEnum
 from typing import TYPE_CHECKING, Generic, TypeVar
 
 if TYPE_CHECKING:
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from narratological.models.analysis import Script
 
 
-class ReportType(str, Enum):
+class ReportType(StrEnum):
     """Types of reports that can be generated."""
 
     COVERAGE = "coverage"

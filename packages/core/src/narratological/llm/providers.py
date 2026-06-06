@@ -27,7 +27,7 @@ def _clean_json_content(content: str) -> str:
     Strips markdown code blocks, balances braces, and handles raw newlines.
     """
     content = content.strip()
-    
+
     # Normalize smart quotes to straight quotes
     content = content.replace("“", '"').replace("”", '"').replace("‘", "'").replace("’", "'")
 
@@ -58,7 +58,7 @@ def _clean_json_content(content: str) -> str:
                 if brace_count == 0:
                     end_idx = i + 1
                     break
-        
+
         if end_idx != -1:
             content = content[start_idx:end_idx]
 
@@ -78,7 +78,7 @@ def _clean_json_content(content: str) -> str:
         stripped = line.strip()
         # If line ends with a structural char OR a primitive value
         if stripped and (
-            re.search(r'[:,\[\{\}\]\"]\s*$', stripped) or 
+            re.search(r'[:,\[\{\}\]\"]\s*$', stripped) or
             re.search(r'(true|false|null|-?\d+(\.\d+)?)\s*$', stripped, re.IGNORECASE)
         ):
             repaired_lines.append(line + "\n")
@@ -88,9 +88,9 @@ def _clean_json_content(content: str) -> str:
                 repaired_lines.append(line + "\\n")
                 continue
             repaired_lines.append(line + "\n")
-    
+
     content = "".join(repaired_lines)
-    
+
     return content.strip()
 
 
@@ -300,7 +300,7 @@ class OllamaProvider:
     ) -> T:
         """Generate a structured completion matching a Pydantic schema."""
         schema_json = json.dumps(schema.model_json_schema(), indent=2)
-        
+
         # Simpler prompt for local models
         structured_prompt = f"""{prompt}
 
@@ -312,13 +312,13 @@ NO PREAMBLE. NO EXPLANATION. NO MARKDOWN. ONLY THE JSON OBJECT.
 
         result = self.complete(structured_prompt, system=system)
         content = _clean_json_content(result.content)
-        
+
         try:
             data = json.loads(content)
             # Handle cases where model wraps result in another object
             if isinstance(data, dict) and len(data) == 1 and list(data.keys())[0] in ("data", "result", "output"):
                 data = list(data.values())[0]
-                
+
             return schema.model_validate(data)
         except Exception as e:
             # Enhanced debugging for JSON errors
@@ -329,7 +329,7 @@ NO PREAMBLE. NO EXPLANATION. NO MARKDOWN. ONLY THE JSON OBJECT.
             else:
                 print(f"\n[DEBUG] Validation Error: {e}")
                 print(f"[DEBUG] Raw Content: {content!r}")
-            
+
             raise
 
 

@@ -146,16 +146,16 @@ class ReorderabilityDiagnostic(BaseDiagnostic):
 
         for scene in context.scenes:
             scene_num = scene.get("number", 0)
-            
-            # Simple heuristic: scenes with no explicit connector 
+
+            # Simple heuristic: scenes with no explicit connector
             # and generic functions are more reorderable
             connector = scene.get("connector")
             func_val = scene.get("function")
             function = func_val.upper() if func_val else ""
-            
+
             # Key structural scenes are not reorderable
 
-        
+
             key_functions = {"INCITE", "CLIMAX", "CRISIS", "RESOLVE"}
             is_key = function in key_functions
 
@@ -222,7 +222,7 @@ class ReorderabilityDiagnostic(BaseDiagnostic):
         # If we failed to get any assessments, fallback to algorithmic
         if not all_assessments:
             return self._analyze_algorithmically(context)
-            
+
         return all_assessments
 
     def _build_chunk_prompt(self, title: str, scenes: list[dict]) -> str:
@@ -242,9 +242,9 @@ For each scene, determine:
 2. What constraints keep it in its current position?
 3. If reorderable, where else could it go?
 
-Respond with a strictly formatted JSON object. 
-IMPORTANT: 
-- Do NOT include newlines INSIDE string values. 
+Respond with a strictly formatted JSON object.
+IMPORTANT:
+- Do NOT include newlines INSIDE string values.
 - Do NOT use smart quotes (curly quotes).
 - Ensure all property names and string values are enclosed in straight double quotes.
 
@@ -417,7 +417,7 @@ class NecessityDiagnostic(BaseDiagnostic):
         # If we failed to get any assessments, fallback to algorithmic
         if not all_assessments:
             return self._analyze_algorithmically(context)
-            
+
         return all_assessments
 
     def _build_chunk_prompt(self, title: str, scenes: list[dict]) -> str:
