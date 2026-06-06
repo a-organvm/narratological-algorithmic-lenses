@@ -129,11 +129,11 @@ All of this material was ingested into the repository at commit `2e1029f` and no
 
 ### Milestone 3: Package Hardening
 
-- [ ] **CLI**: Verify all 4 command groups work end-to-end with a real `.fountain` file
-- [ ] **API**: Smoke-test all routes with `uvicorn` + `curl`
-- [ ] **Web**: `npm run build` succeeds; basic component rendering verified
-- [ ] **MCP**: Server starts, tool discovery works, at least one tool invocation succeeds
-- [ ] **VS Code**: Snippets load in VS Code, fountain syntax triggers
+- [x] **CLI**: Verify all command groups work end-to-end with a real `.fountain` file
+- [x] **API**: Smoke-test all routes with `uvicorn` + `curl`
+- [x] **Web**: `npm run build` succeeds; basic component rendering verified
+- [x] **MCP**: Server starts, tool discovery works, at least one tool invocation succeeds
+- [x] **VS Code**: Snippets load in VS Code, fountain syntax triggers
 
 ### Milestone 4: CI/CD Pipeline
 
