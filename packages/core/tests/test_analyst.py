@@ -16,18 +16,17 @@ from narratological.llm import (
     get_all_analysts,
     get_analyst,
 )
+from narratological.models.analysis import Scene, Script
 from narratological.models.analyst import (
+    ROLE_STUDY_MAPPING,
     ActivationLayer,
     AnalystContext,
     AnalystObservation,
     AnalystRole,
     MultiRoleAnalysis,
-    ROLE_STUDY_MAPPING,
     RoleAnalysisResult,
     SynthesisConfig,
 )
-from narratological.models.analysis import Script, Scene
-
 
 # =============================================================================
 # Fixtures

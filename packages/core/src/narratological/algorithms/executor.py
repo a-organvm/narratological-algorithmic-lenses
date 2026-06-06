@@ -7,7 +7,6 @@ LLM providers, handling prompt construction and result parsing.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from enum import Enum
 from typing import TYPE_CHECKING, Any
 
 from narratological.algorithms.base import (
@@ -112,7 +111,7 @@ class AlgorithmExecutor:
                 valid_modes = [m.value for m in ExecutionMode]
                 raise ValueError(
                     f"Invalid mode '{mode}'. Valid modes: {', '.join(valid_modes)}"
-                )
+                ) from None
 
         # Create execution context
         context = ExecutionContext(

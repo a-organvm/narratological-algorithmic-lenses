@@ -7,15 +7,6 @@ Includes models for:
 - Analyst system (roles, observations, multi-role synthesis)
 """
 
-from narratological.models.analyst import (
-    ActivationLayer,
-    AnalystContext,
-    AnalystObservation,
-    AnalystRole,
-    MultiRoleAnalysis,
-    RoleAnalysisResult,
-    SynthesisConfig,
-)
 from narratological.models.analysis import (
     Act,
     ArcClassification,
@@ -26,6 +17,15 @@ from narratological.models.analysis import (
     Scene,
     Script,
     ThematicElement,
+)
+from narratological.models.analyst import (
+    ActivationLayer,
+    AnalystContext,
+    AnalystObservation,
+    AnalystRole,
+    MultiRoleAnalysis,
+    RoleAnalysisResult,
+    SynthesisConfig,
 )
 from narratological.models.report import (
     ActAnalysis,

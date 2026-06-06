@@ -502,7 +502,7 @@ def get_analyst(role: AnalystRole | str, provider: LLMProvider | None = None) ->
         try:
             role = AnalystRole(role.lower())
         except ValueError:
-            raise ValueError(f"Unknown analyst role: {role}")
+            raise ValueError(f"Unknown analyst role: {role}") from None
 
     analyst_classes = {
         AnalystRole.AESTHETE: AestheteAnalyst,

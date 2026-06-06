@@ -6,18 +6,16 @@ as standardized tools for AI agents.
 
 from __future__ import annotations
 
-import os
-from pathlib import Path
 from typing import Any
 
 from fastmcp import FastMCP
 
-from narratological.loader import load_compendium
-from narratological.parsers.fountain import parse_fountain
-from narratological.models.analyst import AnalystContext
+from narratological.diagnostics.runner import create_diagnostic_runner
 from narratological.llm.providers import get_provider
 from narratological.llm.script_doctor import ScriptDoctorAnalyst
-from narratological.diagnostics.runner import create_diagnostic_runner
+from narratological.loader import load_compendium
+from narratological.models.analyst import AnalystContext
+from narratological.parsers.fountain import parse_fountain
 
 # Initialize FastMCP server
 mcp = FastMCP("Narratological")
@@ -53,28 +51,28 @@ def search_axioms(query: str) -> list[dict[str, Any]]:
 
 @mcp.tool()
 def diagnose_script(
-    script_content: str, 
+    script_content: str,
     title: str = "Untitled Script",
     provider: str = "ollama",
     model: str | None = None
 ) -> dict[str, Any]:
     """Perform a full structural diagnostic on a script.
-    
+
     Checks for Causal Binding, Reorderability, and Scene Necessity.
     Supports Fountain and raw text formats.
     """
     # Parse script
     script = parse_fountain(script_content)
     script.title = title
-    
+
     # Initialize provider and runner
     llm = get_provider(provider, model=model)
     runner = create_diagnostic_runner(llm)
-    
+
     # Run analysis
     context = AnalystContext.from_script(script)
     report = runner.run_all(context)
-    
+
     return report.model_dump()
 
 @mcp.tool()
@@ -87,7 +85,7 @@ def consult_script_doctor(
     model: str | None = None
 ) -> dict[str, Any]:
     """Consult a pair of master creators for collaborative feedback on a script.
-    
+
     Example pairs: 'tarkovsky' & 'bergman', 'pixar' & 'tarantino', 'aristotle' & 'larry-david'.
     Set debate_mode=True for an exhaustive dialectical exchange.
     """
@@ -95,21 +93,21 @@ def consult_script_doctor(
     compendium = load_compendium()
     s1 = compendium.get_study(primary_study_id)
     s2 = compendium.get_study(secondary_study_id)
-    
+
     if not s1 or not s2:
         return {"error": f"One or both studies not found: {primary_study_id}, {secondary_study_id}"}
-        
+
     # Parse script
     script = parse_fountain(script_content)
     context = AnalystContext.from_script(script)
-    
+
     # Initialize doctor
     llm = get_provider(provider, model=model)
     doctor = ScriptDoctorAnalyst(llm)
-    
+
     # Perform consultation
     result = doctor.analyze(context, s1, s2, debate_mode=debate_mode)
-    
+
     return result.model_dump()
 
 def main():

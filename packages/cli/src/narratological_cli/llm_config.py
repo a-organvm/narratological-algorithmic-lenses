@@ -7,7 +7,7 @@ all CLI commands with consistent flag handling and environment variables.
 from __future__ import annotations
 
 import os
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 from rich.console import Console
@@ -15,7 +15,7 @@ from rich.console import Console
 console = Console()
 
 
-class ProviderType(str, Enum):
+class ProviderType(StrEnum):
     """Available LLM provider types."""
 
     OLLAMA = "ollama"
@@ -73,7 +73,7 @@ def get_provider(
         provider_type = ProviderType(provider.lower())
     except ValueError:
         valid = ", ".join(p.value for p in ProviderType)
-        raise ValueError(f"Unknown provider '{provider}'. Available: {valid}")
+        raise ValueError(f"Unknown provider '{provider}'. Available: {valid}") from None
 
     # Determine model
     if model is None:
@@ -119,14 +119,14 @@ def _check_api_key(provider_type: ProviderType) -> None:
     """
     if provider_type == ProviderType.ANTHROPIC:
         if not os.environ.get("ANTHROPIC_API_KEY"):
-            raise EnvironmentError(
+            raise OSError(
                 "ANTHROPIC_API_KEY environment variable not set. "
                 "Set it with: export ANTHROPIC_API_KEY=your-key-here"
             )
 
     elif provider_type == ProviderType.OPENAI:
         if not os.environ.get("OPENAI_API_KEY"):
-            raise EnvironmentError(
+            raise OSError(
                 "OPENAI_API_KEY environment variable not set. "
                 "Set it with: export OPENAI_API_KEY=your-key-here"
             )

@@ -8,7 +8,7 @@ from __future__ import annotations
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Annotated, Optional
+from typing import Annotated
 
 import typer
 from rich.console import Console
@@ -16,7 +16,7 @@ from rich.panel import Panel
 from rich.table import Table
 
 from narratological.loader import load_compendium, load_study, load_study_from_file
-from narratological.models.study import Compendium, CompendiumMeta, Study
+from narratological.models.study import Compendium, CompendiumMeta
 from narratological.validation import validate_study
 
 app = typer.Typer(help="Validate data integrity and synchronization")
@@ -50,7 +50,7 @@ def sync(
 ) -> None:
     """Rebuild the unified compendium from individual JSON extracts."""
     console.print(f"Scanning for extracts in [dim]{extracts_dir}[/dim]...")
-    
+
     json_files = list(extracts_dir.glob("*.json"))
     if not json_files:
         console.print("[bold red]Error:[/bold red] No JSON files found in extracts directory.")
@@ -74,7 +74,7 @@ def sync(
         version="0.1.0",
         generated=datetime.now().isoformat(),
         study_count=len(studies),
-        categories=sorted(list(categories)),
+        categories=sorted(categories),
     )
 
     # Note: Sequence pairs and other cross-references should be preserved
@@ -156,7 +156,7 @@ def compendium(
         compendium_data = load_compendium()
     except Exception as e:
         console.print(f"[bold red]Error loading compendium:[/bold red] {e}")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     total_errors = 0
     total_warnings = 0
@@ -248,7 +248,7 @@ def study(
         study_data = load_study(study_id)
     except KeyError as e:
         console.print(f"[bold red]Error:[/bold red] {e}")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     md_path = _resolve_markdown_path(study_id, specs_dir)
 

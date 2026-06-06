@@ -7,13 +7,13 @@ for multi-dimensional script analysis.
 from __future__ import annotations
 
 from datetime import datetime
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 from pydantic import BaseModel, Field
 
 
-class AnalystRole(str, Enum):
+class AnalystRole(StrEnum):
     """The nine analyst roles for multi-perspective analysis.
 
     Each role brings a distinct analytical lens to script evaluation,
@@ -118,7 +118,7 @@ class RoleAnalysisResult(BaseModel):
         return counts
 
 
-class ActivationLayer(str, Enum):
+class ActivationLayer(StrEnum):
     """Activation layers for multi-role orchestration.
 
     Controls which roles are activated for analysis, allowing

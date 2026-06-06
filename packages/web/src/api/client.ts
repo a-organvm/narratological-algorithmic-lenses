@@ -130,3 +130,27 @@ export async function fetchApiStats(): Promise<{
 }> {
   return fetchJson(`${API_BASE}/stats`)
 }
+
+/**
+ * Generic API object for GET/POST requests.
+ */
+export const api = {
+  get: async <T>(path: string): Promise<T> => {
+    const url = path.startsWith('/') ? `${API_BASE}${path}` : `${API_BASE}/${path}`
+    return fetchJson<T>(url)
+  },
+  post: async <T>(path: string, body: any): Promise<T> => {
+    const url = path.startsWith('/') ? `${API_BASE}${path}` : `${API_BASE}/${path}`
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+    if (!response.ok) {
+      throw new Error(`API error: ${response.statusText}`)
+    }
+    return response.json()
+  }
+}

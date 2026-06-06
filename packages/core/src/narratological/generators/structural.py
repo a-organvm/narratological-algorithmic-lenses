@@ -6,7 +6,7 @@ proportions, and pacing assessment.
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 from pydantic import BaseModel, Field
 
@@ -21,7 +21,6 @@ from narratological.generators.prompts import (
     build_structural_prompt,
 )
 from narratological.generators.utils import (
-    calculate_act_proportions,
     get_ideal_proportions,
 )
 from narratological.models.report import ActAnalysis, StructuralReport
@@ -286,7 +285,7 @@ class StructuralReportGenerator(BaseReportGenerator[StructuralReport]):
             )
             return issues
 
-        for i, (act_prop, ideal_prop) in enumerate(zip(actual, ideal)):
+        for i, (act_prop, ideal_prop) in enumerate(zip(actual, ideal, strict=False)):
             deviation = abs(act_prop - ideal_prop)
             if deviation > 0.10:  # 10% deviation threshold
                 if act_prop > ideal_prop:

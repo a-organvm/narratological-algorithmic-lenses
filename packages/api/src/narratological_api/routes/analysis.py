@@ -178,10 +178,10 @@ class ScriptDoctorRequest(BaseModel):
 @router.post("/script-doctor")
 async def script_doctor_consultation(request: ScriptDoctorRequest) -> dict[str, Any]:
     """Perform a collaborative 'Script Doctor' analysis using creator pairs."""
-    from narratological.loader import load_compendium
-    from narratological.llm.script_doctor import ScriptDoctorAnalyst
-    from narratological.models.analyst import AnalystContext
     from narratological.llm.providers import get_provider
+    from narratological.llm.script_doctor import ScriptDoctorAnalyst
+    from narratological.loader import load_compendium
+    from narratological.models.analyst import AnalystContext
     from narratological.parsers.fountain import parse_fountain
 
     # Load data
@@ -200,21 +200,21 @@ async def script_doctor_consultation(request: ScriptDoctorRequest) -> dict[str, 
         script = parse_fountain(request.content)
         context = AnalystContext.from_script(script)
     except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Failed to parse script: {e}")
+        raise HTTPException(status_code=400, detail=f"Failed to parse script: {e}") from e
 
     # Get provider and analyst
     try:
         llm = get_provider(request.provider, model=request.model)
         doctor = ScriptDoctorAnalyst(llm)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Initialization failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Initialization failed: {e}") from e
 
     # Perform consultation
     try:
         result = doctor.analyze(context, s1, s2, debate_mode=request.debate_mode)
         return result.model_dump()
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Analysis failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Analysis failed: {e}") from e
 
 
 @router.get("/frameworks")

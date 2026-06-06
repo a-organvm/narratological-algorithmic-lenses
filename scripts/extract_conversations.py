@@ -3,7 +3,6 @@
 
 import json
 import re
-import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -154,7 +153,7 @@ def format_conversation(conv: dict, ct_id: str) -> tuple:
     lines.append(f"updated_at: {conv.get('updated_at', 'unknown')}")
     lines.append(f"message_count: {len(messages)}")
     lines.append(f"tags: [{', '.join(tags)}]")
-    lines.append(f"source: claude-desktop-export")
+    lines.append("source: claude-desktop-export")
     lines.append("---")
     lines.append("")
     lines.append(f"# {title}")

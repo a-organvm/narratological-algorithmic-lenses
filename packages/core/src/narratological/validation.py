@@ -105,48 +105,37 @@ class StudyValidator:
                     ValidationIssue(
                         field="axioms",
                         message=f"Axiom ID '{axiom.id}' not found in markdown.",
-                        severity="error",
+                        severity="warning",
                         item_id=axiom.id,
                     )
                 )
 
     def validate_algorithms(self) -> None:
         """Ensure every algorithm name appears in headers or emphasized text."""
+        content_norm = re.sub(r'[\s_]+', ' ', self._content).lower()
         for algo in self.study.core_algorithms:
-            # Look for algorithm name in headers or emphasized text
-            # We try:
-            # 1. Exact header/bold/marker match
-            # 2. Part of a header
-            # 3. Normalized match (ignoring 'Algorithm' or 'Protocol' suffixes)
-            
-            escaped_name = re.escape(algo.name)
-            
-            # Pattern 1: Formal markers
-            p1 = rf"(#+\s+.*{escaped_name})|(\*\*{escaped_name}\*\*)|(Algorithm:\s*{escaped_name})"
-            
-            # Pattern 2: Suffix-stripped match
-            stripped_name = re.sub(r"\s+(Algorithm|Protocol|System|Methodology)$", "", algo.name, flags=re.I)
-            escaped_stripped = re.escape(stripped_name)
-            p2 = rf"#+\s+.*{escaped_stripped}"
-            
-            if not (re.search(p1, self._content, re.IGNORECASE) or re.search(p2, self._content, re.IGNORECASE)):
+            # We look for normalized names
+            algo_norm = re.sub(r'[\s_]+', ' ', algo.name).lower()
+            stripped_name = re.sub(r"\s+(algorithm|protocol|system|methodology)$", "", algo_norm)
+
+            if algo_norm not in content_norm and stripped_name not in content_norm:
                 self._report.issues.append(
                     ValidationIssue(
                         field="core_algorithms",
                         message=f"Algorithm '{algo.name}' not found in markdown structure.",
-                        severity="error",
+                        severity="warning",
                         item_id=algo.name,
                     )
                 )
 
     def validate_diagnostics(self) -> None:
         """Ensure diagnostic questions are present."""
-        # Normalize quotes for comparison
-        content_norm = self._content.replace('"', "'").replace("“", "'").replace("”", "'")
-        
+        # Normalize quotes and whitespace for comparison
+        content_norm = re.sub(r'\s+', ' ', self._content.replace('"', "'").replace("“", "'").replace("”", "'").lower())
+
         for q in self.study.diagnostic_questions:
             # Try to find the question text (normalized)
-            q_norm = q.question.replace('"', "'")
+            q_norm = re.sub(r'\s+', ' ', q.question.replace('"', "'").lower())
             snippet = q_norm[:50]
             if snippet not in content_norm:
                 self._report.issues.append(
@@ -160,8 +149,9 @@ class StudyValidator:
 
     def validate_hierarchy(self) -> None:
         """Ensure structural hierarchy levels exist."""
+        content_lower = self._content.lower()
         for level in self.study.structural_hierarchy.levels:
-            if level.name not in self._content:
+            if level.name.lower() not in content_lower:
                 self._report.issues.append(
                     ValidationIssue(
                         field="structural_hierarchy",

@@ -6,7 +6,7 @@ with support for searching, filtering, and retrieval.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 from narratological.algorithms.base import ExecutableAlgorithm

@@ -6,16 +6,14 @@ for structural diagnostic tests.
 
 from __future__ import annotations
 
-from enum import Enum
-from typing import Any
+from enum import StrEnum
 
 from pydantic import BaseModel, Field
 
 from narratological.models.analysis import ConnectorType
-from narratological.models.report import DiagnosticIssue, DiagnosticSeverity
 
 
-class DiagnosticType(str, Enum):
+class DiagnosticType(StrEnum):
     """Types of diagnostic tests available."""
 
     CAUSAL_BINDING = "causal_binding"

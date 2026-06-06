@@ -20,7 +20,7 @@ export const ScriptDoctorWorkbench: React.FC = () => {
   useEffect(() => {
     const fetchStudies = async () => {
       try {
-        const data = await api.get('/analysis/frameworks');
+        const data = await api.get<StudySummary[]>('/analysis/frameworks');
         setStudies(data);
         if (data.length >= 2) {
           setPrimaryId(data[0].id);

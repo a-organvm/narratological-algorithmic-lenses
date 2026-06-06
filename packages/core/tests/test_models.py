@@ -11,11 +11,9 @@ from narratological.models.study import (
     CompendiumMeta,
     DiagnosticQuestion,
     HierarchyLevel,
-    QuickReference,
     SequencePair,
     StructuralHierarchy,
     Study,
-    TheoreticalCorrespondences,
 )
 
 

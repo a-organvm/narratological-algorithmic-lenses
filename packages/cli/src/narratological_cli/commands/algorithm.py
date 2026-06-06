@@ -1,14 +1,13 @@
 """CLI commands for exploring and executing algorithms."""
 
 from pathlib import Path
-from typing import Annotated, Optional
+from typing import Annotated
 
 import typer
 from rich.console import Console
 from rich.panel import Panel
 from rich.syntax import Syntax
 from rich.table import Table
-from rich.text import Text
 
 app = typer.Typer(help="Explore and execute narratological algorithms")
 console = Console()
@@ -17,11 +16,11 @@ console = Console()
 @app.command("list")
 def list_algorithms(
     study: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--study", "-s", help="Filter by study ID"),
     ] = None,
     search: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--search", "-q", help="Search algorithms by name or purpose"),
     ] = None,
 ) -> None:
@@ -83,7 +82,7 @@ def list_algorithms(
             table.add_row("", "", "", "")
 
     console.print(table)
-    console.print(f"\n[dim]Use 'narratological algorithm show <study>.<name>' for details[/dim]")
+    console.print("\n[dim]Use 'narratological algorithm show <study>.<name>' for details[/dim]")
 
 
 @app.command("show")
@@ -113,7 +112,7 @@ def show_algorithm(
         algo = registry.get(study_id, algo_name)
     except KeyError as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Display algorithm details
     console.print()
@@ -165,15 +164,15 @@ def run_algorithm(
         typer.Option("--provider", "-p", help="LLM provider: ollama, anthropic, openai, mock"),
     ] = "ollama",
     model: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--model", help="Model name override"),
     ] = None,
     base_url: Annotated[
-        Optional[str],
+        str | None,
         typer.Option("--base-url", help="Custom API endpoint for OpenAI-compatible providers"),
     ] = None,
     output: Annotated[
-        Optional[Path],
+        Path | None,
         typer.Option("--output", "-o", help="Output file for results (JSON)"),
     ] = None,
 ) -> None:
@@ -206,7 +205,7 @@ def run_algorithm(
         algo = registry.get(study_id, algo_name)
     except KeyError as e:
         console.print(f"[red]{e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Create executor with provider options
     console.print(f"[dim]Using provider: {provider}[/dim]")
@@ -226,10 +225,10 @@ def run_algorithm(
         executor = create_executor(provider, **provider_kwargs)
     except ImportError as e:
         console.print(f"[red]Provider not available: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
     except Exception as e:
         console.print(f"[red]Failed to create executor: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
     # Execute
     console.print(f"[bold]Running {algo.name}[/bold] in {mode} mode...")
@@ -317,13 +316,12 @@ def run_algorithm(
 
         # Save output if requested
         if output:
-            import json
             output.write_text(result.model_dump_json(indent=2), encoding="utf-8")
             console.print(f"\n[dim]Results saved to: {output}[/dim]")
 
     except Exception as e:
         console.print(f"[red]Execution failed: {e}[/red]")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
 
 @app.command("stats")

@@ -1,6 +1,6 @@
 """Main CLI entry point for narratological analysis."""
 
-from typing import Annotated, Optional
+from typing import Annotated
 
 import typer
 from rich.console import Console
