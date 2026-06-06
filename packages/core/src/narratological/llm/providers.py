@@ -533,9 +533,9 @@ class MockProvider:
                 if prop_type == "string":
                     result[prop_name] = f"mock_{prop_name}"
                 elif prop_type == "integer":
-                    result[prop_name] = 0
+                    result[prop_name] = prop_schema.get("minimum", 1)
                 elif prop_type == "number":
-                    result[prop_name] = 0.0
+                    result[prop_name] = prop_schema.get("minimum", 1.0)
                 elif prop_type == "boolean":
                     result[prop_name] = False
                 elif prop_type == "array":
