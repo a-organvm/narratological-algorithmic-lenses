@@ -1,6 +1,7 @@
 import asyncio
 import os
 import sys
+from typing import Any
 
 # Add package source directories to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../packages/core/src")))
@@ -9,13 +10,19 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../p
 from narratological_mcp.server import get_available_studies, mcp, search_axioms
 
 
+def call_tool(tool: Any, *args: Any) -> Any:
+    """Call either a FastMCP Tool wrapper or a plain function."""
+    fn = getattr(tool, "fn", tool)
+    return fn(*args)
+
+
 def main():
     print("Testing MCP tool: get_available_studies...")
-    studies = get_available_studies.fn()
+    studies = call_tool(get_available_studies)
     print(f"PASS: Found {len(studies)} studies.")
 
     print("Testing MCP tool: search_axioms...")
-    axioms = search_axioms.fn("mimesis")
+    axioms = call_tool(search_axioms, "mimesis")
     print(f"PASS: Found {len(axioms)} axioms matching 'mimesis'.")
     for a in axioms:
         print(f" - [{a['study_id']}] {a['name']}: {a['statement']}")
@@ -35,6 +42,7 @@ def main():
 
     print(f"Registered tools: {tool_names}")
     print("All MCP server tools smoke-tested successfully!")
+
 
 if __name__ == "__main__":
     main()

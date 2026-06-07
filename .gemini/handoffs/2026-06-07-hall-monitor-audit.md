@@ -18,6 +18,7 @@
 - Gemini/Antigravity local worktrees were ignored by git; Antigravity logs showed patch creation failures for `.gemini/worktrees/*` directories.
 - The `milestone-4-cicd` worktree branch HEAD `32d237a` was not an ancestor of `main`; branch state is preserved at `origin/codex/preserve-milestone-4-cicd-2026-06-07`, and its dirty diff is preserved in `2026-06-07-milestone-4-cicd-worktree-preservation.patch`.
 - OpenCode created session `ses_15dec3b44ffetRe5iBmgVtLVV2` and snapshots for this repo, but no repo-local OpenCode artifact is tracked.
+- CI exposed FastMCP wrapper drift in `scripts/test_mcp_smoke.py`: one environment imported plain functions while another exposed `.fn`; the smoke script now supports both.
 
 ## External Index Sweep
 
@@ -39,6 +40,7 @@
 - `uv run pytest`: 309 passed, 1 skipped.
 - `uv run python scripts/test_api_smoke.py`: all API endpoints passed.
 - `uv run python scripts/test_mcp_smoke.py`: 28 studies, 1 mimesis axiom, 4 MCP tools registered.
+- CI rerun after MCP compatibility fix required: first enabled CI run reached MCP smoke and failed on direct `.fn` access.
 - `npm run web:test`: 5 files passed, 12 tests passed.
 - `npm run web:build`: Vite production build passed.
 - `git diff --check`: passed.
