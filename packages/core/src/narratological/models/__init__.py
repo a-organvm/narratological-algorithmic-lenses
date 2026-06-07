@@ -27,6 +27,7 @@ from narratological.models.analyst import (
     RoleAnalysisResult,
     SynthesisConfig,
 )
+from narratological.models.protocol import ProtocolLevel, ProtocolSpec
 from narratological.models.report import (
     ActAnalysis,
     BeatMapEntry,
@@ -56,6 +57,9 @@ from narratological.models.study import (
 )
 
 __all__ = [
+    # Protocol models
+    "ProtocolLevel",
+    "ProtocolSpec",
     # Study models
     "Study",
     "Axiom",

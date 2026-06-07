@@ -33,10 +33,7 @@ def calculate_screen_time(
     if not scenes:
         return 0.0
 
-    appearances = sum(
-        1 for scene in scenes
-        if character_name in scene.characters_present
-    )
+    appearances = sum(1 for scene in scenes if character_name in scene.characters_present)
 
     return appearances / len(scenes)
 
@@ -69,14 +66,13 @@ def find_protagonist(script: Script) -> str | None:
         return script.characters[0].name if script.characters else None
 
     screen_times = {
-        char.name: calculate_screen_time(char.name, script.scenes)
-        for char in script.characters
+        char.name: calculate_screen_time(char.name, script.scenes) for char in script.characters
     }
 
     if not screen_times:
         return None
 
-    return max(screen_times, key=screen_times.get)  # type: ignore[arg-type]
+    return max(screen_times, key=lambda name: screen_times[name])
 
 
 def find_antagonist(script: Script) -> str | None:
@@ -128,11 +124,7 @@ def calculate_connector_distribution(
     Returns:
         Dictionary mapping connector types to counts.
     """
-    connectors = [
-        entry.connector.value
-        for entry in entries
-        if entry.connector is not None
-    ]
+    connectors = [entry.connector.value for entry in entries if entry.connector is not None]
     return dict(Counter(connectors))
 
 
@@ -238,14 +230,8 @@ def calculate_causal_binding_ratio(entries: list[BeatMapEntry]) -> float:
     """
     from narratological.models.analysis import ConnectorType
 
-    causal = sum(
-        1 for e in entries
-        if e.connector in (ConnectorType.BUT, ConnectorType.THEREFORE)
-    )
-    episodic = sum(
-        1 for e in entries
-        if e.connector == ConnectorType.AND_THEN
-    )
+    causal = sum(1 for e in entries if e.connector in (ConnectorType.BUT, ConnectorType.THEREFORE))
+    episodic = sum(1 for e in entries if e.connector == ConnectorType.AND_THEN)
     total = causal + episodic
 
     if total == 0:
@@ -301,11 +287,7 @@ def identify_tension_peaks(
     Returns:
         List of scene numbers with peak tension.
     """
-    return [
-        entry.scene_number
-        for entry in entries
-        if entry.tension >= threshold
-    ]
+    return [entry.scene_number for entry in entries if entry.tension >= threshold]
 
 
 def identify_tension_valleys(
@@ -321,11 +303,7 @@ def identify_tension_valleys(
     Returns:
         List of scene numbers with low tension.
     """
-    return [
-        entry.scene_number
-        for entry in entries
-        if entry.tension <= threshold
-    ]
+    return [entry.scene_number for entry in entries if entry.tension <= threshold]
 
 
 def group_characters_by_role(

@@ -15,7 +15,7 @@ from narratological.models.analysis import Character, Scene, Script
 class FountainParser:
     """State-machine parser for Fountain syntax."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.scenes: list[Scene] = []
         self.characters: set[str] = set()
         self._current_scene: Scene | None = None
@@ -65,10 +65,16 @@ class FountainParser:
         # Standard scene headings
         # INT, EXT, EST, INT./EXT., INT/EXT, I/E
         heading_prefixes = (
-            "INT ", "EXT ", "EST ",
-            "INT.", "EXT.", "EST.",
-            "INT./EXT.", "INT/EXT ",
-            "I/E ", "I/E."
+            "INT ",
+            "EXT ",
+            "EST ",
+            "INT.",
+            "EXT.",
+            "EST.",
+            "INT./EXT.",
+            "INT/EXT ",
+            "I/E ",
+            "I/E.",
         )
         return line.upper().startswith(heading_prefixes)
 
@@ -104,13 +110,13 @@ class FountainParser:
             name = line
 
         # Remove parentheticals like (V.O.), (O.S.), (CONT'D)
-        name = re.sub(r'\s*\(.*\)', '', name)
+        name = re.sub(r"\s*\(.*\)", "", name)
         # Remove caret for dual dialogue
-        name = name.rstrip('^').strip()
+        name = name.rstrip("^").strip()
 
         return name
 
-    def _start_new_scene(self, heading: str):
+    def _start_new_scene(self, heading: str) -> None:
         """Initialize a new scene."""
         clean_heading = heading.lstrip(".").strip()
         self._current_scene = Scene(
@@ -122,7 +128,7 @@ class FountainParser:
         self._current_content = []
         self._scene_characters = set()
 
-    def _finalize_current_scene(self):
+    def _finalize_current_scene(self) -> None:
         """Save the current scene."""
         if self._current_scene:
             # Generate summary from content

@@ -263,6 +263,128 @@ def analyze_script(
             console.print(f"[dim]Saved: {report_path}[/dim]")
 
 
+@app.command("protocol")
+def analyze_protocol(
+    script_path: Annotated[
+        Path,
+        typer.Argument(help="Path to script file (txt, pdf, fountain, fdx)"),
+    ],
+    level: Annotated[
+        str,
+        typer.Option("--level", "-l", help="Protocol level (P1-P7)"),
+    ] = "P3",
+    output: Annotated[
+        Path | None,
+        typer.Option("--output", "-o", help="Output directory or file path for reports"),
+    ] = None,
+    provider: Annotated[
+        str,
+        typer.Option("--provider", "-p", help=PROVIDER_OPTION_HELP),
+    ] = "ollama",
+    model: Annotated[
+        str | None,
+        typer.Option("--model", "-m", help=MODEL_OPTION_HELP),
+    ] = None,
+    base_url: Annotated[
+        str | None,
+        typer.Option("--base-url", help=BASE_URL_OPTION_HELP),
+    ] = None,
+) -> None:
+    """Analyze a script using a specific protocol level (P1-P7).
+
+    Runs the appropriate combination of narrative reports, diagnostic tests,
+    and analyses matching the selected protocol level.
+    """
+    from pydantic import BaseModel
+    from rich.markdown import Markdown
+
+    from narratological.loader import load_compendium
+    from narratological.protocols.registry import get_protocol
+    from narratological.protocols.runner import ProtocolRunner
+
+    if not script_path.exists():
+        console.print(f"[red]Script file not found: {script_path}[/red]")
+        raise typer.Exit(1)
+
+    try:
+        spec = get_protocol(level)
+    except KeyError:
+        console.print(f"[red]Invalid protocol level: {level}. Must be one of P1-P7.[/red]")
+        raise typer.Exit(1) from None
+
+    console.print(Panel(
+        f"[bold]Analyzing:[/bold] {script_path.name}\n"
+        f"[bold]Protocol:[/bold] {spec.level} — {spec.name}\n"
+        f"[bold]Purpose:[/bold] {spec.purpose}\n"
+        f"[bold]Roles Activated:[/bold] {', '.join(r.value.upper() for r in spec.roles)}\n"
+        f"[bold]Time Estimate:[/bold] {spec.time_estimate}",
+        title="Protocol Analysis",
+    ))
+
+    # Parse the script
+    try:
+        script = parse_script(script_path)
+        console.print(f"[dim]Parsed {len(script.scenes)} scenes, {len(script.characters)} characters[/dim]")
+    except (FileNotFoundError, ValueError) as e:
+        console.print(f"[red]Failed to parse script: {e}[/red]")
+        raise typer.Exit(1) from e
+
+    # Get LLM provider
+    try:
+        llm = get_provider(provider, model=model, base_url=base_url, verbose=True)
+    except (OSError, ValueError, ImportError) as e:
+        console.print(f"[red]{e}[/red]")
+        raise typer.Exit(1) from e
+
+    # Run analysis
+    with console.status(f"[bold magenta]Running Protocol {spec.level}..."):
+        try:
+            compendium = load_compendium()
+            runner = ProtocolRunner(llm, compendium)
+            results = runner.run(script, spec.level)
+        except Exception as e:
+            console.print(f"[red]Protocol execution failed: {e}[/red]")
+            raise typer.Exit(1) from e
+
+    # Print combined markdown
+    console.print()
+    console.print(Markdown(results["combined_markdown"]))
+
+    # Save output if requested
+    if output:
+        try:
+            if output.is_dir() or not output.suffix:
+                # If output is a directory or has no extension, save all parts inside it
+                output.mkdir(parents=True, exist_ok=True)
+
+                # Save master report
+                master_path = output / f"{script_path.stem}_protocol_{spec.level}_master.md"
+                master_path.write_text(results["combined_markdown"], encoding="utf-8")
+                console.print(f"\n[green]Saved master report to: {master_path}[/green]")
+
+                # Save individual JSON models or Markdown outputs
+                for name, report in results.items():
+                    if name == "combined_markdown":
+                        continue
+                    report_path = None
+                    if isinstance(report, str):
+                        report_path = output / f"{script_path.stem}_{name}.md"
+                        report_path.write_text(report, encoding="utf-8")
+                    elif isinstance(report, BaseModel):
+                        report_path = output / f"{script_path.stem}_{name}.json"
+                        report_path.write_text(report.model_dump_json(indent=2), encoding="utf-8")
+
+                    if report_path:
+                        console.print(f"[dim]Saved: {report_path}[/dim]")
+            else:
+                # Save just the master file
+                output.parent.mkdir(parents=True, exist_ok=True)
+                output.write_text(results["combined_markdown"], encoding="utf-8")
+                console.print(f"\n[green]Saved master report to: {output}[/green]")
+        except Exception as e:
+            console.print(f"[yellow]Failed to save outputs: {e}[/yellow]")
+
+
 @app.command("scene")
 def analyze_scene(
     scene_text: Annotated[

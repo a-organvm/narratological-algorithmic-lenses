@@ -68,22 +68,32 @@ class TestDiagnoseCommands:
 
     def test_diagnose_causal_with_mock(self, sample_script_path: Path):
         """Test diagnose causal command with mock provider."""
-        result = runner.invoke(app, [
-            "diagnose", "causal",
-            str(sample_script_path),
-            "--provider", "mock",
-        ])
+        result = runner.invoke(
+            app,
+            [
+                "diagnose",
+                "causal",
+                str(sample_script_path),
+                "--provider",
+                "mock",
+            ],
+        )
         # Should run without crashing (may have analysis output)
         assert result.exit_code in [0, 1]
 
     def test_diagnose_all_with_mock(self, sample_script_path: Path):
         """Test diagnose all command with mock provider."""
-        result = runner.invoke(app, [
-            "diagnose", "all",
-            str(sample_script_path),
-            "--provider", "mock",
-            "--no-framework",  # Skip framework diagnostics for speed
-        ])
+        result = runner.invoke(
+            app,
+            [
+                "diagnose",
+                "all",
+                str(sample_script_path),
+                "--provider",
+                "mock",
+                "--no-framework",  # Skip framework diagnostics for speed
+            ],
+        )
         # Should run without crashing
         assert result.exit_code in [0, 1]
 
@@ -104,11 +114,16 @@ class TestAnalyzeCommands:
 
     def test_analyze_script_file_not_found(self):
         """Test analyze script with nonexistent file."""
-        result = runner.invoke(app, [
-            "analyze", "script",
-            "nonexistent_file.txt",
-            "--provider", "mock",
-        ])
+        result = runner.invoke(
+            app,
+            [
+                "analyze",
+                "script",
+                "nonexistent_file.txt",
+                "--provider",
+                "mock",
+            ],
+        )
         assert result.exit_code == 1
         assert "not found" in result.output.lower()
 
@@ -161,6 +176,65 @@ class TestVersionCommand:
         assert result.exit_code == 0
         # Should show version information
         assert "version" in result.output.lower() or "0." in result.output
+
+
+class TestAnalyzeProtocolCommand:
+    """Tests for analyze protocol CLI command."""
+
+    def test_analyze_protocol_help(self):
+        """Test analyze protocol command help."""
+        result = runner.invoke(app, ["analyze", "protocol", "--help"])
+        assert result.exit_code == 0
+        assert "protocol" in result.output.lower()
+
+    def test_analyze_protocol_invalid_level(self, sample_script_path: Path):
+        """Test analyze protocol with invalid protocol level."""
+        result = runner.invoke(
+            app,
+            [
+                "analyze",
+                "protocol",
+                str(sample_script_path),
+                "--level",
+                "P9",
+                "--provider",
+                "mock",
+            ],
+        )
+        assert result.exit_code == 1
+        assert "invalid" in result.output.lower() or "error" in result.output.lower()
+
+    def test_analyze_protocol_file_not_found(self):
+        """Test analyze protocol with nonexistent file."""
+        result = runner.invoke(
+            app,
+            [
+                "analyze",
+                "protocol",
+                "nonexistent_file.txt",
+                "--provider",
+                "mock",
+            ],
+        )
+        assert result.exit_code == 1
+        assert "not found" in result.output.lower()
+
+    def test_analyze_protocol_with_mock(self, sample_script_path: Path):
+        """Test analyze protocol command with mock provider."""
+        result = runner.invoke(
+            app,
+            [
+                "analyze",
+                "protocol",
+                str(sample_script_path),
+                "--provider",
+                "mock",
+                "--level",
+                "P1",
+            ],
+        )
+        # Should run without crashing
+        assert result.exit_code in [0, 1]
 
 
 class TestProviderOptions:
