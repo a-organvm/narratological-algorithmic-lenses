@@ -4,7 +4,6 @@ import pytest
 
 from narratological.parsers.fountain import FountainParser, parse_fountain
 
-
 FOUNTAIN_TEXT = """Title: Parser Fixture
 
 INT. FARMHOUSE - DAY
