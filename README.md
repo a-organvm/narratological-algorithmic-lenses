@@ -2,163 +2,330 @@
 
 [![CI](https://github.com/a-organvm/narratological-algorithmic-lenses/actions/workflows/ci.yml/badge.svg)](https://github.com/a-organvm/narratological-algorithmic-lenses/actions/workflows/ci.yml)
 
-A computational engine for formalizing, analyzing, and applying narrative craft.
+Narratological Algorithmic Lenses turns narrative craft theory into executable
+analysis. It formalizes principles from Aristotle, Bharata Muni, Bergman,
+Tarkovsky, Pixar, Zelda, Alan Moore, Phoebe Waller-Bridge, South Park, and other
+traditions as structured algorithms that can inspect scripts, diagnose weak
+structure, generate reports, and power API or UI workflows.
 
-This system transforms abstract storytelling principles—from **Aristotle's** *Poetics* to **Phoebe Waller-Bridge's** *Fleabag*—into executable algorithms that can diagnose scripts, identify structural weaknesses, and simulate "Script Doctor" consultations.
+The repository is both a research corpus and a software stack:
+
+- `specs/` contains completed studies, templates, source material, protocol
+  documentation, and case-study drafts.
+- `packages/core/` loads the compendium, models studies with Pydantic, parses
+  Fountain, runs diagnostics, and exposes algorithm registries.
+- `packages/cli/` provides the `narratological` Typer CLI.
+- `packages/api/` exposes FastAPI routes, including the gated commercial
+  `narratological-92` sample endpoint.
+- `packages/web/` provides a React + Vite dashboard for exploration and analysis.
+
+The source compendium currently includes 28 completed studies and 141 algorithms.
+The commercial API surface preserves a stable 92-algorithm product shape by
+selecting a deterministic suite from 14 legacy studies.
+
+## What It Is
+
+Narrative feedback is usually subjective, prose-heavy, and hard to repeat across
+drafts. This project treats narrative principles as inspectable rules:
+
+- **Axioms** express a creator or tradition's craft premise.
+- **Algorithms** define inputs, outputs, and pseudocode for applying that premise.
+- **Diagnostics** convert craft failure modes into measurable checks.
+- **Protocols** scale analysis from quick triage to a full multi-role review.
+- **Script Doctor workflows** combine creator lenses into paired consultations.
+
+The result is a toolkit for asking concrete questions such as:
+
+- Are scenes causally bound by "therefore" and "but" relationships, or merely
+  sequenced as "and then" events?
+- Which scenes are reorderable or removable without damaging the story?
+- Which framework best exposes a script's current failure mode?
+- What would two incompatible craft traditions agree on, and where would they
+  disagree?
+
+## Who Pays
+
+The open repository is useful to researchers, students, and developers, but the
+commercial buyer is the person or organization that needs repeatable narrative
+analysis at production speed.
+
+| Buyer | Why they pay | Best fit |
+| --- | --- | --- |
+| Individual screenwriters, producers, script consultants, and narrative designers | They need structured feedback across drafts without turning every pass into a bespoke consulting engagement. | Creator |
+| Studios, production companies, writers' rooms, game studios, and development teams | They need consistent batch evaluation, larger request sizes, and predictable support. | Studio |
+| Evaluators, students, and integration developers | They need to test the suite shape, auth contract, and response payload before paying. | Free trial |
+
+Scholars and educators can use the compendium and core library directly for
+comparative narrative work. Revenue is expected to come from API access and
+production integrations, not from restricting the research notes.
 
 ## Core Capabilities
 
-### 1. The Compendium
-A living library of 28 formalized narrative frameworks, including:
-- **Classical**: Aristotle, Bharata Muni (Natyasastra), Ovid, Plato, Horace, African Oral Epic.
-- **Film**: Tarkovsky (Time-Pressure), Bergman (Interiority), Tarantino (Discovery Writing), Lynch (Dream Logic), Kubrick (Non-Submersible Units).
-- **Television**: Phoebe Waller-Bridge (Layered Obstacles), Larry David (Comedy Geometry), South Park (Therefore/But).
-- **Global**: Kishōtenketsu (Conflict-Agnostic), Heroine's Journey (Internal Integration).
-- **Interactive**: Zelda (Exploration), Final Fantasy (Ensemble).
-- **Comics**: Alan Moore (Formalism), Grant Morrison (Hypersigil), Kirby (Mythopoeia).
-- **Meta**: 8-Role Analyst System, Attention Mechanics.
+### Compendium
 
-### 2. Deep Diagnostics
-Quantitative and qualitative analysis of script structure:
-- **Causal Binding**: Measures the ratio of "THEREFORE/BUT" connections vs. "AND THEN" (Target > 60%).
-- **Reorderability**: Identifies scenes that can be moved without breaking causality (lower is better).
-- **Necessity**: Flags scenes that serve no structural or character function.
-- **Information Economy**: Detects redundant exposition and missing setups.
+The compendium captures formalized narrative frameworks across classical theory,
+film, television, games, comics, oral epic, and meta-analysis. Examples include:
 
-### 3. The Script Doctor
-Collaborative AI analysis that simulates a writers' room with master creators:
-- **Pairings**: Ask **Tarkovsky** and **Bergman** to debate your script's pacing.
-- **Consultations**: Get a "prescription" for your second act from **Phoebe Waller-Bridge**.
-- **Dialogue**: Receive feedback formatted as a philosophical debate between conflicting narrative schools.
+- Classical: Aristotle, Bharata Muni, Ovid, Plato, Horace, African Oral Epic.
+- Film: Tarkovsky, Bergman, Tarantino, Lynch, Kubrick.
+- Television: Phoebe Waller-Bridge, Larry David, South Park.
+- Games: Zelda, Final Fantasy.
+- Comics and prose: Alan Moore, Grant Morrison, Jack Kirby, Neil Gaiman, Tolkien.
+- Meta frameworks: 8-role analyst system and attention mechanics.
 
-### 4. Fountain Integration
-Native support for the **Fountain** screenplay format, allowing direct ingestion of professional scripts from Highland 2, Fade In, or VS Code.
+### Diagnostics
 
-### 5. Protocol Framework
-Seven-level skill progression (P1–P7) from `specs/08-protocol-framework/`:
-- **P1–P2**: Foundational awareness of narrative structure
-- **P3–P4**: Diagnostic application to real scripts
-- **P5–P6**: Multi-framework synthesis and Script Doctor facilitation
-- **P7**: Autonomous framework extension and study creation
+The diagnostic layer evaluates structural health through checks such as:
 
----
+- **Causal binding:** ratio of causal connectors versus sequential connectors.
+- **Reorderability:** scenes that can move without breaking causality.
+- **Necessity:** scenes that serve no irreplaceable plot, character, or thematic
+  function.
+- **Information economy:** redundant exposition, missing setup, and weak payoff
+  structure.
+
+### Protocols
+
+Seven protocol levels from `specs/08-protocol-framework/` scale analysis depth:
+
+| Level | Purpose |
+| --- | --- |
+| P1-P2 | Triage and diagnostic awareness |
+| P3-P4 | Craft analysis and character-focused review |
+| P5-P6 | Thematic synthesis and revision planning |
+| P7 | Full multi-role analysis and framework extension |
+
+### Interfaces
+
+- **CLI:** local study exploration, algorithm execution, diagnostics, protocol
+  runs, and Script Doctor consultations.
+- **API:** FastAPI service for studies, diagnostics, and the gated
+  `/analysis/narrative-suite` commercial integration target.
+- **Web:** React dashboard for browsing studies, viewing algorithms, running
+  diagnostics, and working with Script Doctor flows.
+- **MCP and VS Code packages:** integration surfaces for model tools and editor
+  workflows.
+
+## Install
+
+### Prerequisites
+
+- Python 3.11+
+- `uv`
+- Node.js and `npm` for the web dashboard
+- Optional LLM provider access:
+  - local Ollama server for the default `ollama` provider
+  - `OPENAI_API_KEY` for OpenAI
+  - `ANTHROPIC_API_KEY` for Anthropic
+
+### Workspace Setup
+
+```bash
+git clone https://github.com/a-organvm/narratological-algorithmic-lenses.git
+cd narratological-algorithmic-lenses
+
+uv sync
+npm install
+```
+
+### API Key Setup For Gated Routes
+
+The public commercial sample endpoint requires `NARRATOLOGICAL_API_KEYS` in the
+API process. Use development keys locally; do not commit live keys.
+
+```bash
+export NARRATOLOGICAL_API_KEYS='trial-key:free_trial:trial-local,creator-key:creator:creator-local,studio-key:studio:studio-local'
+export NARRATOLOGICAL_API_KEY='trial-key'
+```
+
+JSON configuration is also supported:
+
+```bash
+export NARRATOLOGICAL_API_KEYS='{
+  "trial-example-key": {"tier": "free_trial", "account_id": "trial-local"},
+  "creator-example-key": {"tier": "creator", "account_id": "creator-local"},
+  "studio-example-key": {"tier": "studio", "account_id": "studio-local"}
+}'
+```
+
+## Usage
+
+### CLI
+
+Explore the compendium:
+
+```bash
+uv run narratological info
+uv run narratological study list
+uv run narratological study show bergman
+uv run narratological algorithm list --study pixar
+uv run narratological algorithm show pixar.engineer_empathy
+```
+
+Run diagnostics on a Fountain or text script:
+
+```bash
+uv run narratological diagnose all my_script.fountain
+uv run narratological diagnose causal my_script.fountain --target 0.8
+uv run narratological diagnose framework my_script.fountain bergman
+```
+
+Generate analysis reports:
+
+```bash
+uv run narratological analyze script my_script.fountain --framework pixar --reports coverage,beatmap
+uv run narratological analyze protocol my_script.fountain --level P3
+```
+
+Run a Script Doctor consultation:
+
+```bash
+uv run narratological analyze script-doctor my_script.fountain --sequence B
+uv run narratological analyze script-doctor my_script.fountain --primary larry-david --secondary aristotle
+```
+
+Most analysis commands use the `ollama` provider by default. To use another
+provider:
+
+```bash
+uv run narratological diagnose all my_script.fountain --provider openai --model gpt-4o
+uv run narratological analyze protocol my_script.fountain --provider anthropic
+uv run narratological diagnose all my_script.fountain --provider mock
+```
+
+### API
+
+Start the FastAPI service:
+
+```bash
+uv run uvicorn narratological_api.main:app --reload
+```
+
+Open the interactive docs at `http://localhost:8000/docs`.
+
+Call the gated commercial suite endpoint:
+
+```bash
+curl -X POST http://localhost:8000/analysis/narrative-suite \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: $NARRATOLOGICAL_API_KEY" \
+  -d '{
+    "title": "Feature Draft",
+    "format": "Feature",
+    "content": "INT. ROOM - DAY\n\nA writer faces a wall of cards.",
+    "include_algorithm_details": true
+  }'
+```
+
+The current endpoint validates the key, enforces tier limits, debits monthly
+quota, parses the input lightly, and returns the selected suite manifest. It is
+the synchronous integration target for the future async LLM execution pipeline.
+
+### Web Dashboard
+
+```bash
+npm run web:dev
+```
+
+Then open the Vite URL printed by the command, usually
+`http://localhost:5173/`.
+
+Build and test the web package:
+
+```bash
+npm run web:build
+npm run web:test
+```
+
+## Pricing And Monetization
+
+The implemented tier model lives in `packages/api/src/narratological_api/auth.py`
+and is documented in [docs/api-pricing.md](docs/api-pricing.md).
+
+| Tier | Price | Monthly quota | Request size | Suite access | Intended user |
+| --- | ---: | ---: | ---: | --- | --- |
+| Free trial | $0 | 3 analyses | 20,000 characters | 8-algorithm preview | Evaluation and sandbox integrations |
+| Creator | $99/month | 50 analyses | 120,000 characters | Full contracted 92-algorithm suite | Individual scriptwriters, producers, and consultants |
+| Studio | $999/month | 1,000 analyses | 600,000 characters | Full contracted 92-algorithm suite | Studios, production companies, and batch evaluation workflows |
+
+Monetization is centered on API access:
+
+- **Free trial** proves payload shape, authentication, quotas, and basic preview
+  value.
+- **Creator** converts individual practitioners who need full-suite analysis
+  without studio-scale volume.
+- **Studio** supports higher-volume script intake, larger documents, batch review,
+  and priority support.
+
+The quota store is currently process-local and resets when the API process
+restarts. Before charging external users, replace `InMemoryQuotaStore` with a
+shared billing or usage ledger such as Redis, Postgres, or a billing provider
+meter.
 
 ## Repository Layout
 
 ```text
 narratological-algorithmic-lenses/
-├── specs/                          # The Knowledge Base
-│   ├── 00-chat-transcripts/        # Claude Desktop conversation archive (27 threads)
-│   ├── 01-primary-sources/         # Original source documents
-│   ├── 02-completed-studies/       # Markdown source of truth (28 studies)
-│   ├── 03-structured-data/         # Validated JSON extracts & unified compendium
-│   ├── 04-templates/               # Study and analysis templates
-│   ├── 05-secondary-sources/       # Supplementary research materials
-│   ├── 06-open-view-drafts/        # Case study screenplays
-│   ├── 07-skill-documentation/     # 8-Role Analyst methodology (SKILL.md)
-│   ├── 08-protocol-framework/      # P1–P7 skill progression framework
+├── specs/                          # Narrative source material and structured data
+│   ├── 00-chat-transcripts/        # Conversation archive
+│   ├── 02-completed-studies/       # Markdown source of truth for studies
+│   ├── 03-structured-data/         # Validated JSON extracts and unified compendium
+│   ├── 08-protocol-framework/      # P1-P7 protocol framework
 │   ├── 09-protocol-skills/         # Protocol skill implementations
-│   ├── 10-project-manifests/       # Organvm integration manifests
-│   ├── 11-el-series/               # Extended Lore supplements
-│   └── 12-mythological-sources/    # Mythological reference materials
-├── packages/                       # The Software Stack
-│   ├── core/                       # Python library (models, parsers, diagnostics, LLM)
-│   ├── cli/                        # Command-line interface (Typer)
+│   └── 10-project-manifests/       # ORGANVM integration manifests
+├── packages/
+│   ├── core/                       # Python library
+│   ├── cli/                        # Typer CLI
 │   ├── api/                        # FastAPI service
-│   ├── mcp/                        # Model Context Protocol server (FastMCP)
-│   ├── vscode/                     # VS Code extension (Snippets & Tagging)
-│   └── web/                        # React + Vite visualization dashboard
-└── docs/                           # Documentation
-    ├── adr/                        # Architecture Decision Records
-    └── plans/                      # Roadmaps and planning documents
-```
-
-## Project History
-
-Built across 8 phases from a Claude Desktop open-view project (52 files, 27 conversation threads):
-
-| Phase | Name | Highlights |
-|-------|------|------------|
-| 0 | Platinum Sprint | CI/CD, CHANGELOG, ADR documentation |
-| 1 | Foundation | Pydantic models, JSON loader, 14 initial studies, 65 tests |
-| 2 | Promotion | Fountain parser, Causal Binding, study promotions, Script Doctor |
-| 3 | Engine | 4 generators, 8-role analyst, 5 diagnostic runners, 243 tests |
-| 4 | Debate | CLI wiring, LLM providers, multi-agent debate, 290 tests |
-| 5 | Interface | FastAPI routes, React dashboard, MCP server, VS Code extension |
-| 6 | Omega Synthesis | Documentation, v0.1.0 release, organvm integration |
-| 7 | Intake | Full Claude Desktop archive import (119 files) |
-
-See [There and Back Again](docs/plans/there+back-again.md) for the complete roadmap.
-
----
-
-## Getting Started
-
-### Prerequisites
-- Python 3.11+
-- `uv` (Universal Python Package Installer)
-- `npm` (for web dashboard)
-
-### Installation
-
-```bash
-# Initialize Python workspace
-uv sync
-
-# Initialize Web workspace
-npm install
-```
-
-### Key Commands
-
-**1. Analyze a Script**
-Run deep diagnostics on a Fountain or text script:
-```bash
-# Full battery (Causal, Reorderability, Necessity)
-uv run narratological diagnose all my_script.fountain
-
-# Targeted Causal Binding check
-uv run narratological diagnose causal my_script.fountain --target 0.8
-```
-
-**2. Consult the Script Doctor**
-Simulate a creative consultation between two masters:
-```bash
-# Consult Tarkovsky and Bergman (Sequence B)
-uv run narratological analyze script-doctor my_script.fountain --sequence B
-
-# Custom pairing: Larry David vs. Aristotle
-uv run narratological analyze script-doctor my_script.fountain --primary larry-david --secondary aristotle
-```
-
-**3. Explore the Compendium**
-```bash
-# List all available studies
-uv run narratological info
-
-# Validate data integrity
-uv run narratological validate compendium
+│   ├── mcp/                        # Model Context Protocol server
+│   ├── vscode/                     # VS Code extension
+│   └── web/                        # React + Vite dashboard
+├── docs/
+│   ├── adr/                        # Architecture Decision Records
+│   ├── plans/                      # Roadmaps
+│   └── api-pricing.md              # Commercial API tier model
+└── open-view-analysis/             # Research drafts and worksheets
 ```
 
 ## Development
 
-### Data Synchronization
-The system maintains strict synchronization between Markdown research files and JSON computational models.
-If you edit a study in `specs/02-completed-studies/`, run:
+Run Python tests and checks:
+
 ```bash
+uv run pytest
+uv run ruff check .
+uv run mypy packages
+```
+
+Run web checks:
+
+```bash
+npm run web:test
+npm run web:build
+```
+
+Validate compendium synchronization after changing study data:
+
+```bash
+uv run narratological validate compendium
 uv run narratological validate sync
 ```
 
-### Testing
-```bash
-uv run pytest                  # Run all Python tests
-uv run ruff check .            # Linting
-npm run web:test               # Run frontend tests
-```
+## Project Status
 
----
+This is a v0.1.0 system built from a Claude Desktop open-view research project
+into a monorepo with a Python core, CLI, API, MCP package, VS Code package, and
+React dashboard.
 
-*There and Back Again — [the roadmap](docs/plans/there+back-again.md).*
+Several routes and workflows are intentionally staged:
+
+- Local compendium exploration, algorithm lookup, diagnostics, and protocol
+  commands are available through the CLI.
+- `/analysis/narrative-suite` is the implemented gated API sample endpoint.
+- Some broader API analysis endpoints are present as route contracts but return
+  structured `501` responses until the async execution pipeline is added.
+
+See [There and Back Again](docs/plans/there+back-again.md) for the roadmap.
 
 <!-- SYSTEM-NAV-START -->
 
